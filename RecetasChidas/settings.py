@@ -1,29 +1,92 @@
+from decouple import config
+"""
+Configuración de la base de datos para una aplicación Django.
+
+Este módulo define los parámetros de conexión para la base de datos MySQL que se
+utilizará en la aplicación. Se especifica el motor de base de datos, el nombre, el usuario,
+la contraseña, el host y el puerto.
+
+Nota:
+    Es importante mantener seguros estos datos de conexión para evitar accesos no autorizados.
+    Las credenciales se cargan desde variables de entorno a través de un archivo .env
+    utilizando la librería python-decouple.
+"""
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = Path(__file__).resolve().parent.parent # Asegúrate que BASE_DIR esté definido si no lo está ya
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost').split(',')
+
 DATABASES = {
-    """
-    Configuración de la base de datos para una aplicación Django.
-
-    Este módulo define los parámetros de conexión para la base de datos MySQL que se
-    utilizará en la aplicación. Se especifica el motor de base de datos, el nombre, el usuario,
-    la contraseña, el host y el puerto.
-
-    Atributos:
-        DATABASES (dict): Diccionario que contiene la configuración de la base de datos.
-            - 'ENGINE' (str): Define el backend de Django para MySQL.
-            - 'NAME' (str): Nombre de la base de datos.
-            - 'USER' (str): Usuario empleado para la autenticación en la base de datos.
-            - 'PASSWORD' (str): Contraseña correspondiente al usuario.
-            - 'HOST' (str): Dirección del servidor donde se aloja la base de datos.
-            - 'PORT' (str): Puerto de conexión al servidor de la base de datos.
-
-    Nota:
-        Es importante mantener seguros estos datos de conexión para evitar accesos no autorizados.
-    """
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bewxu3beblubeal18sqn',  
-        'USER': 'ugainnbokjrunp1k',        
-        'PASSWORD': 'CYMeGZtxWE3puAlXTi2D', 
-        'HOST': 'bewxu3beblubeal18sqn-mysql.services.clever-cloud.com',        
-        'PORT': '3306',
+        'ENGINE': config('DB_ENGINE', default='django.db.backends.mysql'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', default='3306', cast=int),
     }
 }
+
+INSTALLED_APPS = [
+    # ... tus aplicaciones instaladas
+]
+
+MIDDLEWARE = [
+    # ... tu middleware
+]
+
+ROOT_URLCONF = 'tu_proyecto.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'tu_proyecto.wsgi.application'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+LANGUAGE_CODE = 'es-ES'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+STATIC_URL = '/static/'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
