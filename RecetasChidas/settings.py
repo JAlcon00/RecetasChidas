@@ -1,4 +1,6 @@
+from pathlib import Path  # Asegúrate de que esto esté al principio
 from decouple import config
+
 """
 Configuración de la base de datos para una aplicación Django.
 
@@ -13,7 +15,7 @@ Nota:
 """
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent # Asegúrate que BASE_DIR esté definido si no lo está ya
+BASE_DIR = Path(__file__).resolve().parent.parent  # Descomentado y Path importado
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
@@ -34,20 +36,31 @@ DATABASES = {
     }
 }
 
+# Application definition
+
 INSTALLED_APPS = [
-    # ... tus aplicaciones instaladas
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'tienda.apps.TiendaConfig',  # Usar solo 'tienda' como nombre de la app
+    # ... otras apps de terceros o personalizadas ...
 ]
 
 MIDDLEWARE = [
     # ... tu middleware
 ]
 
-ROOT_URLCONF = 'tu_proyecto.urls'
+ROOT_URLCONF = 'RecetasChidas.urls'  # Corregido al nombre del proyecto 'RecetasChidas'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'tienda' / 'presentation' / 'templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -60,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tu_proyecto.wsgi.application'
+WSGI_APPLICATION = 'RecetasChidas.wsgi.application'  # Corregido al nombre del proyecto 'RecetasChidas'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

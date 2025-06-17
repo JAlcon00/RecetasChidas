@@ -24,6 +24,8 @@ class Producto(models.Model):
     TIPO_PRODUCTO = [
         ('comida preparada', 'Comida preparada'),
         ('kit de cocina', 'Kit de cocina'),
+        ('bebida', 'Bebida'),
+        ('postre', 'Postre'),
     ]
     DIETAS = [
         ('vegana', 'Vegana'),
@@ -45,6 +47,11 @@ class Producto(models.Model):
     tipo = models.CharField(max_length=20, choices=TIPO_PRODUCTO)
     dietas = models.CharField(max_length=100, blank=True)
     preferencia_sabor = models.CharField(max_length=100, blank=True)
+    image_url = models.CharField(
+        max_length=255,
+        default='https://example.com/default.jpg',
+        verbose_name='URL de la imagen del producto'
+    )
 
     def __str__(self):
         return self.nombre

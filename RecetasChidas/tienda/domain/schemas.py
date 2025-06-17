@@ -25,6 +25,7 @@ class Producto:
     type: str  # 'comida preparada' o 'kit'
     diets: List[str]  # Ejemplo: ['vegana', 'sin gluten']
     flavors: List[str]  # Ejemplo: ['picante', 'dulce']
+    image_url: str
 
 @dataclass
 class Inventario:

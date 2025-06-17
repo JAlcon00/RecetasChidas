@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - FoodieApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #3A8DFF, #6FB1FC);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .login-left {
+            flex: 1;
+            background: linear-gradient(to bottom, #3A8DFF, #6FB1FC);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .login-left h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-left p {
+            font-size: 1rem;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .login-left img {
+            width: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .login-right {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-right h2 {
+            margin-bottom: 1rem;
+            color: #3A8DFF;
+        }
+
+        .login-right input {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .extra-options {
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            margin-top: -0.5rem;
+        }
+
+        .link {
+            text-decoration: none;
+            color: #3A8DFF;
+            font-size: 0.9rem;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .btn-login {
+            width: 80%;
+            padding: 0.75rem;
+            background-color: #3A8DFF;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-login:hover {
+            background-color: #2b79dd;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .social-icons i {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #3A8DFF;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .social-icons i:hover {
+            color: #2b79dd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <!-- Lado izquierdo -->
+    <div class="login-left">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo Foodie">
+        <h1>Hola, ¡bienvenido!</h1>
+        <p>Inicia sesión para disfrutar de los mejores platillos y kits de cocina.</p>
+    </div>
+
+    <!-- Lado derecho (formulario) -->
+    <div class="login-right">
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+
+            <div class="extra-options">
+                
+                <a href="#" class="link">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <!-- Espacio -->
+            <div style="margin-top: 1rem;"></div>
+
+            <div class="button-wrapper">
+                <button type="submit" class="btn-login">Entrar</button>
+            </div>
+        </form>
+
+        <div class="social-icons">
+            <p>Síguenos:</p>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

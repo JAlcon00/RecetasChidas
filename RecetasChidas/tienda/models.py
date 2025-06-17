@@ -1,9 +1,10 @@
 # Archivo para modelos de la capa de persistencia
-# Aquí se definirán los modelos de Django para Producto, Categoría, Inventario, etc.
+# Los modelos están definidos en persistence/models.py siguiendo la arquitectura por capas
+# Este archivo importa todos los modelos para que Django los reconozca
 
-# Clase Producto: modelo de Django para productos
-# Clase Categoria: modelo de Django para categorías
-# Clase Inventario: modelo de Django para inventario
-# Clase UsuarioPersonalizado: modelo de Django para usuarios personalizados
-# Aquí se definen los campos y relaciones de base de datos
-# Validaciones: precio > 0, cantidad >= 0
+#from .persistence.models import Categoria, Usuario, Producto, Inventario
+# Importar los modelos de la capa de persistencia
+from .persistence.models import Categoria, Usuario, Producto, Inventario
+
+# Re-exportar todos los modelos para que Django los encuentre
+__all__ = ['Categoria', 'Usuario', 'Producto', 'Inventario']
