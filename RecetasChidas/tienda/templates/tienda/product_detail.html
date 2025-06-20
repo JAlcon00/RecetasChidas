@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalle del Producto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #3a8dff, #6fb1fc);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-left,
+    .nav-center,
+    .nav-right {
+      flex: 1;
+    }
+
+    .nav-center {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #3a8dff;
+      font-weight: bold;
+    }
+
+    .nav-left a {
+      color: #3a8dff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-left i {
+      margin-right: 8px;
+    }
+
+    .nav-right {
+      text-align: right;
+    }
+
+    .nav-right img {
+      width: 40px;
+      vertical-align: middle;
+    }
+
+    .titulo-detalle {
+      text-align: center;
+      font-size: 2rem;
+      color: white;
+      margin: 2rem 0 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      background-color: white;
+      border-radius: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .imagen-producto {
+      flex: 1;
+      min-width: 350px;
+    }
+
+    .imagen-producto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .info-producto {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .info-producto h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #3a8dff;
+    }
+
+    .etiquetas {
+      margin: 1rem 0;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background-color: #e0ecff;
+      color: #3a8dff;
+      padding: 0.3rem 0.8rem;
+      margin: 0.2rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .info-producto p {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .ingredientes {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .precio {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #2b79dd;
+    }
+
+    .boton-carrito {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background-color: #3a8dff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 60%;
+      align-self: center;
+      transition: background-color 0.3s;
+    }
+
+    .boton-carrito:hover {
+      background-color: #2f6fd9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: transparent;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .boton-carrito {
+        width: 90%;
+      }
+
+      .nav-center {
+        font-size: 1.2rem;
+      }
+
+      .titulo-detalle {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-left">
+      <a href="#"><i class="fas fa-arrow-left"></i> Volver</a>
+    </div>
+    <div class="nav-center">Tienda Comida</div>
+    <div class="nav-right">
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+    </div>
+  </nav>
+
+  <!-- Título debajo del navbar -->
+  <div class="titulo-detalle">Detalles del producto</div>
+
+  <!-- Contenido principal del producto -->
+  <div class="container">
+    <div class="imagen-producto">
+      <img
+        src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=600&q=80"
+        alt="Producto"
+      />
+    </div>
+    <div class="info-producto">
+      <h2>Ensalada Vegana Fresca</h2>
+
+      <!-- Etiquetas -->
+      <div class="etiquetas">
+        <span class="etiqueta">Vegana</span>
+        <span class="etiqueta">Sin Gluten</span>
+        <span class="etiqueta">Saludable</span>
+      </div>
+
+      <p>
+        Disfruta de una mezcla fresca de vegetales orgánicos, con aderezo natural
+        y sin conservadores. Ideal para dietas saludables y estilo de vida activo.
+      </p>
+
+     
+
+      <p class="precio">$129.00 MXN</p>
+
+      <button class="boton-carrito">
+        <i class="fas fa-shopping-cart"></i> Agregar al carrito
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 FoodieApp. Todos los derechos reservados.
+  </footer>
+</body>
+</html>

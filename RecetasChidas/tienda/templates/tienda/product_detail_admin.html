@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalle del Producto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #3a8dff, #6fb1fc);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+    }
+
+    nav > div {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-left {
+      justify-content: flex-start;
+    }
+
+    .nav-center {
+      justify-content: center;
+    }
+
+    .nav-right {
+      justify-content: flex-end;
+    }
+
+    .nav-title {
+      font-size: 2rem;
+      color: #3a8dff;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .nav-btn {
+      background-color: #3A8DFF;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-btn:hover {
+      background-color: #2f6fd9;
+    }
+
+    .nav-icon {
+      height: 40px;
+    }
+
+    .nav-link {
+      color: #3a8dff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link i {
+      margin-right: 6px;
+    }
+
+    .titulo-detalle {
+      text-align: center;
+      font-size: 2rem;
+      color: white;
+      margin: 2rem 0 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      background-color: white;
+      border-radius: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .imagen-producto {
+      flex: 1;
+      min-width: 350px;
+    }
+
+    .imagen-producto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .info-producto {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .info-producto h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #3a8dff;
+    }
+
+    .etiquetas {
+      margin: 1rem 0;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background-color: #e0ecff;
+      color: #3a8dff;
+      padding: 0.3rem 0.8rem;
+      margin: 0.2rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .info-producto p {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .precio {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #2b79dd;
+    }
+
+    .boton-carrito {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background-color: #3a8dff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 60%;
+      align-self: center;
+      transition: background-color 0.3s;
+    }
+
+    .boton-carrito:hover {
+      background-color: #2f6fd9;
+    }
+
+    .acciones {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .acciones button {
+      background-color: #ffffff;
+      border: 2px solid #3a8dff;
+      color: #3a8dff;
+      border-radius: 20px;
+      padding: 0.5rem 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .acciones button:hover {
+      background-color: #3a8dff;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: transparent;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+      }
+      .nav-title {
+        font-size: 1.5rem;
+      }
+      .titulo-detalle {
+        font-size: 1.5rem;
+      }
+      .boton-carrito {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-left">
+      <a href="#" class="nav-link">
+        <i class="fas fa-arrow-left"></i> Volver
+      </a>
+    </div>
+    <div>
+      <button class="nav-btn">
+        <i class="fas fa-box"></i> Productos +
+      </button>
+    </div>
+    <div class="nav-center">
+      <h1 class="nav-title">Tienda Comida</h1>
+    </div>
+    <div>
+      <button class="nav-btn">
+        <i class="fas fa-tags"></i> Categorías +
+      </button>
+    </div>
+    <div class="nav-right">
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+    </div>
+  </nav>
+
+  <!-- TÍTULO -->
+  <div class="titulo-detalle">Detalles del producto</div>
+
+  <!-- DETALLE DEL PRODUCTO -->
+  <div class="container">
+    <div class="imagen-producto">
+      <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=600&q=80" alt="Producto" />
+    </div>
+    <div class="info-producto">
+      <h2>Ensalada Vegana Fresca</h2>
+
+      <div class="etiquetas">
+        <span class="etiqueta">Vegana</span>
+        <span class="etiqueta">Sin Gluten</span>
+        <span class="etiqueta">Saludable</span>
+      </div>
+
+      <p>Disfruta de una mezcla fresca de vegetales orgánicos, con aderezo natural y sin conservadores. Ideal para dietas saludables y estilo de vida activo.</p>
+
+      <p class="precio">$129.00 MXN</p>
+
+      <button class="boton-carrito">
+        <i class="fas fa-shopping-cart"></i> Agregar al carrito
+      </button>
+    </div>
+  </div>
+
+  <!-- BOTONES DE ACCIÓN -->
+  <div class="acciones">
+    <button>Editar</button>
+    <button>Eliminar</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 FoodieApp. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
