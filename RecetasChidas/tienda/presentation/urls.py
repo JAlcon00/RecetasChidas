@@ -5,7 +5,7 @@ from tienda.presentation import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('home', views.pagina_principal, name='pagina_principal'),
+    path('home/', views.pagina_principal, name='pagina_principal'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
     path('db-diagnostics/', views.db_diagnostics, name='db_diagnostics'),
     path('panel/principal/', views.principal_admin_view, name='principal_admin'),

@@ -7,6 +7,7 @@
     <title>{% block title %}RecetasChidas{% endblock title%}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     {% block css %}
     
     {% endblock css %}
@@ -21,7 +22,10 @@
             <h1>Tienda Comida</h1>
         </div>
         <div>
-            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link text-primary p-0" style="text-decoration: none;">Cerrar Sesión</button>
+            </form>
         </div>
     </nav>
 
