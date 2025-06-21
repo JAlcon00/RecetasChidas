@@ -12,14 +12,34 @@ from tienda.services.inventario_sevice import InventarioService
 from tienda.services.usuario_service import UsuarioService
 from tienda.persistence.models import Categoria, Producto, Inventario, Usuario
 from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioForm
+from tienda.persistence.repositories import UsuarioRepositorio
 
 logger = logging.getLogger('tienda')
 
-def index(request):
-    if request.user.is_authenticated:
-        return redirect('pagina_principal')
-    else:
-        return redirect('login_view')
+def login_view(request):
+    logger.info("🔐 Acceso a página de login")
+    
+    if request.method == 'POST':
+        email = request.POST.get('email', '')
+        password = request.POST.get('password', '')
+        
+        logger.info(f"🔐 Intento de login para usuario: {email}")
+        logger.info(f"🔐 Password recibido: {'*' * len(password) if password else 'vacío'}")
+
+        usuario = UsuarioRepositorio.buscar_por_email_y_password(email, password)
+        
+        if usuario:
+            logger.info(f"✅ Autenticación exitosa para usuario: {email}")
+            request.session['usuario_id'] = usuario.id
+            request.session['usuario_nombre'] = usuario.nombre
+            request.session['usuario_tipo'] = usuario.tipo_usuario
+            return redirect('pagina_principal')
+        else:
+            error_msg = f"❌ Credenciales inválidas para usuario: {email}"
+            logger.warning(error_msg)
+            messages.error(request, 'Credenciales inválidas. Por favor verifica tu usuario y contraseña.')
+
+    return render(request, 'tienda/login.html')
 
 # Vistas de Categoría
 @login_required
@@ -249,41 +269,6 @@ def pagina_principal(request):
 def detalle_producto(request, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
     return render(request, 'tienda/detail_product.html', {'producto': producto})
-
-# Vista de Login personalizada
-def login_view(request):
-    logger.info("🔐 Acceso a página de login")
-    
-    if request.method == 'POST':
-        username = request.POST.get('username', '')
-        password = request.POST.get('password', '')
-        
-        logger.info(f"🔐 Intento de login para usuario: {username}")
-        logger.info(f"🔐 Password recibido: {'*' * len(password) if password else 'vacío'}")
-        
-        # Verificar conexión a BD antes de autenticar
-        try:
-            with connection.cursor() as cursor:
-                cursor.execute("SELECT COUNT(*) FROM auth_user WHERE username = %s", [username])
-                user_exists = cursor.fetchone()[0] > 0
-                logger.info(f"🔍 Usuario '{username}' existe en BD: {user_exists}")
-        except Exception as e:
-            logger.error(f"❌ Error verificando usuario en BD: {e}")
-        
-        user = authenticate(request, username=username, password=password)
-        
-        if user is not None:
-            logger.info(f"✅ Autenticación exitosa para usuario: {username}")
-            login(request, user)
-            logger.info(f"✅ Login completado, redirigiendo a página principal")
-            messages.success(request, f'¡Bienvenido {username}!')
-            return redirect('pagina_principal')
-        else:
-            error_msg = f"❌ Credenciales inválidas para usuario: {username}"
-            logger.warning(error_msg)
-            messages.error(request, 'Credenciales inválidas. Por favor verifica tu usuario y contraseña.')
-    
-    return render(request, 'tienda/login.html')
 
 # Vista de diagnóstico de base de datos
 def db_diagnostics(request):

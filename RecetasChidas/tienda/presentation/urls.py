@@ -4,9 +4,9 @@ from django.contrib.auth.views import LogoutView
 from tienda.presentation import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('home/', views.pagina_principal, name='pagina_principal'),
+    path('', views.login_view, name='login_view'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('home/', views.pagina_principal, name='pagina_principal'),
     path('db-diagnostics/', views.db_diagnostics, name='db_diagnostics'),
     path('panel/principal/', views.principal_admin_view, name='principal_admin'),
     path('panel/productos/', views.product_admin_view, name='product_admin'),
@@ -14,6 +14,6 @@ urlpatterns = [
     path('categoria/', views.category_view, name='category'),
     path('producto/detalle/', views.detail_product_view, name='detail_product'),
     path('producto/editar/', views.edit_product_view, name='edit_product'),
-    path('login/', views.login_view, name='login_view'),
+    
     # ...otras rutas...
 ]

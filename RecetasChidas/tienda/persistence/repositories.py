@@ -1,3 +1,6 @@
+from tienda.domain.schemas import UsuarioEntity
+from tienda.persistence.models import Usuario
+
 class CategoriaRepositorio:
     """Repositorio básico para la entidad Categoria."""
     @staticmethod
@@ -29,3 +32,19 @@ class UsuarioRepositorio:
     def obtener_todos(self):
         # Método de ejemplo para obtener todos los usuarios
         return []
+    
+    @staticmethod
+    def buscar_por_email_y_password(email, password):
+        try:
+            user = Usuario.objects.get(correo_electronico=email)
+            if user.contrasena == password:
+                return UsuarioEntity(
+                    id=user.id,
+                    nombre=user.nombre,
+                    correo_electronico=user.correo_electronico,
+                    contrasena='',
+                    tipo_usuario=user.tipo_usuario
+                )
+        except Usuario.DoesNotExist:
+            return None
+        return None

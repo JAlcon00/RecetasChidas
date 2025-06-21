@@ -76,13 +76,6 @@
             box-sizing: border-box;
         }
 
-        .extra-options {
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            margin-top: -0.5rem;
-        }
-
         .link {
             text-decoration: none;
             color: #3A8DFF;
@@ -187,12 +180,8 @@
         
         <form method="post">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Nombre de usuario" required>
+            <input type="text" name="email" placeholder="Correo" required>
             <input type="password" name="password" placeholder="Contraseña" required>
-
-            <div class="extra-options">
-                <a href="#" class="link">¿Olvidaste tu contraseña?</a>
-            </div>
 
             <!-- Espacio -->
             <div style="margin-top: 1rem;"></div>

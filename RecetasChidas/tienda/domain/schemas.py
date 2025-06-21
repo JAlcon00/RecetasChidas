@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Optional, List
 
 @dataclass
-class Usuario:
+class UsuarioEntity:
     id: Optional[int]
     nombre: str
     correo_electronico: str
