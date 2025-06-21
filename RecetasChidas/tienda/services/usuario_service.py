@@ -1,14 +1,19 @@
 from tienda.persistence.repositories import UsuarioRepositorio
 
 class UsuarioService:
-    @staticmethod
-    def registrar_usuario(nombre, correo_electronico, contrasena, tipo_usuario='cliente'):
-        return UsuarioRepositorio.crear(
-            nombre=nombre,
-            correo_electronico=correo_electronico,
-            contrasena=contrasena,
-            tipo_usuario=tipo_usuario
-        )
+    def __init__(self, repository=None):
+        self.repository = repository or UsuarioRepositorio
+
+    def buscar_usuario(self, email, password):
+        usuario = self.repository.buscar_por_email_y_password(email, password)
+        if usuario:
+            return {
+                "id": usuario.id,
+                "nombre": usuario.nombre,
+                "correo_electronico": usuario.correo_electronico,
+                "tipo_usuario": usuario.tipo_usuario
+            }
+        return None
 
     @staticmethod
     def obtener_usuarios():

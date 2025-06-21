@@ -1,12 +1,13 @@
 from tienda.persistence.repositories import CategoriaRepositorio
 
 class CategoriaService:
-    @staticmethod
-    def registrar_categoria(nombre, descripcion=''):
-        return CategoriaRepositorio.crear(
-            nombre=nombre,
-            descripcion=descripcion
-        )
+    def __init__(self, repository=None):
+        self.repository = repository or CategoriaRepositorio
+        pass
+
+    def obtener_categorias(self):
+        categorias = self.repository.obtener_todas()
+        return categorias
 
     @staticmethod
     def obtener_categorias():

@@ -10,7 +10,7 @@ class UsuarioEntity:
     tipo_usuario: str  # 'cliente' o 'administrador'
 
 @dataclass
-class Categoria:
+class CategoriaEntity:
     id: Optional[int]
     name: str
     description: str
@@ -21,7 +21,7 @@ class Producto:
     name: str
     description: str
     price: float
-    category: Categoria
+    category: CategoriaEntity
     type: str  # 'comida preparada' o 'kit'
     diets: List[str]  # Ejemplo: ['vegana', 'sin gluten']
     flavors: List[str]  # Ejemplo: ['picante', 'dulce']

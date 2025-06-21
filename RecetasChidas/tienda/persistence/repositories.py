@@ -1,12 +1,21 @@
-from tienda.domain.schemas import UsuarioEntity
-from tienda.persistence.models import Usuario
+from typing import List, Optional
+from tienda.domain.schemas import UsuarioEntity, CategoriaEntity
+from tienda.persistence.models import Usuario, Categoria
+
 
 class CategoriaRepositorio:
     """Repositorio básico para la entidad Categoria."""
     @staticmethod
-    def obtener_todas():
-        # Método de ejemplo para obtener todas las categorías
-        return []
+    def obtener_todas() -> List[CategoriaEntity]:
+        categorias = Categoria.objects.all()
+        return [
+            CategoriaEntity(
+                id=categoria.id,
+                name=categoria.nombre,
+                description=categoria.descripcion
+            )
+            for categoria in categorias
+        ]
 
 class ProductoRepositorio:
     """Repositorio básico para la entidad Producto."""

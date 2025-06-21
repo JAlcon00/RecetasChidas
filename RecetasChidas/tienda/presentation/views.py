@@ -6,16 +6,18 @@ from django.db import connection
 from django.http import JsonResponse
 import logging
 
-from tienda.services.categoria_service import CategoriaService
 from tienda.services.producto_service import ProductoService
 from tienda.services.inventario_sevice import InventarioService
-from tienda.services.usuario_service import UsuarioService
 from tienda.persistence.models import Categoria, Producto, Inventario, Usuario
 from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioForm
 
-from tienda.persistence.repositories import UsuarioRepositorio
+from tienda.services.usuario_service import UsuarioService
+from tienda.services.categoria_service import CategoriaService
 from functools import wraps
 from django.shortcuts import redirect
+
+usuario_service = UsuarioService()
+categoria_service = CategoriaService()
 
 logger = logging.getLogger('tienda')
 
@@ -37,13 +39,13 @@ def login_view(request):
         logger.info(f"🔐 Intento de login para usuario: {email}")
         logger.info(f"🔐 Password recibido: {'*' * len(password) if password else 'vacío'}")
 
-        usuario = UsuarioRepositorio.buscar_por_email_y_password(email, password)
+        usuario = usuario_service.buscar_usuario(email, password)
         
         if usuario:
             logger.info(f"✅ Autenticación exitosa para usuario: {email}")
-            request.session['usuario_id'] = usuario.id
-            request.session['usuario_nombre'] = usuario.nombre
-            request.session['usuario_tipo'] = usuario.tipo_usuario
+            request.session['usuario_id'] = usuario['id']
+            request.session['usuario_nombre'] = usuario['nombre']
+            request.session['usuario_tipo'] = usuario['tipo_usuario']
             return redirect('pagina_principal')
         else:
             error_msg = f"❌ Credenciales inválidas para usuario: {email}"
@@ -61,7 +63,7 @@ def pagina_principal(request):
     logger.info(f"🏠 Acceso a página principal por usuario: {request.user.username if request.user.is_authenticated else 'Anónimo'}")
     
     try:
-        categorias = CategoriaService.obtener_categorias()
+        categorias = categoria_service.obtener_categorias()
         productos = ProductoService.obtener_productos()
         
         logger.info(f"📊 Datos cargados - Categorías: {len(categorias)}, Productos: {len(productos)}")
