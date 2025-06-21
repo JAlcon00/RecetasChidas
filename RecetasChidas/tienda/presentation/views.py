@@ -233,7 +233,7 @@ def pagina_principal(request):
             prod_count = cursor.fetchone()[0]
             logger.info(f"🗃️ BD - Categorías en tabla: {cat_count}, Productos en tabla: {prod_count}")
         
-        return render(request, 'tienda/pagina_principal.html', {
+        return render(request, 'tienda/usuario/pagina_principal.html', {
             'categorias': categorias,
             'productos': productos
         })

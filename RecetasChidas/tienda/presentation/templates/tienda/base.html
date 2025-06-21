@@ -4,21 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}RecetasChidas{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'tienda/css/style.css' %}">
+    <title>{% block title %}RecetasChidas{% endblock title%}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    {% block css %}
+    
+    {% endblock css %}
 </head>
 <body>
-    <header>
-        <h1>RecetasChidas</h1>
-        <!-- Aquí puedes agregar la navegación principal -->
-    </header>
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+        </div>
+        <div>
+            <h1>Tienda Comida</h1>
+        </div>
+        <div>
+            <a href="{% url 'logout' %}">Cerrar Sesión</a>
+        </div>
+    </nav>
+
     <main>
         {% block content %}
-        {% endblock %}
+
+        {% endblock content%}
     </main>
+
     <footer>
         <p>&copy; 2025 RecetasChidas</p>
     </footer>
-    <script src="{% static 'tienda/js/script.js' %}"></script>
 </body>
 </html>
