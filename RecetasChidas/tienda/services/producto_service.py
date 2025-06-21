@@ -8,6 +8,9 @@ class ProductoService:
     def obtener_productos(self):
         productos = self.repository.obtener_todos()
         return productos
+    
+    def obtener_producto_por_id(self, producto_id):
+        return self.repository.obtener_producto_por_id(producto_id)
 
     @staticmethod
     def registrar_producto(nombre, descripcion, precio, categoria, tipo, dietas='', preferencia_sabor='', imagen_url='https://example.com/default.jpg'):
@@ -21,10 +24,6 @@ class ProductoService:
             preferencia_sabor=preferencia_sabor,
             imagen_url=imagen_url
         )
-
-    @staticmethod
-    def obtener_producto_por_id(producto_id):
-        return ProductoRepositorio.obtener_por_id(producto_id)
 
     @staticmethod
     def actualizar_producto(producto, **kwargs):

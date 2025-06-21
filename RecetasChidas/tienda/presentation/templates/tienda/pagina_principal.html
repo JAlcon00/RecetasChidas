@@ -48,12 +48,14 @@
         <div class="carrusel carrusel-comida">
             {% for producto in productos %}
                 {% if producto.type == 'comida preparada'%}
-                    <div class="item"
-                        data-diets="{{ producto.diets|join:','|lower }}"
-                        data-categoria="{{ producto.category.name|lower }}">
-                        <img src="{{ producto.image_url }}" alt="{{ producto.name }}">
-                        <p>{{ producto.name }}</p>
-                    </div>
+                    <a href="{% url 'detail_product' id=producto.id%}">
+                        <div class="item"
+                            data-diets="{{ producto.diets|join:','|lower }}"
+                            data-categoria="{{ producto.category.name|lower }}">
+                            <img src="{{ producto.image_url }}" alt="{{ producto.name }}">
+                            <p>{{ producto.name }}</p>
+                        </div>
+                    </a>
                 {% endif %}
             {% endfor %}
         </div>
@@ -64,10 +66,12 @@
         <div class="carrusel">
             {% for producto in productos %}
                 {% if producto.type == 'kit de cocina' %}
-                <div class="item">
-                    <img src="{{ producto.image_url }}" alt="{{ producto.name }}">
-                    <p>{{ producto.name }}</p>
-                </div>
+                <a href="{% url 'detail_product' id=producto.id %}">
+                    <div class="item">
+                        <img src="{{ producto.image_url }}" alt="{{ producto.name }}">
+                        <p>{{ producto.name }}</p>
+                    </div>
+                </a>
                 {% endif %}
             {% endfor %}
         </div>

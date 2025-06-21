@@ -100,6 +100,16 @@ def pagina_principal(request):
             'productos': []
         })
 
+@usuario_requerido
+def detail_product_view(request, id):
+    producto = producto_service.obtener_producto_por_id(id)
+    usuario = {
+            'id': request.session.get('usuario_id'),
+            'nombre': request.session.get('usuario_nombre'),
+            'tipo': request.session.get('usuario_tipo')
+        }
+    return render(request, 'tienda/detail_product.html', {'producto': producto, 'usuario': usuario})
+
 # Vistas de Categoría
 @login_required
 def lista_categorias(request):
@@ -334,12 +344,6 @@ def product_detail_admin_view(request, id):
 def category_view(request):
     categorias = CategoriaService.obtener_categorias()
     return render(request, 'tienda/category.html', {'categorias': categorias})
-
-@login_required
-def detail_product_view(request):
-    producto_id = request.GET.get('id')
-    producto = get_object_or_404(Producto, id=producto_id) if producto_id else None
-    return render(request, 'tienda/detail_product.html', {'producto': producto})
 
 @login_required
 def edit_product_view(request):

@@ -41,6 +41,27 @@ class ProductoRepositorio:
             )
             for producto in productos
         ]
+    
+    def obtener_producto_por_id(producto_id: int) -> Optional[ProductoEntity]:
+        try:
+            producto = Producto.objects.get(id=producto_id)
+            return ProductoEntity(
+                id=producto.id,
+                name=producto.nombre,
+                description=producto.descripcion,
+                price=producto.precio,
+                category=CategoriaEntity(
+                    id=producto.categoria.id,
+                    name=producto.categoria.nombre,
+                    description=producto.categoria.descripcion
+                ),
+                type=producto.tipo,
+                diets=producto.dietas.split(',') if producto.dietas else [],
+                flavors=producto.preferencia_sabor.split(',') if producto.preferencia_sabor else [],
+                image_url=producto.image_url
+            )
+        except Producto.DoesNotExist:
+            return None
 
 class InventarioRepositorio:
     """Repositorio básico para la entidad Inventario."""
