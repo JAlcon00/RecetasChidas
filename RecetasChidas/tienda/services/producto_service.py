@@ -1,6 +1,14 @@
 from tienda.persistence.repositories import ProductoRepositorio
 
 class ProductoService:
+    def __init__(self, repository=None):
+        self.repository = repository or ProductoRepositorio
+        pass
+
+    def obtener_productos(self):
+        productos = self.repository.obtener_todos()
+        return productos
+
     @staticmethod
     def registrar_producto(nombre, descripcion, precio, categoria, tipo, dietas='', preferencia_sabor='', imagen_url='https://example.com/default.jpg'):
         return ProductoRepositorio.crear(
@@ -13,10 +21,6 @@ class ProductoService:
             preferencia_sabor=preferencia_sabor,
             imagen_url=imagen_url
         )
-
-    @staticmethod
-    def obtener_productos():
-        return ProductoRepositorio.obtener_todos()
 
     @staticmethod
     def obtener_producto_por_id(producto_id):

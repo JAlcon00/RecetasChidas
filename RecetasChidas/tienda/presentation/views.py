@@ -6,18 +6,19 @@ from django.db import connection
 from django.http import JsonResponse
 import logging
 
-from tienda.services.producto_service import ProductoService
 from tienda.services.inventario_sevice import InventarioService
 from tienda.persistence.models import Categoria, Producto, Inventario, Usuario
 from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioForm
 
 from tienda.services.usuario_service import UsuarioService
 from tienda.services.categoria_service import CategoriaService
+from tienda.services.producto_service import ProductoService
 from functools import wraps
 from django.shortcuts import redirect
 
 usuario_service = UsuarioService()
 categoria_service = CategoriaService()
+producto_service = ProductoService()
 
 logger = logging.getLogger('tienda')
 
@@ -63,10 +64,14 @@ def pagina_principal(request):
     logger.info(f"🏠 Acceso a página principal por usuario: {request.user.username if request.user.is_authenticated else 'Anónimo'}")
     
     try:
+        filtro = request.GET.get('filtro', '')
         categorias = categoria_service.obtener_categorias()
-        productos = ProductoService.obtener_productos()
+        productos = producto_service.obtener_productos()
         
         logger.info(f"📊 Datos cargados - Categorías: {len(categorias)}, Productos: {len(productos)}")
+
+        if filtro:
+            productos = [p for p in productos if filtro.lower() in [d.lower() for d in getattr(p, 'diets', [])] or filtro.lower() == getattr(p, 'category', {}).get('name', '').lower()]
         
         # Log de consultas a la BD
         with connection.cursor() as cursor:
@@ -85,7 +90,8 @@ def pagina_principal(request):
         return render(request, 'tienda/pagina_principal.html', {
             'categorias': categorias,
             'productos': productos,
-            'usuario': usuario
+            'usuario': usuario,
+            'filtro': filtro
         })
     except Exception as e:
         logger.error(f"❌ Error cargando página principal: {e}")

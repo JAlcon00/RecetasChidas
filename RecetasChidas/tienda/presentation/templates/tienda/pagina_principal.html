@@ -27,52 +27,73 @@
 
         <!-- Filtros -->
         <div class="filtros">
-            <button>Vegana</button>
-            <button>Vegetariana</button>
-            <button>Sin Gluten</button>
-            <button>Sin Lactosa</button>
-            <button>Keto</button>
-            <button>Salado</button>
-            <button>Dulce</button>
-            <button>Picante</button>
-            <button>Agridulce</button>
+            <button class="filtro-btn activate" data-filtro="sin-filtro">Sin filtros</button>
+            <button class="filtro-btn" data-filtro="Vegana">Vegana</button>
+            <button class="filtro-btn" data-filtro="Vegetariana">Vegetariana</button>
+            <button class="filtro-btn" data-filtro="sin_gluten">Sin Gluten</button>
+            <button class="filtro-btn" data-filtro="Sin Lactosa">Sin Lactosa</button>
+            <button class="filtro-btn" data-filtro="Keto">Keto</button>
+            <button class="filtro-btn" data-filtro="Salado">Salado</button>
+            <button class="filtro-btn" data-filtro="Dulce">Dulce</button>
+            <button class="filtro-btn" data-filtro="Picante">Picante</button>
+            <button class="filtro-btn" data-filtro="Agridulce">Agridulce</button>
             {% for categoria in categorias %}
-                <button>{{ categoria.name }}</button>
+                {% if categoria.name != 'Kit de Cocina' %}
+                    <button class="filtro-btn" data-filtro="{{categoria.name}}">{{ categoria.name }}</button>
+                {% endif %}
             {% endfor %}
         </div>
 
         <!-- Carrusel de comida -->
-        <div class="carrusel">
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80" alt="Comida 1">
-                <p>Ensalada Vegana</p>
-            </div>
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=400&q=80" alt="Comida 2">
-                <p>Pollo Teriyaki</p>
-            </div>
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=400&q=80" alt="Comida 3">
-                <p>Tacos Picantes</p>
-            </div>
+        <div class="carrusel carrusel-comida">
+            {% for producto in productos %}
+                {% if producto.type == 'comida preparada'%}
+                    <div class="item"
+                        data-diets="{{ producto.diets|join:','|lower }}"
+                        data-categoria="{{ producto.category.name|lower }}">
+                        <img src="{{ producto.image_url }}" alt="{{ producto.name }}">
+                        <p>{{ producto.name }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
 
         <h2>Kit de Cocina</h2>
 
         <!-- Carrusel de kits -->
         <div class="carrusel">
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=400&q=80" alt="Kit 1">
-                <p>Kit Mexicano</p>
-            </div>
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1506368083636-6defb67639d1?auto=format&fit=crop&w=400&q=80" alt="Kit 2">
-                <p>Kit Italiano</p>
-            </div>
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1598514982461-6fe9c2e8c8ce?auto=format&fit=crop&w=400&q=80" alt="Kit 3">
-                <p>Kit Vegano</p>
-            </div>
+            {% for producto in productos %}
+                {% if producto.type == 'kit de cocina' %}
+                <div class="item">
+                    <img src="{{ producto.image_url }}" alt="{{ producto.name }}">
+                    <p>{{ producto.name }}</p>
+                </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.filtro-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filtro = this.getAttribute('data-filtro').toLowerCase();
+                localStorage.setItem('filtro-activo', filtro); // Guarda el filtro
+                document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activate'));
+                this.classList.add('activate');
+                document.querySelectorAll('.carrusel-comida .item').forEach(item => {
+                    const diets = item.getAttribute('data-diets');
+                    const categoria = item.getAttribute('data-categoria');
+                    if (
+                        filtro === 'sin-filtro' ||
+                        (diets && diets.includes(filtro)) ||
+                        (categoria && categoria === filtro)
+                    ) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock content %}

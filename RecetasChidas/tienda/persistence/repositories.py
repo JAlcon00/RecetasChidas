@@ -1,6 +1,6 @@
 from typing import List, Optional
-from tienda.domain.schemas import UsuarioEntity, CategoriaEntity
-from tienda.persistence.models import Usuario, Categoria
+from tienda.domain.schemas import UsuarioEntity, CategoriaEntity, ProductoEntity
+from tienda.persistence.models import Usuario, Categoria, Producto
 
 
 class CategoriaRepositorio:
@@ -20,9 +20,27 @@ class CategoriaRepositorio:
 class ProductoRepositorio:
     """Repositorio básico para la entidad Producto."""
     @staticmethod
-    def obtener_todos():
+    def obtener_todos() -> List:
         # Método de ejemplo para obtener todos los productos
-        return []
+        productos = Producto.objects.all()
+        return [
+            ProductoEntity(
+                id=producto.id,
+                name=producto.nombre,
+                description=producto.descripcion,
+                price=producto.precio,
+                category=CategoriaEntity(
+                    id=producto.categoria.id,
+                    name=producto.categoria.nombre,
+                    description=producto.categoria.descripcion
+                ),
+                type=producto.tipo,
+                diets=producto.dietas.split(',') if producto.dietas else [],
+                flavors=producto.preferencia_sabor.split(',') if producto.preferencia_sabor else [],
+                image_url=producto.image_url
+            )
+            for producto in productos
+        ]
 
 class InventarioRepositorio:
     """Repositorio básico para la entidad Inventario."""

@@ -16,7 +16,7 @@ class CategoriaEntity:
     description: str
 
 @dataclass
-class Producto:
+class ProductoEntity:
     id: Optional[int]
     name: str
     description: str
@@ -30,6 +30,6 @@ class Producto:
 @dataclass
 class Inventario:
     id: Optional[int]
-    product: Producto
+    product: ProductoEntity
     quantity: int
 
