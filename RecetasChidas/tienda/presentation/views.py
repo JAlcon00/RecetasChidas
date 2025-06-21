@@ -12,9 +12,20 @@ from tienda.services.inventario_sevice import InventarioService
 from tienda.services.usuario_service import UsuarioService
 from tienda.persistence.models import Categoria, Producto, Inventario, Usuario
 from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioForm
+
 from tienda.persistence.repositories import UsuarioRepositorio
+from functools import wraps
+from django.shortcuts import redirect
 
 logger = logging.getLogger('tienda')
+
+def usuario_requerido(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.session.get('usuario_id'):
+            return redirect('login_view')
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
 
 def login_view(request):
     logger.info("🔐 Acceso a página de login")
@@ -40,6 +51,39 @@ def login_view(request):
             messages.error(request, 'Credenciales inválidas. Por favor verifica tu usuario y contraseña.')
 
     return render(request, 'tienda/login.html')
+
+def logout_view(request):
+    request.session.flush()
+    return redirect('login_view')
+
+@usuario_requerido
+def pagina_principal(request):
+    logger.info(f"🏠 Acceso a página principal por usuario: {request.user.username if request.user.is_authenticated else 'Anónimo'}")
+    
+    try:
+        categorias = CategoriaService.obtener_categorias()
+        productos = ProductoService.obtener_productos()
+        
+        logger.info(f"📊 Datos cargados - Categorías: {len(categorias)}, Productos: {len(productos)}")
+        
+        # Log de consultas a la BD
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT COUNT(*) FROM tienda_categoria")
+            cat_count = cursor.fetchone()[0]
+            cursor.execute("SELECT COUNT(*) FROM tienda_producto")
+            prod_count = cursor.fetchone()[0]
+            logger.info(f"🗃️ BD - Categorías en tabla: {cat_count}, Productos en tabla: {prod_count}")
+        
+        return render(request, 'tienda/usuario/pagina_principal.html', {
+            'categorias': categorias,
+            'productos': productos
+        })
+    except Exception as e:
+        logger.error(f"❌ Error cargando página principal: {e}")
+        return render(request, 'tienda/usuario/pagina_principal.html', {
+            'categorias': [],
+            'productos': []
+        })
 
 # Vistas de Categoría
 @login_required
@@ -190,79 +234,6 @@ def eliminar_inventario(request, inventario_id):
 def lista_usuarios(request):
     usuarios = UsuarioService.obtener_usuarios()
     return render(request, 'tienda/lista_usuarios.html', {'usuarios': usuarios})
-
-@login_required
-def crear_usuario(request):
-    if request.method == 'POST':
-        form = UsuarioForm(request.POST)
-        if form.is_valid():
-            UsuarioService.registrar_usuario(
-                nombre=form.cleaned_data['nombre'],
-                correo_electronico=form.cleaned_data['correo_electronico'],
-                contrasena=form.cleaned_data['contrasena'],
-                tipo_usuario=form.cleaned_data.get('tipo_usuario', 'cliente')
-            )
-            return redirect('lista_usuarios')
-    else:
-        form = UsuarioForm()
-    return render(request, 'tienda/crear_usuario.html', {'form': form})
-
-@login_required
-def editar_usuario(request, usuario_id):
-    usuario = get_object_or_404(Usuario, id=usuario_id)
-    if request.method == 'POST':
-        form = UsuarioForm(request.POST, instance=usuario)
-        if form.is_valid():
-            UsuarioService.actualizar_usuario(
-                usuario,
-                nombre=form.cleaned_data['nombre'],
-                correo_electronico=form.cleaned_data['correo_electronico'],
-                contrasena=form.cleaned_data['contrasena'],
-                tipo_usuario=form.cleaned_data.get('tipo_usuario', 'cliente')
-            )
-            return redirect('lista_usuarios')
-    else:
-        form = UsuarioForm(instance=usuario)
-    return render(request, 'tienda/editar_usuario.html', {'form': form, 'usuario': usuario})
-
-@login_required
-def eliminar_usuario(request, usuario_id):
-    usuario = get_object_or_404(Usuario, id=usuario_id)
-    if request.method == 'POST':
-        UsuarioService.eliminar_usuario(usuario)
-        return redirect('lista_usuarios')
-    return render(request, 'tienda/eliminar_usuario.html', {'usuario': usuario})
-
-# Página principal
-
-@login_required
-def pagina_principal(request):
-    logger.info(f"🏠 Acceso a página principal por usuario: {request.user.username if request.user.is_authenticated else 'Anónimo'}")
-    
-    try:
-        categorias = CategoriaService.obtener_categorias()
-        productos = ProductoService.obtener_productos()
-        
-        logger.info(f"📊 Datos cargados - Categorías: {len(categorias)}, Productos: {len(productos)}")
-        
-        # Log de consultas a la BD
-        with connection.cursor() as cursor:
-            cursor.execute("SELECT COUNT(*) FROM tienda_categoria")
-            cat_count = cursor.fetchone()[0]
-            cursor.execute("SELECT COUNT(*) FROM tienda_producto")
-            prod_count = cursor.fetchone()[0]
-            logger.info(f"🗃️ BD - Categorías en tabla: {cat_count}, Productos en tabla: {prod_count}")
-        
-        return render(request, 'tienda/usuario/pagina_principal.html', {
-            'categorias': categorias,
-            'productos': productos
-        })
-    except Exception as e:
-        logger.error(f"❌ Error cargando página principal: {e}")
-        return render(request, 'tienda/usuario/pagina_principal.html', {
-            'categorias': [],
-            'productos': []
-        })
 
 # Detalle de producto
 
