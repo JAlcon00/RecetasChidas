@@ -344,3 +344,40 @@ def db_diagnostics(request):
             'status': 'error',
             'error': error_msg
         })
+
+@login_required
+def principal_admin_view(request):
+    return render(request, 'tienda/principal_admin.html')
+
+@login_required
+def product_admin_view(request):
+    return render(request, 'tienda/product_admin.html')
+
+@login_required
+def product_detail_admin_view(request, id):
+    producto = get_object_or_404(Producto, id=id)
+    return render(request, 'tienda/product_detail_admin.html', {'producto': producto})
+
+@login_required
+def category_view(request):
+    categorias = CategoriaService.obtener_categorias()
+    return render(request, 'tienda/category.html', {'categorias': categorias})
+
+@login_required
+def detail_product_view(request):
+    producto_id = request.GET.get('id')
+    producto = get_object_or_404(Producto, id=producto_id) if producto_id else None
+    return render(request, 'tienda/detail_product.html', {'producto': producto})
+
+@login_required
+def edit_product_view(request):
+    producto_id = request.GET.get('id')
+    producto = get_object_or_404(Producto, id=producto_id) if producto_id else None
+    if request.method == 'POST' and producto:
+        form = ProductoForm(request.POST, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect('product_admin')
+    else:
+        form = ProductoForm(instance=producto) if producto else ProductoForm()
+    return render(request, 'tienda/edit_product.html', {'form': form, 'producto': producto})
