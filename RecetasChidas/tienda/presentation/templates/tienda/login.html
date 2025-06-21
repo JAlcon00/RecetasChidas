@@ -73,6 +73,7 @@
             border-radius: 10px;
             font-size: 1rem;
             width: 100%;
+            box-sizing: border-box;
         }
 
         .extra-options {
@@ -126,6 +127,30 @@
         .social-icons i:hover {
             color: #2b79dd;
         }
+
+        .error-messages {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background-color: #fdf2f2;
+        }
+
+        .message-success {
+            color: #27ae60;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background-color: #d5f4e6;
+        }
+
+        .message-error {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background-color: #fdf2f2;
+        }
     </style>
 </head>
 <body>
@@ -141,12 +166,31 @@
     <!-- Lado derecho (formulario) -->
     <div class="login-right">
         <h2>Iniciar Sesión</h2>
-        <form>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        {% if form.errors %}
+            <div class="error-messages">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Nombre de usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
 
             <div class="extra-options">
-                
                 <a href="#" class="link">¿Olvidaste tu contraseña?</a>
             </div>
 

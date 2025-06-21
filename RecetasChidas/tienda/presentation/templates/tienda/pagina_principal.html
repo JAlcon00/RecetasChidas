@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -151,7 +152,7 @@
         <h1>Tienda Comida</h1>
     </div>
     <div>
-        <a href="#">Cerrar Sesión</a>
+        <a href="{% url 'logout' %}">Cerrar Sesión</a>
     </div>
 </nav>
 
@@ -182,11 +183,11 @@
             <p>Ensalada Vegana</p>
         </div>
         <div class="item">
-            <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.stoneline.de%2Fes%2Frecetas%2Fpollo-teriyaki-con-arroz-y-brocoli&psig=AOvVaw2klNlsEQIBYxO76EQ-fv2p&ust=1750197253108000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCOiK2P_29o0DFQAAAAAdAAAAABAE" alt="Comida 2">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=400&q=80" alt="Comida 2">
             <p>Pollo Teriyaki</p>
         </div>
         <div class="item">
-            <img src="https://www.google.com/imgres?q=tacos&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F7%2F73%2F001_Tacos_de_carnitas%252C_carne_asada_y_al_pastor.jpg&imgrefurl=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FTaco&docid=AMAlgcppNtPY-M&tbnid=ur6HrTLOOkc0mM&vet=12ahUKEwi_ga2l9_aNAxW4OkQIHaZYDQkQM3oECBwQAA..i&w=4799&h=3600&hcb=2&ved=2ahUKEwi_ga2l9_aNAxW4OkQIHaZYDQkQM3oECBwQAA" alt="Comida 3">
+            <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=400&q=80" alt="Comida 3">
             <p>Tacos Picantes</p>
         </div>
     </div>

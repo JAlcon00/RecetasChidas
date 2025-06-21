@@ -15,6 +15,12 @@ from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioFor
 
 logger = logging.getLogger('tienda')
 
+def index(request):
+    if request.user.is_authenticated:
+        return redirect('pagina_principal')
+    else:
+        return redirect('login_view')
+
 # Vistas de Categoría
 @login_required
 def lista_categorias(request):
@@ -209,6 +215,7 @@ def eliminar_usuario(request, usuario_id):
 
 # Página principal
 
+@login_required
 def pagina_principal(request):
     logger.info(f"🏠 Acceso a página principal por usuario: {request.user.username if request.user.is_authenticated else 'Anónimo'}")
     
