@@ -74,13 +74,20 @@ def pagina_principal(request):
             prod_count = cursor.fetchone()[0]
             logger.info(f"🗃️ BD - Categorías en tabla: {cat_count}, Productos en tabla: {prod_count}")
         
-        return render(request, 'tienda/usuario/pagina_principal.html', {
+        usuario = {
+            'id': request.session.get('usuario_id'),
+            'nombre': request.session.get('usuario_nombre'),
+            'tipo': request.session.get('usuario_tipo')
+        }
+
+        return render(request, 'tienda/pagina_principal.html', {
             'categorias': categorias,
-            'productos': productos
+            'productos': productos,
+            'usuario': usuario
         })
     except Exception as e:
         logger.error(f"❌ Error cargando página principal: {e}")
-        return render(request, 'tienda/usuario/pagina_principal.html', {
+        return render(request, 'tienda/pagina_principal.html', {
             'categorias': [],
             'productos': []
         })

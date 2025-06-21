@@ -4,7 +4,14 @@
 {% block title %}Principal{% endblock title %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'tienda/css/cssUsuario/css_pagina_principal.css' %}">
+    {% if usuario and usuario.tipo == 'cliente'%}
+        <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
+    {% endif %}
+
+    {% if usuario and usuario.tipo == 'administrador' %} 
+        <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal_admin.css' %}">
+    {% endif %}
+
 {% endblock css %}
 
 {% block content %}

@@ -14,6 +14,7 @@
 </head>
 <body>
     <!-- Navbar -->
+    {% if usuario and usuario.tipo == 'cliente'%}
     <nav>
         <div>
             <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
@@ -28,6 +29,34 @@
             </form>
         </div>
     </nav>
+    {% endif %}
+
+    {% if usuario and usuario.tipo == 'administrador' %} 
+    <nav>
+        <div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+        </div>
+        <div>
+            <button class="nav-btn">
+                <i class="fas fa-box"></i> Productos +
+            </button>
+        </div>
+        <div>
+            <h1>Tienda Comida</h1>
+        </div>
+        <div>
+            <button class="nav-btn">
+                <i class="fas fa-tags"></i> Categorías +
+            </button>
+        </div>
+        <div>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-link text-primary p-0" style="text-decoration: none;">Cerrar Sesión</button>
+            </form>
+        </div>
+    </nav>
+    {% endif %}
 
     <main>
         {% block content %}
