@@ -351,7 +351,8 @@ def principal_admin_view(request):
 
 @login_required
 def product_admin_view(request):
-    return render(request, 'tienda/product_admin.html')
+    productos = ProductoService.obtener_productos()
+    return render(request, 'tienda/product_admin.html', {'productos': productos})
 
 @login_required
 def product_detail_admin_view(request, id):

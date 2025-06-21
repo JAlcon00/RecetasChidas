@@ -283,57 +283,32 @@
       <button class="agregar-btn"><i class="fas fa-plus"></i> Agregar</button>
     </div>
 
-    <!-- PRODUCTO 1 -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=400&q=80" alt="Producto 1">
-      <div class="card-content">
-        <h2>Ensalada Vegana</h2>
-
-        <div class="etiquetas">
-          <span>Entrada</span>
-          <span>Alimento</span>
-          <span>Vegana</span>
-          <span>Salado</span>
+    {% for producto in productos %}
+      <div class="card">
+        <img src="{{ producto.imagen_url }}" alt="{{ producto.nombre }}">
+        <div class="card-content">
+          <h2>{{ producto.nombre }}</h2>
+          <div class="etiquetas">
+            <span>{{ producto.tipo }}</span>
+            <span>{{ producto.categoria }}</span>
+            <span>{{ producto.dietas }}</span>
+            <span>{{ producto.preferencia_sabor }}</span>
+          </div>
+          <p>{{ producto.descripcion }}</p>
+          <p><strong>Precio:</strong> ${{ producto.precio }} MXN</p>
+          <p><strong>Stock:</strong> {{ producto.stock }}</p>
+          <!-- Botones de acciones -->
+          <div class="cantidad-control">
+            <button>-</button>
+            <span class="cantidad">{{ producto.stock }}</span>
+            <button>+</button>
+          </div>
+          <button class="eliminar-btn"><i class="fas fa-trash-alt"></i> Eliminar</button>
         </div>
-
-        <p>Fresca mezcla de vegetales con aderezo natural.</p>
-        <p><strong>Precio:</strong> $129.00 MXN</p>
-        
-        <p><strong>Stock:</strong></p>
-        <div class="cantidad-control">
-          <button>-</button>
-          <span class="cantidad">10</span>
-          <button>+</button>
-        </div>
-        <button class="eliminar-btn"><i class="fas fa-trash-alt"></i> Eliminar</button>
       </div>
-    </div>
-
-    <!-- PRODUCTO 2 -->
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=400&q=80" alt="Producto 2">
-      <div class="card-content">
-        <h2>Kit Cocina Mexicana</h2>
-
-        <div class="etiquetas">
-          <span>Plato Fuerte</span>
-          <span>Kit Cocina</span>
-          <span>Chatarra</span>
-          <span>Picante</span>
-        </div>
-
-        <p>Incluye ingredientes y receta para preparar tacos auténticos.</p>
-        <p> $199.00 MXN</p>
-        
-        <p><strong>Stock:</strong></p>
-        <div class="cantidad-control">
-          <button>-</button>
-          <span class="cantidad">5</span>
-          <button>+</button>
-        </div>
-        <button class="eliminar-btn"><i class="fas fa-trash-alt"></i> Eliminar</button>
-      </div>
-    </div>
+    {% empty %}
+      <p>No hay productos registrados.</p>
+    {% endfor %}
   </div>
 
   <footer>

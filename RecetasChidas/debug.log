@@ -4601,3 +4601,353 @@ INFO 2025-06-20 19:56:22,546 basehttp 16268 10748 "POST /admin/logout/ HTTP/1.1"
 INFO 2025-06-20 19:56:22,557 basehttp 16268 10748 "GET /accounts/login/ HTTP/1.1" 200 5257
 INFO 2025-06-20 19:56:24,145 basehttp 16268 10748 "GET / HTTP/1.1" 302 0
 INFO 2025-06-20 19:56:24,250 basehttp 16268 10748 "GET /login/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:08:24,580 autoreload 11456 13604 Watching for file changes with StatReloader
+DEBUG 2025-06-20 20:08:26,652 utils 11456 11628 (0.182) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:08:26,819 utils 11456 11628 (0.163) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:08:26,983 utils 11456 11628 (0.163) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:08:27,150 utils 11456 11628 (0.161) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+DEBUG 2025-06-20 20:09:02,082 utils 11456 6000 (0.160) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:09:02,244 utils 11456 6000 (0.161) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:09:02,807 utils 11456 6000 (0.559) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:08:58.388730' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:08:58.388730', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:09:02,968 utils 11456 6000 (0.159) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:09:02,974 basehttp 11456 6000 "GET /panel/productos/ HTTP/1.1" 200 7465
+WARNING 2025-06-20 20:09:03,538 log 11456 6000 Not Found: /favicon.ico
+WARNING 2025-06-20 20:09:03,539 basehttp 11456 6000 "GET /favicon.ico HTTP/1.1" 404 5493
+DEBUG 2025-06-20 20:09:52,193 utils 11456 6000 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:09:52.033619' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:09:52.033619', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:09:52,355 utils 11456 6000 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:09:52,363 basehttp 11456 6000 "GET / HTTP/1.1" 302 0
+DEBUG 2025-06-20 20:09:52,530 utils 11456 6000 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:09:52.371509' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:09:52.371509', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:09:53,080 utils 11456 6000 (0.548) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:09:53,331 utils 11456 6000 (0.161) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
+DEBUG 2025-06-20 20:09:53,872 utils 11456 6000 (0.540) SELECT COUNT(*) FROM tienda_producto; args=None; alias=default
+INFO 2025-06-20 20:09:53,903 basehttp 11456 6000 "GET /home HTTP/1.1" 200 3121
+INFO 2025-06-20 20:09:54,152 basehttp 11456 6000 "GET /static/tienda/css/cssUsuario/css_pagina_principal.css HTTP/1.1" 304 0
+DEBUG 2025-06-20 20:09:55,532 utils 11456 13092 (0.160) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:09:55,695 utils 11456 13092 (0.162) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:09:55,855 utils 11456 13092 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:09:53.263027' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:09:53.263027', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:09:56,019 utils 11456 13092 (0.163) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:09:56,258 utils 11456 13092 (0.161) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1 ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,); alias=default
+INFO 2025-06-20 20:09:56,263 basehttp 11456 13092 "GET /admin/ HTTP/1.1" 200 9381
+DEBUG 2025-06-20 20:09:59,907 utils 11456 13092 (0.160) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:09:59.747222' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:09:59.747222', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:00,449 utils 11456 13092 (0.540) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:10:00,994 utils 11456 13092 (0.542) SELECT COUNT(*) AS `__count` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:10:01,154 utils 11456 13092 (0.159) SELECT COUNT(*) AS `__count` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:10:01,316 utils 11456 13092 (0.159) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` ORDER BY `tienda_categoria`.`id` DESC; args=(); alias=default
+INFO 2025-06-20 20:10:01,365 basehttp 11456 13092 "GET /admin/tienda/categoria/ HTTP/1.1" 200 12273
+DEBUG 2025-06-20 20:10:01,569 utils 11456 13092 (0.164) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:10:01.404920' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:10:01.404920', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:01,733 utils 11456 13092 (0.161) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:10:01,738 basehttp 11456 13092 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:10:08,081 utils 11456 13092 (0.160) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:10:07.920778' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:10:07.920778', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:08,242 utils 11456 13092 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:10:14,504 utils 11456 13092 (6.260) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:10:14,676 utils 11456 13092 (0.170) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:10:14,838 utils 11456 13092 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:10:15,205 utils 11456 13092 (0.362) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url`, `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_producto` INNER JOIN `tienda_categoria` ON (`tienda_producto`.`categoria_id` = `tienda_categoria`.`id`) ORDER BY `tienda_producto`.`id` DESC; args=(); alias=default
+DEBUG 2025-06-20 20:10:15,393 utils 11456 13092 (0.164) SELECT DISTINCT `tienda_producto`.`dietas` FROM `tienda_producto` ORDER BY `tienda_producto`.`dietas` ASC; args=(); alias=default
+INFO 2025-06-20 20:10:15,395 basehttp 11456 13092 "GET /admin/tienda/producto/ HTTP/1.1" 200 17409
+DEBUG 2025-06-20 20:10:15,588 utils 11456 13092 (0.167) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:10:15.420121' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:10:15.420121', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:15,756 utils 11456 13092 (0.162) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:10:15,761 basehttp 11456 13092 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:10:47,854 utils 11456 13092 (0.537) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:10:47.317320' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:10:47.317320', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:48,020 utils 11456 13092 (0.161) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:10:48,186 utils 11456 13092 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_usuario`; args=(); alias=default
+DEBUG 2025-06-20 20:10:48,353 utils 11456 13092 (0.166) SELECT COUNT(*) AS `__count` FROM `tienda_usuario`; args=(); alias=default
+DEBUG 2025-06-20 20:10:48,522 utils 11456 13092 (0.165) SELECT `tienda_usuario`.`id`, `tienda_usuario`.`nombre`, `tienda_usuario`.`correo_electronico`, `tienda_usuario`.`contrasena`, `tienda_usuario`.`tipo_usuario` FROM `tienda_usuario` ORDER BY `tienda_usuario`.`id` DESC; args=(); alias=default
+INFO 2025-06-20 20:10:48,538 basehttp 11456 13092 "GET /admin/tienda/usuario/ HTTP/1.1" 200 12481
+DEBUG 2025-06-20 20:10:49,128 utils 11456 13092 (0.542) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:10:48.585633' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:10:48.585633', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:50,475 utils 11456 13092 (1.346) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:10:50,478 basehttp 11456 13092 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:10:51,806 utils 11456 13092 (0.162) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:10:51.643750' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:10:51.643750', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:51,969 utils 11456 13092 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:10:52,131 utils 11456 13092 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:10:52,292 utils 11456 13092 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:10:52,456 utils 11456 13092 (0.161) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` ORDER BY `tienda_categoria`.`id` DESC; args=(); alias=default
+INFO 2025-06-20 20:10:52,466 basehttp 11456 13092 "GET /admin/tienda/categoria/ HTTP/1.1" 200 12273
+DEBUG 2025-06-20 20:10:52,665 utils 11456 13092 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:10:52.505578' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:10:52.505578', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:10:52,828 utils 11456 13092 (0.161) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:10:52,831 basehttp 11456 13092 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:11:49,452 utils 11456 13092 (0.157) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:11:49,610 utils 11456 13092 (0.157) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:11:47.539027' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:11:47.539027', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:11:49,772 utils 11456 13092 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:11:49,942 utils 11456 13092 (0.167) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:11:50,104 utils 11456 13092 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:11:50,265 utils 11456 13092 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:11:50,429 utils 11456 13092 (0.160) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url`, `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_producto` INNER JOIN `tienda_categoria` ON (`tienda_producto`.`categoria_id` = `tienda_categoria`.`id`) ORDER BY `tienda_producto`.`id` DESC; args=(); alias=default
+DEBUG 2025-06-20 20:11:50,604 utils 11456 13092 (0.159) SELECT DISTINCT `tienda_producto`.`dietas` FROM `tienda_producto` ORDER BY `tienda_producto`.`dietas` ASC; args=(); alias=default
+INFO 2025-06-20 20:11:50,606 basehttp 11456 13092 "GET /admin/tienda/producto/ HTTP/1.1" 200 17409
+DEBUG 2025-06-20 20:11:51,176 utils 11456 13092 (0.536) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:11:50.639593' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:11:50.639593', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:11:52,486 utils 11456 13092 (1.308) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:11:52,490 basehttp 11456 13092 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:12:21,798 utils 11456 13092 (0.727) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:12:21.070495' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:12:21.070495', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:12:21,958 utils 11456 13092 (0.158) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:12:22,117 utils 11456 13092 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:12:22,655 utils 11456 13092 (0.536) SELECT COUNT(*) AS `__count` FROM `tienda_inventario`; args=(); alias=default
+DEBUG 2025-06-20 20:12:22,824 utils 11456 13092 (0.168) SELECT COUNT(*) AS `__count` FROM `tienda_inventario`; args=(); alias=default
+DEBUG 2025-06-20 20:12:23,726 utils 11456 13092 (0.899) SELECT `tienda_inventario`.`id`, `tienda_inventario`.`producto_id`, `tienda_inventario`.`cantidad`, `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url`, `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_inventario` INNER JOIN `tienda_producto` ON (`tienda_inventario`.`producto_id` = `tienda_producto`.`id`) INNER JOIN `tienda_categoria` ON (`tienda_producto`.`categoria_id` = `tienda_categoria`.`id`) ORDER BY `tienda_inventario`.`id` DESC; args=(); alias=default
+INFO 2025-06-20 20:12:23,737 basehttp 11456 13092 "GET /admin/tienda/inventario/ HTTP/1.1" 200 10531
+DEBUG 2025-06-20 20:12:23,946 utils 11456 13092 (0.168) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:12:23.777788' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:12:23.777788', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:12:24,108 utils 11456 13092 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:12:24,111 basehttp 11456 13092 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:13:09,094 utils 11456 13092 (0.164) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:13:09,256 utils 11456 13092 (0.160) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:13:06.109470' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:13:06.109470', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:13:09,419 utils 11456 13092 (0.161) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:13:09,582 utils 11456 13092 (0.160) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:13:10,532 utils 11456 13092 (0.948) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:13:10,692 utils 11456 13092 (0.159) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:13:11,016 utils 11456 13092 (0.321) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url`, `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_producto` INNER JOIN `tienda_categoria` ON (`tienda_producto`.`categoria_id` = `tienda_categoria`.`id`) ORDER BY `tienda_producto`.`id` DESC; args=(); alias=default
+DEBUG 2025-06-20 20:13:11,193 utils 11456 13092 (0.160) SELECT DISTINCT `tienda_producto`.`dietas` FROM `tienda_producto` ORDER BY `tienda_producto`.`dietas` ASC; args=(); alias=default
+INFO 2025-06-20 20:13:11,195 basehttp 11456 13092 "GET /admin/tienda/producto/ HTTP/1.1" 200 17409
+DEBUG 2025-06-20 20:13:11,407 utils 11456 13092 (0.167) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:13:11.239360' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:13:11.239360', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:13:11,569 utils 11456 13092 (0.159) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:13:11,573 basehttp 11456 13092 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:13:56,116 utils 11456 13092 (0.541) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:13:55.575265' AND `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd') LIMIT 21; args=('2025-06-21 02:13:55.575265', '6uilhluu0unz9pao0cnwg3y713lxvifd'); alias=default
+DEBUG 2025-06-20 20:13:56,277 utils 11456 13092 (0.159) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:13:56,442 utils 11456 13092 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '6uilhluu0unz9pao0cnwg3y713lxvifd' LIMIT 21; args=('6uilhluu0unz9pao0cnwg3y713lxvifd',); alias=default
+DEBUG 2025-06-20 20:13:56,607 utils 11456 13092 (0.164) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('6uilhluu0unz9pao0cnwg3y713lxvifd'); args=('6uilhluu0unz9pao0cnwg3y713lxvifd',); alias=default
+INFO 2025-06-20 20:13:56,608 basehttp 11456 13092 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-06-20 20:13:56,620 basehttp 11456 13092 "GET /accounts/login/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:19:20,776 basehttp 11456 3720 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-06-20 20:19:20,799 basehttp 11456 3720 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4223
+DEBUG 2025-06-20 20:19:29,712 utils 11456 3720 (0.558) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:19:29,870 utils 11456 3720 (0.156) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:19:30,031 utils 11456 3720 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'admin' LIMIT 21; args=('admin',); alias=default
+DEBUG 2025-06-20 20:19:31,254 utils 11456 3720 (0.157) SELECT 1 AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6' LIMIT 1; args=(1, 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:19:31,800 utils 11456 3720 (0.545) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:19:31,977 utils 11456 3720 (0.174) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('b2ufwirzkhx3vniyggh23hl0gi3273t6', 'e30:1uSnpL:CkKanOLQ07kmkEh37Raofl1sEQJiRcmZC57ajpUFt8g', '2025-07-05 02:19:31.255904'); args=('b2ufwirzkhx3vniyggh23hl0gi3273t6', 'e30:1uSnpL:CkKanOLQ07kmkEh37Raofl1sEQJiRcmZC57ajpUFt8g', '2025-07-05 02:19:31.255904'); alias=default
+DEBUG 2025-06-20 20:19:32,137 utils 11456 3720 (0.159) COMMIT; args=None; alias=default
+DEBUG 2025-06-20 20:19:32,456 utils 11456 3720 (0.160) UPDATE `auth_user` SET `last_login` = '2025-06-21 02:19:32.295690' WHERE `auth_user`.`id` = 1; args=('2025-06-21 02:19:32.295690', 1); alias=default
+DEBUG 2025-06-20 20:19:32,616 utils 11456 3720 (0.156) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:19:32,776 utils 11456 3720 (0.159) UPDATE `django_session` SET `session_data` = '.eJxVjDsOwjAQBe_iGln2Gv8o6XMGa9cfHEC2FCcV4u4QKQW0b2beiwXc1hq2kZcwJ3Zhkp1-N8L4yG0H6Y7t1nnsbV1m4rvCDzr41FN-Xg_376DiqN9a6aisJF3Ia7DeSuXg7DFZ0ORBGBlBKGkxORAOYhHCWEGQC8loMjr2_gCsrjbT:1uSnpM:ALU2qutkihUQiMwxN92XqxH6jdqA6MSZHZQcwoAgO3Q', `expire_date` = '2025-07-05 02:19:32.460374' WHERE `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6'; args=('.eJxVjDsOwjAQBe_iGln2Gv8o6XMGa9cfHEC2FCcV4u4QKQW0b2beiwXc1hq2kZcwJ3Zhkp1-N8L4yG0H6Y7t1nnsbV1m4rvCDzr41FN-Xg_376DiqN9a6aisJF3Ia7DeSuXg7DFZ0ORBGBlBKGkxORAOYhHCWEGQC8loMjr2_gCsrjbT:1uSnpM:ALU2qutkihUQiMwxN92XqxH6jdqA6MSZHZQcwoAgO3Q', '2025-07-05 02:19:32.460374', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:19:32,948 utils 11456 3720 (0.170) COMMIT; args=None; alias=default
+INFO 2025-06-20 20:19:33,107 basehttp 11456 3720 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+DEBUG 2025-06-20 20:19:33,270 utils 11456 3720 (0.157) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:19:33.112790' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:19:33.112790', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:19:33,431 utils 11456 3720 (0.159) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:19:33,614 utils 11456 3720 (0.175) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1 ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,); alias=default
+INFO 2025-06-20 20:19:33,618 basehttp 11456 3720 "GET /admin/ HTTP/1.1" 200 9381
+DEBUG 2025-06-20 20:19:36,905 utils 11456 3720 (0.158) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:19:36.746625' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:19:36.746625', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:19:37,067 utils 11456 3720 (0.158) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:19:37,226 utils 11456 3720 (0.158) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:19:37,384 utils 11456 3720 (0.156) SELECT COUNT(*) AS `__count` FROM `tienda_inventario`; args=(); alias=default
+DEBUG 2025-06-20 20:19:37,543 utils 11456 3720 (0.157) SELECT COUNT(*) AS `__count` FROM `tienda_inventario`; args=(); alias=default
+DEBUG 2025-06-20 20:19:37,711 utils 11456 3720 (0.165) SELECT `tienda_inventario`.`id`, `tienda_inventario`.`producto_id`, `tienda_inventario`.`cantidad`, `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url`, `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_inventario` INNER JOIN `tienda_producto` ON (`tienda_inventario`.`producto_id` = `tienda_producto`.`id`) INNER JOIN `tienda_categoria` ON (`tienda_producto`.`categoria_id` = `tienda_categoria`.`id`) ORDER BY `tienda_inventario`.`id` DESC; args=(); alias=default
+INFO 2025-06-20 20:19:37,720 basehttp 11456 3720 "GET /admin/tienda/inventario/ HTTP/1.1" 200 10531
+DEBUG 2025-06-20 20:19:37,919 utils 11456 3720 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:19:37.763703' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:19:37.763703', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:19:38,082 utils 11456 3720 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:19:38,085 basehttp 11456 3720 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:22:45,041 utils 11456 3720 (0.158) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:22:45,201 utils 11456 3720 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:22:42.640548' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:22:42.640548', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:22:45,361 utils 11456 3720 (0.158) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:22:45,915 utils 11456 3720 (0.551) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:22:46,077 utils 11456 3720 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:22:46,255 utils 11456 3720 (0.176) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:22:46,578 utils 11456 3720 (0.320) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url`, `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_producto` INNER JOIN `tienda_categoria` ON (`tienda_producto`.`categoria_id` = `tienda_categoria`.`id`) ORDER BY `tienda_producto`.`id` DESC; args=(); alias=default
+DEBUG 2025-06-20 20:22:46,787 utils 11456 3720 (0.157) SELECT DISTINCT `tienda_producto`.`dietas` FROM `tienda_producto` ORDER BY `tienda_producto`.`dietas` ASC; args=(); alias=default
+INFO 2025-06-20 20:22:46,789 basehttp 11456 3720 "GET /admin/tienda/producto/ HTTP/1.1" 200 17409
+DEBUG 2025-06-20 20:22:47,800 utils 11456 3720 (0.967) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:22:46.832807' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:22:46.832807', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:22:47,976 utils 11456 3720 (0.174) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:22:47,981 basehttp 11456 3720 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:22:59,787 utils 11456 3720 (0.157) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:22:59.629489' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:22:59.629489', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:22:59,946 utils 11456 3720 (0.157) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:23:00,106 utils 11456 3720 (0.158) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:23:00,274 utils 11456 3720 (0.161) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tienda' AND `django_content_type`.`model` = 'producto') LIMIT 21; args=('tienda', 'producto'); alias=default
+DEBUG 2025-06-20 20:23:00,434 utils 11456 3720 (0.159) COMMIT; args=None; alias=default
+DEBUG 2025-06-20 20:23:00,789 utils 11456 3720 (0.158) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+INFO 2025-06-20 20:23:00,822 basehttp 11456 3720 "GET /admin/tienda/producto/add/ HTTP/1.1" 200 16339
+INFO 2025-06-20 20:23:00,959 basehttp 11456 3720 "GET /static/admin/css/forms.css HTTP/1.1" 200 8794
+INFO 2025-06-20 20:23:00,974 basehttp 11456 17392 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-06-20 20:23:00,986 basehttp 11456 3720 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11564
+INFO 2025-06-20 20:23:01,022 basehttp 11456 3720 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-06-20 20:23:01,063 basehttp 11456 3720 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+DEBUG 2025-06-20 20:23:02,179 utils 11456 9268 (0.162) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:23:02,345 utils 11456 9268 (0.165) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:23:02,508 utils 11456 9268 (0.161) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:23:00.866980' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:23:00.866980', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:23:02,669 utils 11456 9268 (0.159) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:23:02,672 basehttp 11456 9268 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:23:06,435 utils 11456 9268 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:23:06.275967' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:23:06.275967', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:23:06,597 utils 11456 9268 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:23:06,762 utils 11456 9268 (0.162) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:23:06,924 utils 11456 9268 (0.160) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:23:07,084 utils 11456 9268 (0.159) SELECT COUNT(*) AS `__count` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-20 20:23:07,454 utils 11456 9268 (0.367) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url`, `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_producto` INNER JOIN `tienda_categoria` ON (`tienda_producto`.`categoria_id` = `tienda_categoria`.`id`) ORDER BY `tienda_producto`.`id` DESC; args=(); alias=default
+DEBUG 2025-06-20 20:23:07,633 utils 11456 9268 (0.160) SELECT DISTINCT `tienda_producto`.`dietas` FROM `tienda_producto` ORDER BY `tienda_producto`.`dietas` ASC; args=(); alias=default
+INFO 2025-06-20 20:23:07,635 basehttp 11456 9268 "GET /admin/tienda/producto/ HTTP/1.1" 200 17409
+DEBUG 2025-06-20 20:23:44,026 utils 11456 9268 (0.544) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:23:43.481317' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:23:43.481317', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:23:44,189 utils 11456 9268 (0.162) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:23:44,352 utils 11456 9268 (0.161) SELECT COUNT(*) AS `__count` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:23:46,038 utils 11456 9268 (1.685) SELECT COUNT(*) AS `__count` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-20 20:23:46,782 utils 11456 9268 (0.741) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` ORDER BY `tienda_categoria`.`id` DESC; args=(); alias=default
+INFO 2025-06-20 20:23:46,797 basehttp 11456 9268 "GET /admin/tienda/categoria/ HTTP/1.1" 200 12273
+DEBUG 2025-06-20 20:23:47,005 utils 11456 9268 (0.160) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:23:46.844164' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:23:46.844164', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:23:47,167 utils 11456 9268 (0.160) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:23:47,170 basehttp 11456 9268 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+DEBUG 2025-06-20 20:23:52,826 utils 11456 9268 (0.161) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:23:52.664996' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:23:52.664996', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:23:53,365 utils 11456 9268 (0.537) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:23:53,911 utils 11456 9268 (0.544) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:23:54,077 utils 11456 9268 (0.162) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tienda' AND `django_content_type`.`model` = 'categoria') LIMIT 21; args=('tienda', 'categoria'); alias=default
+DEBUG 2025-06-20 20:23:54,614 utils 11456 9268 (0.536) COMMIT; args=None; alias=default
+INFO 2025-06-20 20:23:54,812 basehttp 11456 9268 "GET /admin/tienda/categoria/add/ HTTP/1.1" 200 10725
+DEBUG 2025-06-20 20:23:55,016 utils 11456 9268 (0.166) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:23:54.849540' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:23:54.849540', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:23:55,560 utils 11456 9268 (0.542) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:23:55,563 basehttp 11456 9268 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+INFO 2025-06-20 20:24:03,036 basehttp 11456 20072 "GET /panel/productos/ HTTP/1.1" 302 0
+INFO 2025-06-20 20:24:03,043 basehttp 11456 20072 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+WARNING 2025-06-20 20:24:03,147 log 11456 20072 Not Found: /favicon.ico
+WARNING 2025-06-20 20:24:03,148 basehttp 11456 20072 "GET /favicon.ico HTTP/1.1" 404 5493
+DEBUG 2025-06-20 20:24:13,917 utils 11456 9268 (0.550) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:24:14,494 utils 11456 9268 (0.577) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:24:11.642630' AND `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6') LIMIT 21; args=('2025-06-21 02:24:11.642630', 'b2ufwirzkhx3vniyggh23hl0gi3273t6'); alias=default
+DEBUG 2025-06-20 20:24:14,652 utils 11456 9268 (0.156) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:24:14,812 utils 11456 9268 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'b2ufwirzkhx3vniyggh23hl0gi3273t6' LIMIT 21; args=('b2ufwirzkhx3vniyggh23hl0gi3273t6',); alias=default
+DEBUG 2025-06-20 20:24:14,972 utils 11456 9268 (0.159) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('b2ufwirzkhx3vniyggh23hl0gi3273t6'); args=('b2ufwirzkhx3vniyggh23hl0gi3273t6',); alias=default
+INFO 2025-06-20 20:24:14,974 basehttp 11456 9268 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-06-20 20:24:14,981 basehttp 11456 9268 "GET /accounts/login/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:24:39,580 basehttp 11456 15528 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:24:40,501 basehttp 11456 15528 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:24:40,603 basehttp 11456 15528 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:24:40,865 basehttp 11456 15528 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:24:41,512 basehttp 11456 15528 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+INFO 2025-06-20 20:24:43,820 basehttp 11456 15528 "GET /panel/productos/ HTTP/1.1" 302 0
+INFO 2025-06-20 20:24:43,827 basehttp 11456 15528 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+DEBUG 2025-06-20 20:24:49,787 utils 11456 15528 (0.153) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:24:49,941 utils 11456 15528 (0.152) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:24:50,095 utils 11456 15528 (0.153) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'admin' LIMIT 21; args=('admin',); alias=default
+DEBUG 2025-06-20 20:24:51,254 utils 11456 15528 (0.156) SELECT 1 AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'tyhwufnfyj2mkthfv3w73zebr0b37pfi' LIMIT 1; args=(1, 'tyhwufnfyj2mkthfv3w73zebr0b37pfi'); alias=default
+DEBUG 2025-06-20 20:24:51,408 utils 11456 15528 (0.152) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:24:51,562 utils 11456 15528 (0.153) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('tyhwufnfyj2mkthfv3w73zebr0b37pfi', 'e30:1uSnuV:GGzrWIaQtA1oeD6ZmkQfxn2YAiGxFP1kkVWr9zEL9Ik', '2025-07-05 02:24:51.256283'); args=('tyhwufnfyj2mkthfv3w73zebr0b37pfi', 'e30:1uSnuV:GGzrWIaQtA1oeD6ZmkQfxn2YAiGxFP1kkVWr9zEL9Ik', '2025-07-05 02:24:51.256283'); alias=default
+DEBUG 2025-06-20 20:24:51,716 utils 11456 15528 (0.153) COMMIT; args=None; alias=default
+DEBUG 2025-06-20 20:24:52,029 utils 11456 15528 (0.160) UPDATE `auth_user` SET `last_login` = '2025-06-21 02:24:51.868734' WHERE `auth_user`.`id` = 1; args=('2025-06-21 02:24:51.868734', 1); alias=default
+DEBUG 2025-06-20 20:24:52,185 utils 11456 15528 (0.155) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:24:52,340 utils 11456 15528 (0.153) UPDATE `django_session` SET `session_data` = '.eJxVjDsOwjAQBe_iGln2Gv8o6XMGa9cfHEC2FCcV4u4QKQW0b2beiwXc1hq2kZcwJ3Zhkp1-N8L4yG0H6Y7t1nnsbV1m4rvCDzr41FN-Xg_376DiqN9a6aisJF3Ia7DeSuXg7DFZ0ORBGBlBKGkxORAOYhHCWEGQC8loMjr2_gCsrjbT:1uSnuW:V_WEgCbjgK8lMZz4ITNQFgmHiGdBsIJ1YGp7wYFybpw', `expire_date` = '2025-07-05 02:24:52.030520' WHERE `django_session`.`session_key` = 'tyhwufnfyj2mkthfv3w73zebr0b37pfi'; args=('.eJxVjDsOwjAQBe_iGln2Gv8o6XMGa9cfHEC2FCcV4u4QKQW0b2beiwXc1hq2kZcwJ3Zhkp1-N8L4yG0H6Y7t1nnsbV1m4rvCDzr41FN-Xg_376DiqN9a6aisJF3Ia7DeSuXg7DFZ0ORBGBlBKGkxORAOYhHCWEGQC8loMjr2_gCsrjbT:1uSnuW:V_WEgCbjgK8lMZz4ITNQFgmHiGdBsIJ1YGp7wYFybpw', '2025-07-05 02:24:52.030520', 'tyhwufnfyj2mkthfv3w73zebr0b37pfi'); alias=default
+DEBUG 2025-06-20 20:24:52,495 utils 11456 15528 (0.154) COMMIT; args=None; alias=default
+INFO 2025-06-20 20:24:52,648 basehttp 11456 15528 "POST /accounts/login/?next=/panel/productos/ HTTP/1.1" 302 0
+DEBUG 2025-06-20 20:24:52,805 utils 11456 15528 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:24:52.651900' AND `django_session`.`session_key` = 'tyhwufnfyj2mkthfv3w73zebr0b37pfi') LIMIT 21; args=('2025-06-21 02:24:52.651900', 'tyhwufnfyj2mkthfv3w73zebr0b37pfi'); alias=default
+DEBUG 2025-06-20 20:24:52,983 utils 11456 15528 (0.177) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:24:52,986 basehttp 11456 15528 "GET /panel/productos/ HTTP/1.1" 200 5827
+DEBUG 2025-06-20 20:25:21,763 utils 11456 15528 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:25:21.608396' AND `django_session`.`session_key` = 'tyhwufnfyj2mkthfv3w73zebr0b37pfi') LIMIT 21; args=('2025-06-21 02:25:21.608396', 'tyhwufnfyj2mkthfv3w73zebr0b37pfi'); alias=default
+DEBUG 2025-06-20 20:25:21,917 utils 11456 15528 (0.151) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:25:22,085 utils 11456 15528 (0.157) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1 ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,); alias=default
+INFO 2025-06-20 20:25:22,089 basehttp 11456 15528 "GET /admin/ HTTP/1.1" 200 9381
+DEBUG 2025-06-20 20:25:25,577 utils 11456 15528 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:25:25.424403' AND `django_session`.`session_key` = 'tyhwufnfyj2mkthfv3w73zebr0b37pfi') LIMIT 21; args=('2025-06-21 02:25:25.424403', 'tyhwufnfyj2mkthfv3w73zebr0b37pfi'); alias=default
+DEBUG 2025-06-20 20:25:25,740 utils 11456 15528 (0.161) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-20 20:25:25,893 utils 11456 15528 (0.151) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:25:26,055 utils 11456 15528 (0.157) COMMIT; args=None; alias=default
+DEBUG 2025-06-20 20:25:26,369 utils 11456 15528 (0.152) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+INFO 2025-06-20 20:25:26,376 basehttp 11456 15528 "GET /admin/tienda/producto/add/ HTTP/1.1" 200 16339
+INFO 2025-06-20 20:25:26,420 basehttp 11456 8884 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+DEBUG 2025-06-20 20:25:26,558 utils 11456 15528 (0.154) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:25:26.403943' AND `django_session`.`session_key` = 'tyhwufnfyj2mkthfv3w73zebr0b37pfi') LIMIT 21; args=('2025-06-21 02:25:26.403943', 'tyhwufnfyj2mkthfv3w73zebr0b37pfi'); alias=default
+DEBUG 2025-06-20 20:25:26,719 utils 11456 15528 (0.159) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:25:26,723 basehttp 11456 15528 "GET /admin/jsi18n/ HTTP/1.1" 200 8691
+INFO 2025-06-20 20:34:06,108 autoreload 11456 13604 C:\Users\HP\OneDrive - Universidad De La Salle Bajio\Universidad\5to Semestre\Modelos Abstractos\Proyecto\RecetasChidas\RecetasChidas\tienda\presentation\views.py changed, reloading.
+INFO 2025-06-20 20:34:07,747 autoreload 4660 16932 Watching for file changes with StatReloader
+DEBUG 2025-06-20 20:34:10,319 utils 4660 17996 (0.157) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:34:10,483 utils 4660 17996 (0.162) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:34:10,645 utils 4660 17996 (0.161) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:34:10,814 utils 4660 17996 (0.159) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-20 20:34:18,295 autoreload 4660 16932 C:\Users\HP\OneDrive - Universidad De La Salle Bajio\Universidad\5to Semestre\Modelos Abstractos\Proyecto\RecetasChidas\RecetasChidas\tienda\presentation\views.py changed, reloading.
+INFO 2025-06-20 20:34:19,732 autoreload 17512 19616 Watching for file changes with StatReloader
+DEBUG 2025-06-20 20:34:22,422 utils 17512 11484 (0.160) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:34:23,481 utils 17512 11484 (1.057) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:34:25,143 utils 17512 11484 (1.661) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:34:25,310 utils 17512 11484 (0.161) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-20 20:34:53,733 basehttp 17512 19816 "GET /panel/productos/ HTTP/1.1" 302 0
+INFO 2025-06-20 20:34:53,756 basehttp 17512 19816 "GET /accounts/login/?next=/panel/productos/ HTTP/1.1" 200 5257
+DEBUG 2025-06-20 20:35:10,508 utils 17512 19816 (0.704) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-20 20:35:10,668 utils 17512 19816 (0.158) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-20 20:35:10,825 utils 17512 19816 (0.156) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'admin' LIMIT 21; args=('admin',); alias=default
+DEBUG 2025-06-20 20:35:12,530 utils 17512 19816 (0.632) SELECT 1 AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'xjgo7xujgxeqq7hzos69gbv5exk6x60q' LIMIT 1; args=(1, 'xjgo7xujgxeqq7hzos69gbv5exk6x60q'); alias=default
+DEBUG 2025-06-20 20:35:12,688 utils 17512 19816 (0.157) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:35:13,304 utils 17512 19816 (0.615) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('xjgo7xujgxeqq7hzos69gbv5exk6x60q', 'e30:1uSo4W:FaVuVi1h0XMeBK6g60YvOkrTXczWxdyUWjewCDhaCPE', '2025-07-05 02:35:12.531677'); args=('xjgo7xujgxeqq7hzos69gbv5exk6x60q', 'e30:1uSo4W:FaVuVi1h0XMeBK6g60YvOkrTXczWxdyUWjewCDhaCPE', '2025-07-05 02:35:12.531677'); alias=default
+DEBUG 2025-06-20 20:35:13,466 utils 17512 19816 (0.160) COMMIT; args=None; alias=default
+DEBUG 2025-06-20 20:35:13,787 utils 17512 19816 (0.162) UPDATE `auth_user` SET `last_login` = '2025-06-21 02:35:13.624413' WHERE `auth_user`.`id` = 1; args=('2025-06-21 02:35:13.624413', 1); alias=default
+DEBUG 2025-06-20 20:35:13,948 utils 17512 19816 (0.159) BEGIN; args=None; alias=default
+DEBUG 2025-06-20 20:35:14,124 utils 17512 19816 (0.174) UPDATE `django_session` SET `session_data` = '.eJxVjDsOwjAQBe_iGln2Gv8o6XMGa9cfHEC2FCcV4u4QKQW0b2beiwXc1hq2kZcwJ3Zhkp1-N8L4yG0H6Y7t1nnsbV1m4rvCDzr41FN-Xg_376DiqN9a6aisJF3Ia7DeSuXg7DFZ0ORBGBlBKGkxORAOYhHCWEGQC8loMjr2_gCsrjbT:1uSo4X:mxj1emBpLK7Tyl2KjP1Yo2Zhn7i8joJhmMPqD1FdAY0', `expire_date` = '2025-07-05 02:35:13.789632' WHERE `django_session`.`session_key` = 'xjgo7xujgxeqq7hzos69gbv5exk6x60q'; args=('.eJxVjDsOwjAQBe_iGln2Gv8o6XMGa9cfHEC2FCcV4u4QKQW0b2beiwXc1hq2kZcwJ3Zhkp1-N8L4yG0H6Y7t1nnsbV1m4rvCDzr41FN-Xg_376DiqN9a6aisJF3Ia7DeSuXg7DFZ0ORBGBlBKGkxORAOYhHCWEGQC8loMjr2_gCsrjbT:1uSo4X:mxj1emBpLK7Tyl2KjP1Yo2Zhn7i8joJhmMPqD1FdAY0', '2025-07-05 02:35:13.789632', 'xjgo7xujgxeqq7hzos69gbv5exk6x60q'); alias=default
+DEBUG 2025-06-20 20:35:14,286 utils 17512 19816 (0.161) COMMIT; args=None; alias=default
+INFO 2025-06-20 20:35:14,445 basehttp 17512 19816 "POST /accounts/login/?next=/panel/productos/ HTTP/1.1" 302 0
+DEBUG 2025-06-20 20:35:14,607 utils 17512 19816 (0.157) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 02:35:14.450667' AND `django_session`.`session_key` = 'xjgo7xujgxeqq7hzos69gbv5exk6x60q') LIMIT 21; args=('2025-06-21 02:35:14.450667', 'xjgo7xujgxeqq7hzos69gbv5exk6x60q'); alias=default
+DEBUG 2025-06-20 20:35:14,767 utils 17512 19816 (0.157) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-20 20:35:14,770 basehttp 17512 19816 "GET /panel/productos/ HTTP/1.1" 200 5827
+WARNING 2025-06-20 20:39:04,366 log 17512 19816 Not Found: /favicon.ico
+WARNING 2025-06-20 20:39:04,368 basehttp 17512 19816 "GET /favicon.ico HTTP/1.1" 404 5493
