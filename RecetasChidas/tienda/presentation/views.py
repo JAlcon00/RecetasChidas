@@ -239,7 +239,7 @@ def pagina_principal(request):
         })
     except Exception as e:
         logger.error(f"❌ Error cargando página principal: {e}")
-        return render(request, 'tienda/pagina_principal.html', {
+        return render(request, 'tienda/usuario/pagina_principal.html', {
             'categorias': [],
             'productos': []
         })
