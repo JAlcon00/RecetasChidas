@@ -36,7 +36,9 @@
     {% if usuario and usuario.tipo == 'administrador' %} 
     <nav>
         <div>
-            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+            <a href="{% url 'pagina_principal' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+            </a>
         </div>
         <div>
             <button class="nav-btn">

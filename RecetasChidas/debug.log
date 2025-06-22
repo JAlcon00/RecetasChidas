@@ -11090,3 +11090,455 @@ DEBUG 2025-06-21 17:44:46,360 utils 30296 44704 (0.155)
             WHERE table_schema = DATABASE()
             ; args=None; alias=default
 DEBUG 2025-06-21 17:44:46,579 utils 30296 44704 (0.215) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+DEBUG 2025-06-21 17:44:52,866 utils 30296 30052 (0.155) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-21 17:44:53,410 utils 30296 30052 (0.543) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:44:53,566 utils 30296 30052 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:44:51.085349' AND `django_session`.`session_key` = '9txwtrcxhzxbjtrpvv8nkmvq7np5np5o') LIMIT 21; args=('2025-06-21 23:44:51.085349', '9txwtrcxhzxbjtrpvv8nkmvq7np5np5o'); alias=default
+DEBUG 2025-06-21 17:44:53,723 utils 30296 30052 (0.156) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:44:53,879 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:44:53,889 basehttp 30296 30052 "GET /producto/detalle/3 HTTP/1.1" 200 2509
+INFO 2025-06-21 17:44:53,953 basehttp 30296 30052 "GET /static/tienda/css/css_detail_product.css HTTP/1.1" 200 2713
+DEBUG 2025-06-21 17:45:53,872 utils 30296 30052 (0.154) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:45:54,028 utils 30296 30052 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '9txwtrcxhzxbjtrpvv8nkmvq7np5np5o' LIMIT 21; args=('9txwtrcxhzxbjtrpvv8nkmvq7np5np5o',); alias=default
+DEBUG 2025-06-21 17:45:54,187 utils 30296 30052 (0.158) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('9txwtrcxhzxbjtrpvv8nkmvq7np5np5o'); args=('9txwtrcxhzxbjtrpvv8nkmvq7np5np5o',); alias=default
+INFO 2025-06-21 17:45:54,187 basehttp 30296 30052 "POST /logout/ HTTP/1.1" 302 0
+INFO 2025-06-21 17:45:54,201 basehttp 30296 30052 "GET / HTTP/1.1" 200 1675
+DEBUG 2025-06-21 17:46:00,651 utils 30296 30052 (0.155) SELECT `tienda_usuario`.`id`, `tienda_usuario`.`nombre`, `tienda_usuario`.`correo_electronico`, `tienda_usuario`.`contrasena`, `tienda_usuario`.`tipo_usuario` FROM `tienda_usuario` WHERE `tienda_usuario`.`correo_electronico` = 'c.jesusalmanza@gmail.com' LIMIT 21; args=('c.jesusalmanza@gmail.com',); alias=default
+DEBUG 2025-06-21 17:46:00,811 utils 30296 30052 (0.155) SELECT 1 AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a' LIMIT 1; args=(1, '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:46:00,968 utils 30296 30052 (0.156) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 17:46:01,124 utils 30296 30052 (0.156) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('1xjn2z28nbfpayorgx2xu0r0xhlj8x3a', '.eJyrViotLk0sysyPz0xRsjLUgXPz8nOTilKVrJQqM4tLi5UQEiWZBflA4eSczNS8klSlWgAh6xfm:1uT7uK:xA3kv3CpsezawyKm_PByAWLMqaeumhtFG-A6eMVaFcM', '2025-07-05 23:46:00.811973'); args=('1xjn2z28nbfpayorgx2xu0r0xhlj8x3a', '.eJyrViotLk0sysyPz0xRsjLUgXPz8nOTilKVrJQqM4tLi5UQEiWZBflA4eSczNS8klSlWgAh6xfm:1uT7uK:xA3kv3CpsezawyKm_PByAWLMqaeumhtFG-A6eMVaFcM', '2025-07-05 23:46:00.811973'); alias=default
+DEBUG 2025-06-21 17:46:01,282 utils 30296 30052 (0.157) COMMIT; args=None; alias=default
+INFO 2025-06-21 17:46:01,438 basehttp 30296 30052 "POST / HTTP/1.1" 302 0
+DEBUG 2025-06-21 17:46:01,597 utils 30296 30052 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:46:01.441474' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:46:01.441474', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:46:01,756 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-21 17:46:01,915 utils 30296 30052 (0.158) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-21 17:46:02,071 utils 30296 30052 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-06-21 17:46:02,227 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:46:02,384 utils 30296 30052 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:46:02,539 utils 30296 30052 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:46:02,695 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:46:02,851 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:46:03,006 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:46:03,162 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:46:03,317 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:46:03,476 utils 30296 30052 (0.158) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:46:03,631 utils 30296 30052 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:46:03,787 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:46:03,943 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:46:04,102 utils 30296 30052 (0.155) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
+DEBUG 2025-06-21 17:46:04,257 utils 30296 30052 (0.155) SELECT COUNT(*) FROM tienda_producto; args=None; alias=default
+INFO 2025-06-21 17:46:04,264 basehttp 30296 30052 "GET /home/ HTTP/1.1" 200 11119
+INFO 2025-06-21 17:46:04,306 basehttp 30296 30052 "GET /static/tienda/css/css_pagina_principal.css HTTP/1.1" 200 2070
+DEBUG 2025-06-21 17:46:06,007 utils 30296 30052 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:46:05.850773' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:46:05.850773', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:46:06,163 utils 30296 30052 (0.155) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:46:06,319 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:46:06,320 basehttp 30296 30052 "GET /producto/detalle/3 HTTP/1.1" 200 2509
+INFO 2025-06-21 17:46:06,344 basehttp 30296 30052 "GET /static/tienda/css/css_detail_product.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:46:32,001 utils 30296 30052 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:46:31.844647' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:46:31.844647', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:46:32,159 utils 30296 30052 (0.156) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:46:32,315 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:46:32,318 basehttp 30296 30052 "GET /producto/detalle/3 HTTP/1.1" 200 2588
+DEBUG 2025-06-21 17:47:40,373 utils 30296 30052 (0.155) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:47:40,529 utils 30296 30052 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:47:38.990043' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:47:38.990043', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:47:40,687 utils 30296 30052 (0.157) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:47:40,845 utils 30296 30052 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:47:40,849 basehttp 30296 30052 "GET /producto/detalle/3 HTTP/1.1" 200 2348
+INFO 2025-06-21 17:47:40,880 basehttp 30296 30052 "GET /static/tienda/css/css_detail_product.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:47:57,229 utils 30296 30052 (0.154) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:47:57.074591' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:47:57.074591', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:47:57,385 utils 30296 30052 (0.156) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:47:57,541 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:47:57,544 basehttp 30296 30052 "GET /producto/detalle/3 HTTP/1.1" 200 2374
+DEBUG 2025-06-21 17:48:15,003 utils 30296 30052 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:48:14.848000' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:48:14.848000', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:48:15,161 utils 30296 30052 (0.156) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:48:15,686 utils 30296 30052 (0.524) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:48:15,691 basehttp 30296 30052 "GET /producto/detalle/3 HTTP/1.1" 200 2379
+DEBUG 2025-06-21 17:48:39,098 utils 30296 30052 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:48:38.942620' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:48:38.942620', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:48:39,256 utils 30296 30052 (0.155) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:48:39,412 utils 30296 30052 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:48:39,414 basehttp 30296 30052 "GET /producto/detalle/3 HTTP/1.1" 200 2441
+INFO 2025-06-21 17:48:39,432 basehttp 30296 30052 "GET /static/tienda/css/css_detail_product.css HTTP/1.1" 304 0
+INFO 2025-06-21 17:48:39,436 basehttp 30296 30308 "GET /static/tienda/css/css_pagina_principal.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:48:44,688 utils 30296 30308 (0.152) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-21 17:48:44,840 utils 30296 30308 (0.152) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:48:44,993 utils 30296 30308 (0.152) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:48:41.855330' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:48:41.855330', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:48:45,148 utils 30296 30308 (0.154) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:48:45,302 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:48:45,304 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 200 2441
+DEBUG 2025-06-21 17:48:47,187 utils 30296 30308 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:48:47.034305' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:48:47.034305', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:48:47,342 utils 30296 30308 (0.153) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:48:47,499 utils 30296 30308 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:48:47,502 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 200 2443
+DEBUG 2025-06-21 17:48:48,115 utils 30296 30308 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:48:47.961591' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:48:47.961591', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:48:48,270 utils 30296 30308 (0.155) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:48:48,424 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:48:48,426 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 200 2443
+DEBUG 2025-06-21 17:49:05,991 utils 30296 30308 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:49:05.838734' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:49:05.838734', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:49:06,145 utils 30296 30308 (0.153) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:49:06,299 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:49:06,302 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 200 2714
+DEBUG 2025-06-21 17:49:15,999 utils 30296 30308 (0.152) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:49:15.845758' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:49:15.845758', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:49:16,153 utils 30296 30308 (0.153) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:49:16,307 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:49:16,310 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 200 2456
+DEBUG 2025-06-21 17:49:30,689 utils 30296 30308 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:49:30.535916' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:49:30.535916', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:49:30,844 utils 30296 30308 (0.154) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:49:30,998 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:49:31,001 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 200 2458
+INFO 2025-06-21 17:49:31,030 basehttp 30296 30308 "GET /static/tienda/css/css_detail_product.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:49:47,933 utils 30296 30308 (1.948) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:49:49,176 utils 30296 30308 (1.242) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:49:44.210233' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:49:44.210233', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:49:49,411 utils 30296 30308 (0.235) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:49:49,660 utils 30296 30308 (0.248) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:49:49,662 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 200 2518
+DEBUG 2025-06-21 17:50:01,033 utils 30296 30308 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:50:00.877584' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:50:00.877584', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:50:01,189 utils 30296 30308 (0.155) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:50:01,345 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+ERROR 2025-06-21 17:50:01,468 log 30296 30308 Internal Server Error: /producto/detalle/3
+Traceback (most recent call last):
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py", line 30, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py", line 111, in detail_product_view
+    return render(request, 'tienda/detail_product.html', {'producto': producto, 'usuario': usuario})
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[0]' from 'producto.flavors[0]'
+ERROR 2025-06-21 17:50:01,474 basehttp 30296 30308 "GET /producto/detalle/3 HTTP/1.1" 500 195842
+DEBUG 2025-06-21 17:50:06,008 utils 30296 30308 (0.597) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:50:05.410464' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:50:05.410464', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:50:06,164 utils 30296 30308 (0.156) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 17:50:06,320 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+ERROR 2025-06-21 17:50:06,348 log 30296 30308 Internal Server Error: /producto/detalle/2
+Traceback (most recent call last):
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py", line 30, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py", line 111, in detail_product_view
+    return render(request, 'tienda/detail_product.html', {'producto': producto, 'usuario': usuario})
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[0]' from 'producto.flavors[0]'
+ERROR 2025-06-21 17:50:06,352 basehttp 30296 30308 "GET /producto/detalle/2 HTTP/1.1" 500 195771
+DEBUG 2025-06-21 17:50:10,951 utils 30296 30308 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:50:10.794674' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:50:10.794674', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:50:11,109 utils 30296 30308 (0.157) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 17:50:11,267 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:50:11,271 basehttp 30296 30308 "GET /producto/detalle/2 HTTP/1.1" 200 2540
+DEBUG 2025-06-21 17:50:46,801 utils 30296 30308 (0.537) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:50:47,345 utils 30296 30308 (0.544) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:50:45.040885' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:50:45.040885', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:50:47,506 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-21 17:50:47,859 utils 30296 30308 (0.353) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-21 17:50:48,016 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-06-21 17:50:48,172 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:50:48,328 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:50:48,485 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:50:48,641 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:50:49,162 utils 30296 30308 (0.520) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:50:49,318 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:50:50,210 utils 30296 30308 (0.891) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:50:50,366 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:50:50,522 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:50:50,678 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:50:50,835 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:50:51,353 utils 30296 30308 (0.518) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:50:51,512 utils 30296 30308 (0.156) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
+DEBUG 2025-06-21 17:50:51,670 utils 30296 30308 (0.157) SELECT COUNT(*) FROM tienda_producto; args=None; alias=default
+INFO 2025-06-21 17:50:51,676 basehttp 30296 30308 "GET /home/ HTTP/1.1" 200 11119
+DEBUG 2025-06-21 17:50:59,568 utils 30296 30308 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:50:59.411862' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:50:59.411862', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:50:59,724 utils 30296 30308 (0.155) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 17:51:00,241 utils 30296 30308 (0.516) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:51:00,242 basehttp 30296 30308 "GET /producto/detalle/2 HTTP/1.1" 200 2540
+INFO 2025-06-21 17:51:00,267 basehttp 30296 30308 "GET /static/tienda/css/css_detail_product.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:51:12,583 utils 30296 30308 (0.154) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:51:12.429170' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:51:12.429170', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:51:13,105 utils 30296 30308 (0.521) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 17:51:13,261 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:51:13,263 basehttp 30296 30308 "GET /producto/detalle/2 HTTP/1.1" 200 2556
+DEBUG 2025-06-21 17:51:18,483 utils 30296 30308 (0.158) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:51:18.324861' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:51:18.324861', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:51:18,643 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-21 17:51:18,950 utils 30296 30308 (0.307) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-21 17:51:19,105 utils 30296 30308 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-06-21 17:51:19,261 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:51:19,415 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:51:19,571 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:51:19,729 utils 30296 30308 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:51:19,885 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:51:20,040 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:51:20,196 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:51:20,356 utils 30296 30308 (0.159) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:51:20,516 utils 30296 30308 (0.159) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:51:20,672 utils 30296 30308 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:51:20,829 utils 30296 30308 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:51:20,984 utils 30296 30308 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:51:21,143 utils 30296 30308 (0.156) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
+DEBUG 2025-06-21 17:51:21,299 utils 30296 30308 (0.156) SELECT COUNT(*) FROM tienda_producto; args=None; alias=default
+INFO 2025-06-21 17:51:21,305 basehttp 30296 30308 "GET /home/ HTTP/1.1" 200 11119
+INFO 2025-06-21 17:51:21,329 basehttp 30296 30308 "GET /static/tienda/css/css_pagina_principal.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:51:23,872 utils 30296 30308 (0.522) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:51:23.350746' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:51:23.350746', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:51:24,028 utils 30296 30308 (0.155) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:51:24,183 utils 30296 30308 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+INFO 2025-06-21 17:51:24,184 basehttp 30296 30308 "GET /producto/detalle/7 HTTP/1.1" 200 2634
+DEBUG 2025-06-21 17:51:54,954 utils 30296 30308 (0.152) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:51:55,106 utils 30296 30308 (0.152) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:51:53.581736' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:51:53.581736', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:51:55,260 utils 30296 30308 (0.153) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 13 LIMIT 21; args=(13,); alias=default
+DEBUG 2025-06-21 17:51:55,414 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+INFO 2025-06-21 17:51:55,416 basehttp 30296 30308 "GET /producto/detalle/13 HTTP/1.1" 200 2459
+DEBUG 2025-06-21 17:52:22,229 utils 30296 30308 (0.152) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:52:22.077323' AND `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a') LIMIT 21; args=('2025-06-21 23:52:22.077323', '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); alias=default
+DEBUG 2025-06-21 17:52:22,383 utils 30296 30308 (0.153) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 15 LIMIT 21; args=(15,); alias=default
+DEBUG 2025-06-21 17:52:22,537 utils 30296 30308 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+INFO 2025-06-21 17:52:22,538 basehttp 30296 30308 "GET /producto/detalle/15 HTTP/1.1" 200 2490
+INFO 2025-06-21 17:52:22,566 basehttp 30296 30308 "GET /static/tienda/css/css_detail_product.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:58:27,621 utils 30296 45728 (0.153) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-21 17:58:27,774 utils 30296 45728 (0.152) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:58:27,928 utils 30296 45728 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '1xjn2z28nbfpayorgx2xu0r0xhlj8x3a' LIMIT 21; args=('1xjn2z28nbfpayorgx2xu0r0xhlj8x3a',); alias=default
+DEBUG 2025-06-21 17:58:28,084 utils 30296 45728 (0.154) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('1xjn2z28nbfpayorgx2xu0r0xhlj8x3a'); args=('1xjn2z28nbfpayorgx2xu0r0xhlj8x3a',); alias=default
+INFO 2025-06-21 17:58:28,084 basehttp 30296 45728 "POST /logout/ HTTP/1.1" 302 0
+INFO 2025-06-21 17:58:28,093 basehttp 30296 45728 "GET / HTTP/1.1" 200 1675
+DEBUG 2025-06-21 17:58:35,971 utils 30296 45728 (0.155) SELECT `tienda_usuario`.`id`, `tienda_usuario`.`nombre`, `tienda_usuario`.`correo_electronico`, `tienda_usuario`.`contrasena`, `tienda_usuario`.`tipo_usuario` FROM `tienda_usuario` WHERE `tienda_usuario`.`correo_electronico` = 'contact.jesusalmanza@gmail.com' LIMIT 21; args=('contact.jesusalmanza@gmail.com',); alias=default
+DEBUG 2025-06-21 17:58:36,134 utils 30296 45728 (0.153) SELECT 1 AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl' LIMIT 1; args=(1, '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 17:58:36,288 utils 30296 45728 (0.153) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 17:58:36,441 utils 30296 45728 (0.153) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('9cvmnrkd23rjljiw9d89bb0pqa11jfzl', '.eJyrViotLk0sysyPz0xRsjLWgXPz8nOTilKVrJS8UotLi5UQEiWZBflA4cSU3My8zOKSosSU_CKlWgC0axpC:1uT86W:0JR0Y4aAMLI20wJC3SraQ1ef-uJKptHJfGBqDK63fDo', '2025-07-05 23:58:36.134747'); args=('9cvmnrkd23rjljiw9d89bb0pqa11jfzl', '.eJyrViotLk0sysyPz0xRsjLWgXPz8nOTilKVrJS8UotLi5UQEiWZBflA4cSU3My8zOKSosSU_CKlWgC0axpC:1uT86W:0JR0Y4aAMLI20wJC3SraQ1ef-uJKptHJfGBqDK63fDo', '2025-07-05 23:58:36.134747'); alias=default
+DEBUG 2025-06-21 17:58:36,605 utils 30296 45728 (0.163) COMMIT; args=None; alias=default
+INFO 2025-06-21 17:58:36,758 basehttp 30296 45728 "POST / HTTP/1.1" 302 0
+DEBUG 2025-06-21 17:58:36,916 utils 30296 45728 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:58:36.762743' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-21 23:58:36.762743', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 17:58:37,081 utils 30296 45728 (0.152) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-21 17:58:37,236 utils 30296 45728 (0.154) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-21 17:58:37,390 utils 30296 45728 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-06-21 17:58:37,544 utils 30296 45728 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:58:37,698 utils 30296 45728 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:58:37,853 utils 30296 45728 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:58:38,006 utils 30296 45728 (0.152) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:58:38,160 utils 30296 45728 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:58:38,674 utils 30296 45728 (0.513) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:58:38,829 utils 30296 45728 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:58:38,982 utils 30296 45728 (0.152) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:58:39,135 utils 30296 45728 (0.152) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:58:39,290 utils 30296 45728 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:58:39,444 utils 30296 45728 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:58:39,601 utils 30296 45728 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:58:39,757 utils 30296 45728 (0.152) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
+DEBUG 2025-06-21 17:58:39,911 utils 30296 45728 (0.153) SELECT COUNT(*) FROM tienda_producto; args=None; alias=default
+INFO 2025-06-21 17:58:39,918 basehttp 30296 45728 "GET /home/ HTTP/1.1" 200 11365
+INFO 2025-06-21 17:58:39,945 basehttp 30296 45728 "GET /static/tienda/css/css_pagina_principal_admin.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:58:42,420 utils 30296 45728 (0.154) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:58:42.266262' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-21 23:58:42.266262', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 17:58:42,575 utils 30296 45728 (0.154) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:58:42,729 utils 30296 45728 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:58:42,743 basehttp 30296 45728 "GET /producto/detalle/3 HTTP/1.1" 200 2919
+INFO 2025-06-21 17:58:42,765 basehttp 30296 45728 "GET /static/tienda/css/css_detail_product_admin.css HTTP/1.1" 200 3492
+INFO 2025-06-21 17:58:42,766 basehttp 30296 38820 "GET /static/tienda/css/css_pagina_principal.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:59:23,636 utils 30296 38820 (0.156) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-21 17:59:23,791 utils 30296 38820 (0.155) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 17:59:23,947 utils 30296 38820 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:59:22.371651' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-21 23:59:22.371651', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 17:59:24,475 utils 30296 38820 (0.527) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:59:24,630 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:59:24,633 basehttp 30296 38820 "GET /producto/detalle/3 HTTP/1.1" 200 2970
+INFO 2025-06-21 17:59:24,653 basehttp 30296 38820 "GET /static/tienda/css/css_detail_product_admin.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 17:59:25,702 utils 30296 38820 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:59:25.546085' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-21 23:59:25.546085', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 17:59:25,864 utils 30296 38820 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-21 17:59:26,023 utils 30296 38820 (0.159) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-21 17:59:26,179 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-06-21 17:59:26,698 utils 30296 38820 (0.518) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:59:26,853 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 17:59:27,010 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:59:27,165 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 17:59:27,320 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:59:27,478 utils 30296 38820 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 17:59:27,635 utils 30296 38820 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:59:27,791 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:59:27,947 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:59:28,103 utils 30296 38820 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:59:28,260 utils 30296 38820 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:59:28,416 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 17:59:28,575 utils 30296 38820 (0.155) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
+DEBUG 2025-06-21 17:59:28,732 utils 30296 38820 (0.156) SELECT COUNT(*) FROM tienda_producto; args=None; alias=default
+INFO 2025-06-21 17:59:28,744 basehttp 30296 38820 "GET /home/ HTTP/1.1" 200 11416
+DEBUG 2025-06-21 17:59:31,878 utils 30296 38820 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 23:59:31.721810' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-21 23:59:31.721810', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 17:59:32,034 utils 30296 38820 (0.155) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 17:59:32,190 utils 30296 38820 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 17:59:32,192 basehttp 30296 38820 "GET /producto/detalle/3 HTTP/1.1" 200 2970
+DEBUG 2025-06-21 18:00:11,805 utils 30296 38820 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-22 00:00:11.649812' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-22 00:00:11.649812', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 18:00:11,962 utils 30296 38820 (0.156) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 18:00:12,118 utils 30296 38820 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 18:00:12,119 basehttp 30296 38820 "GET /producto/detalle/3 HTTP/1.1" 200 2970
+INFO 2025-06-21 18:00:12,140 basehttp 30296 38820 "GET /static/tienda/css/css_detail_product_admin.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 18:00:40,203 utils 30296 18576 (0.154) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-21 18:00:40,356 utils 30296 18576 (0.152) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 18:00:40,509 utils 30296 18576 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-22 00:00:38.836125' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-22 00:00:38.836125', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 18:00:40,663 utils 30296 18576 (0.153) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto` WHERE `tienda_producto`.`id` = 3 LIMIT 21; args=(3,); alias=default
+DEBUG 2025-06-21 18:00:40,817 utils 30296 18576 (0.153) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+INFO 2025-06-21 18:00:40,827 basehttp 30296 18576 "GET /producto/detalle/3 HTTP/1.1" 200 2888
+INFO 2025-06-21 18:00:40,843 basehttp 30296 18576 "GET /static/tienda/css/css_detail_product_admin.css HTTP/1.1" 304 0
+DEBUG 2025-06-21 18:02:02,493 utils 30296 18576 (0.154) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 18:02:02,650 utils 30296 18576 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-22 00:02:01.107756' AND `django_session`.`session_key` = '9cvmnrkd23rjljiw9d89bb0pqa11jfzl') LIMIT 21; args=('2025-06-22 00:02:01.107756', '9cvmnrkd23rjljiw9d89bb0pqa11jfzl'); alias=default
+DEBUG 2025-06-21 18:02:02,810 utils 30296 18576 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria`; args=(); alias=default
+DEBUG 2025-06-21 18:02:02,966 utils 30296 18576 (0.156) SELECT `tienda_producto`.`id`, `tienda_producto`.`nombre`, `tienda_producto`.`descripcion`, `tienda_producto`.`precio`, `tienda_producto`.`categoria_id`, `tienda_producto`.`tipo`, `tienda_producto`.`dietas`, `tienda_producto`.`preferencia_sabor`, `tienda_producto`.`image_url` FROM `tienda_producto`; args=(); alias=default
+DEBUG 2025-06-21 18:02:03,123 utils 30296 18576 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-06-21 18:02:03,279 utils 30296 18576 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 18:02:03,435 utils 30296 18576 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-06-21 18:02:03,590 utils 30296 18576 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 18:02:03,747 utils 30296 18576 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 7 LIMIT 21; args=(7,); alias=default
+DEBUG 2025-06-21 18:02:03,902 utils 30296 18576 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 18:02:04,058 utils 30296 18576 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-06-21 18:02:04,214 utils 30296 18576 (0.156) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 18:02:04,372 utils 30296 18576 (0.157) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 18:02:04,528 utils 30296 18576 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 18:02:04,683 utils 30296 18576 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 18:02:04,838 utils 30296 18576 (0.154) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 18:02:04,993 utils 30296 18576 (0.155) SELECT `tienda_categoria`.`id`, `tienda_categoria`.`nombre`, `tienda_categoria`.`descripcion` FROM `tienda_categoria` WHERE `tienda_categoria`.`id` = 6 LIMIT 21; args=(6,); alias=default
+DEBUG 2025-06-21 18:02:05,151 utils 30296 18576 (0.155) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
+DEBUG 2025-06-21 18:02:05,306 utils 30296 18576 (0.155) SELECT COUNT(*) FROM tienda_producto; args=None; alias=default
+INFO 2025-06-21 18:02:05,312 basehttp 30296 18576 "GET /home/ HTTP/1.1" 200 11416
+INFO 2025-06-21 18:02:25,823 basehttp 30296 18576 "GET / HTTP/1.1" 200 1675
+INFO 2025-06-21 18:03:47,898 autoreload 30296 47880 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py changed, reloading.
+INFO 2025-06-21 18:03:48,806 autoreload 34696 33972 Watching for file changes with StatReloader
+DEBUG 2025-06-21 18:03:50,758 utils 34696 32336 (0.155) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-21 18:03:50,913 utils 34696 32336 (0.155) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 18:03:51,070 utils 34696 32336 (0.157) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-21 18:03:51,233 utils 34696 32336 (0.159) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default

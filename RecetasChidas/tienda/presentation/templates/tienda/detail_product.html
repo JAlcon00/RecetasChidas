@@ -8,45 +8,90 @@
     <link rel="stylesheet" href="{% static 'tienda/css/css_detail_product.css' %}">
     <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
   {% endif %}
+  {% if usuario and usuario.tipo == 'administrador' %}
+    <link rel="stylesheet" href="{% static 'tienda/css/css_detail_product_admin.css' %}">
+    <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
+  {% endif %}
 {% endblock css %}
 
 {% block content %}
-  <!-- Título debajo del navbar -->
-  <div class="titulo-detalle">Detalles del producto</div>
+  {% if usuario.tipo == 'cliente' %}
+    <!-- Título debajo del navbar -->
+    <div class="titulo-detalle">Detalles del producto</div>
 
-  <!-- Contenido principal del producto -->
-  <div class="container">
-    <div class="imagen-producto">
-      <img
-        src="{{ producto.image_url }}"
-        alt="Producto"
-      />
-    </div>
-    <div class="info-producto">
-      <h2>{{ producto.name }}</h2>
-
-      <!-- Etiquetas -->
-      <div class="etiquetas">
-        <span class="etiqueta">{{ producto.category.name }}</span>
-        {% for dieta in producto.diets %}
-            <span class="etiqueta">{{ dieta }}</span>
-        {% endfor %}
-        {% for sabor in producto.flavors %}
-            <span class="etiqueta">{{ sabor }}</span>
-        {% endfor %}
+    <!-- Contenido principal del producto -->
+    <div class="container">
+      <div class="imagen-producto">
+        <img
+          src="{{ producto.image_url }}"
+          alt="Producto"
+        />
       </div>
+      <div class="info-producto">
+        <h2>{{ producto.name }}</h2>
 
-      <p>
-        {{ producto.description }}
-      </p>
+        <!-- Etiquetas -->
+        <div class="etiquetas">
+          <span class="etiqueta">{{ producto.category.name }}</span>
+          {% for dieta in producto.diets %}
+              <span class="etiqueta">{{ dieta }}</span>
+          {% endfor %}
+          {% for sabor in producto.flavors %}
+              <span class="etiqueta">{{ sabor }}</span>
+          {% endfor %}
+        </div>
+
+        <p>
+          {{ producto.description }}
+        </p>
 
 
-      <p class="precio">${{ producto.price }} MXN</p>
+        <p class="precio">${{ producto.price }} MXN</p>
 
-      <button class="boton-carrito">
-        <i class="fas fa-shopping-cart"></i> Agregar al carrito
-      </button>
+        <button class="boton-carrito">
+          <i class="fas fa-shopping-cart"></i> Agregar al carrito
+        </button>
+      </div>
     </div>
-  </div>
+  {% endif %}
+
+  {% if usuario.tipo == 'administrador' %}
+    <!-- TÍTULO -->
+    <div class="titulo-detalle">Detalles del producto</div>
+
+    <!-- DETALLE DEL PRODUCTO -->
+    <div class="container">
+      <div class="imagen-producto">
+        <img src="{{ producto.image_url }}" alt="Producto" />
+      </div>
+      <div class="info-producto">
+        <h2>{{ producto.name }}</h2>
+
+        <div class="etiquetas">
+          <span class="etiqueta">{{ producto.category.name }}</span>
+          {% for dieta in producto.diets %}
+              <span class="etiqueta">{{ dieta }}</span>
+          {% endfor %}
+          {% for sabor in producto.flavors %}
+              <span class="etiqueta">{{ sabor }}</span>
+          {% endfor %}
+        </div>
+
+        <p>{{ producto.description }}</p>
+
+        <p class="precio">${{ producto.price }} MXN</p>
+
+        <button class="boton-carrito">
+          <i class="fas fa-shopping-cart"></i> Agregar al carrito
+        </button>
+      </div>
+    </div>
+
+    <!-- BOTONES DE ACCIÓN -->
+    <div class="acciones">
+      <button>Editar</button>
+      <button>Eliminar</button>
+    </div>
+  {% endif %}
 {% endblock content %}
 
