@@ -16,6 +16,18 @@ class CategoriaRepositorio:
             )
             for categoria in categorias
         ]
+    
+    @staticmethod
+    def obtener_por_id(categoria_id: int) -> Optional[CategoriaEntity]:
+        try:
+            categoria = Categoria.objects.get(id=categoria_id)
+            return CategoriaEntity(
+                id=categoria.id,
+                name=categoria.nombre,
+                description=categoria.descripcion
+            )
+        except Categoria.DoesNotExist:
+            return None
 
 class ProductoRepositorio:
     """Repositorio básico para la entidad Producto."""
@@ -42,6 +54,7 @@ class ProductoRepositorio:
             for producto in productos
         ]
     
+    @staticmethod
     def obtener_producto_por_id(producto_id: int) -> Optional[ProductoEntity]:
         try:
             producto = Producto.objects.get(id=producto_id)
@@ -62,6 +75,25 @@ class ProductoRepositorio:
             )
         except Producto.DoesNotExist:
             return None
+    
+    @staticmethod
+    def crear(**kwargs):
+        """Método para crear un nuevo producto"""
+        producto = Producto.objects.create(**kwargs)
+        return producto
+    
+    @staticmethod
+    def actualizar(producto, **kwargs):
+        """Método para actualizar un producto"""
+        for key, value in kwargs.items():
+            setattr(producto, key, value)
+        producto.save()
+        return producto
+    
+    @staticmethod
+    def eliminar(producto):
+        """Método para eliminar un producto"""
+        producto.delete()
 
 class InventarioRepositorio:
     """Repositorio básico para la entidad Inventario."""
@@ -82,6 +114,20 @@ class UsuarioRepositorio:
         return []
     
     @staticmethod
+    def obtener_por_id(usuario_id: int) -> Optional[UsuarioEntity]:
+        try:
+            usuario = Usuario.objects.get(id=usuario_id)
+            return UsuarioEntity(
+                id=usuario.id,
+                nombre=usuario.nombre,
+                correo_electronico=usuario.correo_electronico,
+                contrasena='',
+                tipo_usuario=usuario.tipo_usuario
+            )
+        except Usuario.DoesNotExist:
+            return None
+    
+    @staticmethod
     def buscar_por_email_y_password(email, password):
         try:
             user = Usuario.objects.get(correo_electronico=email)
@@ -96,3 +142,16 @@ class UsuarioRepositorio:
         except Usuario.DoesNotExist:
             return None
         return None
+    
+    @staticmethod
+    def actualizar(usuario, **kwargs):
+        """Método para actualizar un usuario"""
+        for key, value in kwargs.items():
+            setattr(usuario, key, value)
+        usuario.save()
+        return usuario
+    
+    @staticmethod
+    def eliminar(usuario):
+        """Método para eliminar un usuario"""
+        usuario.delete()

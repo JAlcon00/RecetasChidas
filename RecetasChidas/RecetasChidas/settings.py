@@ -97,6 +97,14 @@ DATABASES = {
     }
 }
 
+# Configuración para tests
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',
+    }
+
 DATABASES['default']['CONN_MAX_AGE'] = 60
 
 # Password validation

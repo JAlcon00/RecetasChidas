@@ -32,11 +32,8 @@ def usuario_requerido(view_func):
 
 def login_view(request):
     logger.info("🔐 Acceso a página de login")
-<<<<<<< HEAD
     if request.session.get('usuario_id'):
         return redirect('pagina_principal')
-=======
->>>>>>> 6ec95c5 (Resolver conflictos y finalizar merge)
     
     if request.method == 'POST':
         email = request.POST.get('email', '')
