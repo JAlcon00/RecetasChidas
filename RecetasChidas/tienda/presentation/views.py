@@ -6,19 +6,20 @@ from django.db import connection
 from django.http import JsonResponse
 import logging
 
-from tienda.services.inventario_sevice import InventarioService
 from tienda.persistence.models import Categoria, Producto, Inventario, Usuario
 from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioForm
 
 from tienda.services.usuario_service import UsuarioService
 from tienda.services.categoria_service import CategoriaService
 from tienda.services.producto_service import ProductoService
+from tienda.services.inventario_sevice import InventarioService
 from functools import wraps
 from django.shortcuts import redirect
 
 usuario_service = UsuarioService()
 categoria_service = CategoriaService()
 producto_service = ProductoService()
+inventario_service = InventarioService()
 
 logger = logging.getLogger('tienda')
 
@@ -27,6 +28,14 @@ def usuario_requerido(view_func):
     def _wrapped_view(request, *args, **kwargs):
         if not request.session.get('usuario_id'):
             return redirect('login_view')
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
+def administrador_requerido(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args,**kwargs):
+        if request.session.get('usuario_tipo') != 'administrador':
+            return redirect('pagina_principal')
         return view_func(request, *args, **kwargs)
     return _wrapped_view
 
@@ -111,6 +120,63 @@ def detail_product_view(request, id):
             'tipo': request.session.get('usuario_tipo')
         }
     return render(request, 'tienda/detail_product.html', {'producto': producto, 'usuario': usuario})
+
+@usuario_requerido
+@administrador_requerido
+def product_admin_view(request):
+    productos = producto_service.obtener_productos()
+    inventarios = inventario_service.obtener_inventarios()
+    usuario = {
+        'id': request.session.get('usuario_id'),
+        'nombre': request.session.get('usuario_nombre'),
+        'tipo': request.session.get('usuario_tipo')
+    }
+    return render(request, 'tienda/product_admin.html', {'productos': productos, 'inventarios': inventarios, 'usuario': usuario})
+
+@usuario_requerido
+@administrador_requerido
+def edit_product_view(request, id):
+    producto = producto_service.obtener_producto_por_id(id)
+    usuario = {
+        'id': request.session.get('usuario_id'),
+        'nombre': request.session.get('usuario_nombre'),
+        'tipo': request.session.get('usuario_tipo')
+    }
+    categorias = categoria_service.obtener_categorias()
+    inventario = inventario_service.obtener_inventario_por_producto(producto.id)
+
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        descripcion = request.POST.get('descripcion')
+        precio = request.POST.get('precio')
+        categoria_nombre = request.POST.get('categoria')
+        tipo = request.POST.get('tipo')
+        dietas = request.POST.getlist('dieta')
+        preferencia = request.POST.get('preferencia')
+        imagen_url = request.POST.get('imagen')
+        cantidad = request.POST.get('inventario')
+
+        categoria = next((c for c in categorias if c.name == categoria_nombre), None)
+
+        producto_service.actualizar_producto(
+            id=producto.id,
+            nombre=nombre,
+            descripcion=descripcion,
+            precio=precio,
+            categoria=categoria,
+            tipo=tipo,
+            dietas=','.join(dietas),
+            preferencia_sabor=preferencia,
+            imagen_url=imagen_url
+        )
+
+        # Actualizar inventario si aplica
+        if inventario and cantidad is not None:
+            inventario_service.actualizar_inventario(inventario, cantidad=cantidad)
+
+        return redirect('product_admin')
+
+    return render(request, 'tienda/edit_product.html', {'producto': producto, 'usuario': usuario, 'categorias': categorias, 'inventario': inventario})
 
 # Vistas de Categoría
 @login_required
@@ -333,11 +399,6 @@ def principal_admin_view(request):
     return render(request, 'tienda/principal_admin.html')
 
 @login_required
-def product_admin_view(request):
-    productos = ProductoService.obtener_productos()
-    return render(request, 'tienda/product_admin.html', {'productos': productos})
-
-@login_required
 def product_detail_admin_view(request, id):
     producto = get_object_or_404(Producto, id=id)
     return render(request, 'tienda/product_detail_admin.html', {'producto': producto})
@@ -347,15 +408,3 @@ def category_view(request):
     categorias = CategoriaService.obtener_categorias()
     return render(request, 'tienda/category.html', {'categorias': categorias})
 
-@login_required
-def edit_product_view(request):
-    producto_id = request.GET.get('id')
-    producto = get_object_or_404(Producto, id=producto_id) if producto_id else None
-    if request.method == 'POST' and producto:
-        form = ProductoForm(request.POST, instance=producto)
-        if form.is_valid():
-            form.save()
-            return redirect('product_admin')
-    else:
-        form = ProductoForm(instance=producto) if producto else ProductoForm()
-    return render(request, 'tienda/edit_product.html', {'form': form, 'producto': producto})

@@ -1,6 +1,6 @@
 from typing import List, Optional
-from tienda.domain.schemas import UsuarioEntity, CategoriaEntity, ProductoEntity
-from tienda.persistence.models import Usuario, Categoria, Producto
+from tienda.domain.schemas import UsuarioEntity, CategoriaEntity, ProductoEntity, InventarioEntity
+from tienda.persistence.models import Usuario, Categoria, Producto, Inventario
 
 
 class CategoriaRepositorio:
@@ -28,6 +28,42 @@ class CategoriaRepositorio:
             )
         except Categoria.DoesNotExist:
             return None
+        
+    @staticmethod
+    def crear_categoria(categoriaEntity: CategoriaEntity) -> CategoriaEntity:
+        # Crear una nueva categoria
+        categoria = Categoria.objects.create(
+            nombre=categoriaEntity.name,
+            description=categoriaEntity.description
+        )
+        return CategoriaEntity(
+            id=categoria.id,
+            name=categoria.nombre,
+            description=categoria.descripcion
+        )
+    
+    @staticmethod
+    def actualizar_categoria(categoriaEntity: CategoriaEntity) -> CategoriaEntity:
+        # Actualizar una categoria existente
+        categoria = Categoria.objects.get(id=categoriaEntity.id)
+        categoria.nombre = categoriaEntity.name
+        categoria.descripcion = categoriaEntity.description
+        categoria.save()
+        return CategoriaEntity(
+            id=categoria.id,
+            name=categoria.nombre,
+            description=categoria.descripcion
+        )
+    
+    @staticmethod
+    def eliminar_categoria(categoria_id: int) -> bool:
+        # Eliminar una categoria de la base de datos
+        try:
+            categoria = Categoria.objects.get(id=categoria_id)
+            categoria.delete()
+            return True
+        except Categoria.DoesNotExist:
+            return False
 
 class ProductoRepositorio:
     """Repositorio básico para la entidad Producto."""
@@ -77,17 +113,19 @@ class ProductoRepositorio:
             return None
     
     @staticmethod
+    def actualizar(producto:ProductoEntity) -> ProductoEntity:
+        """Método para actualizar un producto"""
+        producto = Producto.objects.get(id=producto.id)
+        producto.nombre = producto.name
+        producto.descripcion = producto.description
+
+        producto.save()
+        return producto
+
+    @staticmethod
     def crear(**kwargs):
         """Método para crear un nuevo producto"""
         producto = Producto.objects.create(**kwargs)
-        return producto
-    
-    @staticmethod
-    def actualizar(producto, **kwargs):
-        """Método para actualizar un producto"""
-        for key, value in kwargs.items():
-            setattr(producto, key, value)
-        producto.save()
         return producto
     
     @staticmethod
@@ -96,13 +134,56 @@ class ProductoRepositorio:
         producto.delete()
 
 class InventarioRepositorio:
-    """Repositorio básico para la entidad Inventario."""
-    def __init__(self):
-        pass
-
-    def obtener_todos(self):
-        # Método de ejemplo para obtener todos los inventarios
-        return []
+    @staticmethod
+    def obtener_todos() -> List[InventarioEntity]:
+        inventarios = Inventario.objects.all()
+        return [
+            InventarioEntity(
+                id=inventario.id,
+                product=ProductoEntity(
+                    id=inventario.producto.id,
+                    name=inventario.producto.nombre,
+                    description=inventario.producto.descripcion,
+                    price=inventario.producto.precio,
+                    category=CategoriaEntity(
+                        id=inventario.producto.categoria.id,
+                        name=inventario.producto.categoria.nombre,
+                        description=inventario.producto.categoria.descripcion
+                    ),
+                    type=inventario.producto.tipo,
+                    diets=inventario.producto.dietas.split(',') if inventario.producto.dietas else [],
+                    flavors=inventario.producto.preferencia_sabor.split(',') if inventario.producto.preferencia_sabor else [],
+                    image_url=inventario.producto.image_url
+                ),
+                quantity=inventario.cantidad
+            ) for inventario in inventarios
+        ]
+    
+    @staticmethod
+    def obtener_por_producto(producto_id: int) -> Optional[InventarioEntity]:
+        try:
+            inventario = Inventario.objects.get(producto_id=producto_id)
+            return InventarioEntity(
+                id=inventario.id,
+                product=ProductoEntity(
+                    id=inventario.producto.id,
+                    name=inventario.producto.nombre,
+                    description=inventario.producto.descripcion,
+                    price=inventario.producto.precio,
+                    category=CategoriaEntity(
+                        id=inventario.producto.categoria.id,
+                        name=inventario.producto.categoria.nombre,
+                        description=inventario.producto.categoria.descripcion
+                    ),
+                    type=inventario.producto.tipo,
+                    diets=inventario.producto.dietas.split(',') if inventario.producto.dietas else [],
+                    flavors=inventario.producto.preferencia_sabor.split(',') if inventario.producto.preferencia_sabor else [],
+                    image_url=inventario.producto.image_url
+                ),
+                quantity=inventario.cantidad
+            )
+        except Inventario.DoesNotExist:
+            return None
 
 class UsuarioRepositorio:
     """Repositorio básico para la entidad Usuario."""

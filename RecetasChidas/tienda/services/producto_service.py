@@ -11,6 +11,15 @@ class ProductoService:
     
     def obtener_producto_por_id(self, producto_id):
         return self.repository.obtener_producto_por_id(producto_id)
+    
+    def actualizar_producto(self, id, nombre=None, descripcion=None, precio=None, categoria=None, tipo=None, dietas=None, preferencia_sabor=None, imagen_url=None):
+        producto = self.repository.obtener_producto_por_id(id)
+        if not producto:
+            return None
+        campos = {}
+        producto = self.repository.obtener_producto_por_id(id)
+
+        return self.repository.actualizar(producto=producto)
 
     @staticmethod
     def registrar_producto(nombre, descripcion, precio, categoria, tipo, dietas='', preferencia_sabor='', imagen_url='https://example.com/default.jpg'):

@@ -6,17 +6,57 @@
 {% block css %}
   {% if usuario and usuario.tipo == 'cliente'%}
     <link rel="stylesheet" href="{% static 'tienda/css/css_detail_product.css' %}">
-    <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
+    
   {% endif %}
-<<<<<<< HEAD
   {% if usuario and usuario.tipo == 'administrador' %}
     <link rel="stylesheet" href="{% static 'tienda/css/css_detail_product_admin.css' %}">
-    <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
   {% endif %}
 {% endblock css %}
 
+{% block navbar_admin %}
+  <nav>
+    <div class="nav-left">
+      <a href="{% url "pagina_principal" %}" class="nav-link">
+        <i class="fas fa-arrow-left"></i> Volver
+      </a>
+    </div>
+    <div>
+      <a href="{% url "product_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-box"></i> Productos +
+        </button>
+      </a>
+    </div>
+    <div class="nav-center">
+      <h1 class="nav-title">Tienda Comida</h1>
+    </div>
+    <div>
+      <button class="nav-btn">
+        <i class="fas fa-tags"></i> Categorías +
+      </button>
+    </div>
+    <div class="nav-right">
+      <a href="{% url "pagina_principal" %}">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+      </a>
+    </div>
+  </nav>
+{% endblock navbar_admin %}
+
 {% block content %}
   {% if usuario.tipo == 'cliente' %}
+    <nav>
+      <div class="nav-left">
+        <a href="{% url "pagina_principal" %}"><i class="fas fa-arrow-left"></i> Volver</a>
+      </div>
+      <div class="nav-center">Tienda Comida</div>
+      <div class="nav-right">
+        <a href="{% url "pagina_principal" %}">
+          <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+        </a>
+      </div>
+    </nav>
+
     <!-- Título debajo del navbar -->
     <div class="titulo-detalle">Detalles del producto</div>
 
@@ -27,39 +67,10 @@
           src="{{ producto.image_url }}"
           alt="Producto"
         />
-=======
-{% endblock css %}
-
-{% block content %}
-  <!-- Título debajo del navbar -->
-  <div class="titulo-detalle">Detalles del producto</div>
-
-  <!-- Contenido principal del producto -->
-  <div class="container">
-    <div class="imagen-producto">
-      <img
-        src="{{ producto.image_url }}"
-        alt="Producto"
-      />
-    </div>
-    <div class="info-producto">
-      <h2>{{ producto.name }}</h2>
-
-      <!-- Etiquetas -->
-      <div class="etiquetas">
-        <span class="etiqueta">{{ producto.category.name }}</span>
-        {% for dieta in producto.diets %}
-            <span class="etiqueta">{{ dieta }}</span>
-        {% endfor %}
-        {% for sabor in producto.flavors %}
-            <span class="etiqueta">{{ sabor }}</span>
-        {% endfor %}
->>>>>>> 6ec95c5 (Resolver conflictos y finalizar merge)
       </div>
       <div class="info-producto">
         <h2>{{ producto.name }}</h2>
 
-<<<<<<< HEAD
         <!-- Etiquetas -->
         <div class="etiquetas">
           <span class="etiqueta">{{ producto.category.name }}</span>
@@ -75,14 +86,6 @@
           {{ producto.description }}
         </p>
 
-=======
-      <p>
-        {{ producto.description }}
-      </p>
-
-
-      <p class="precio">${{ producto.price }} MXN</p>
->>>>>>> 6ec95c5 (Resolver conflictos y finalizar merge)
 
         <p class="precio">${{ producto.price }} MXN</p>
 
@@ -91,7 +94,6 @@
         </button>
       </div>
     </div>
-<<<<<<< HEAD
   {% endif %}
 
   {% if usuario.tipo == 'administrador' %}
@@ -128,12 +130,11 @@
 
     <!-- BOTONES DE ACCIÓN -->
     <div class="acciones">
-      <button>Editar</button>
+      <a href="{% url "edit_product" producto.id %}">
+        <button>Editar</button>
+      </a>
       <button>Eliminar</button>
     </div>
   {% endif %}
-=======
-  </div>
->>>>>>> 6ec95c5 (Resolver conflictos y finalizar merge)
 {% endblock content %}
 

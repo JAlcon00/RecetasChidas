@@ -8,13 +8,52 @@
         <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
     {% endif %}
 
-    {% if usuario and usuario.tipo == 'administrador' %} 
+    {% if usuario and usuario.tipo == 'administrador' %}
         <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal_admin.css' %}">
     {% endif %}
-
 {% endblock css %}
 
 {% block content %}
+    {% if usuario.tipo == 'cliente' %}
+        <nav>
+            <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+            </div>
+            <div>
+                <h1>Tienda Comida</h1>
+            </div>
+            <div>
+                <a href="{% url "logout" %}">Cerrar Sesión</a>
+            </div>
+        </nav>
+    {% endif %}
+
+    {% if usuario.tipo == 'administrador' %}
+        <nav>
+            <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo">
+            </div>
+            <div>
+                <a href="{% url "product_admin" %}">
+                    <button class="nav-btn">
+                        <i class="fas fa-box"></i> Productos +
+                    </button>
+                </a>
+            </div>
+            <div>
+                <h1>Tienda Comida</h1>
+            </div>
+            <div>
+                <button class="nav-btn">
+                    <i class="fas fa-tags"></i> Categorías +
+                </button>
+            </div>
+            <div>
+                <a href="{% url "logout" %}">Cerrar Sesión</a>
+            </div>
+        </nav>
+    {% endif %}
+    
     <!-- Imagen principal -->
     <div class="hero">
         <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1400&q=80" alt="Imagen principal">

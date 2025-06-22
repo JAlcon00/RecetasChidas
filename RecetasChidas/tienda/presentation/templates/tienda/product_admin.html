@@ -1,265 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Mis Productos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+{% extends "tienda/base.html" %}
+{% load static %}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #3a8dff, #6fb1fc);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+{% block title %}Productos{% endblock title %}
 
-    nav {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      flex-wrap: wrap;
-    }
+{% block css %}
+  <link rel="stylesheet" href="{% static 'tienda/css/css_product_admin.css' %}">
+{% endblock css %}
 
-    nav > div {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-left {
-      justify-content: flex-start;
-    }
-
-    .nav-center {
-      justify-content: center;
-    }
-
-    .nav-right {
-      justify-content: flex-end;
-      gap: 1rem;
-    }
-
-    .nav-title {
-      font-size: 2rem;
-      color: #3a8dff;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .nav-btn {
-      background-color: #3A8DFF;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.9rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-btn:hover {
-      background-color: #2f6fd9;
-    }
-
-    .nav-icon {
-      height: 40px;
-    }
-
-    .nav-link {
-      color: #3a8dff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-link i {
-      margin-right: 6px;
-    }
-
-    @media screen and (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-      .nav-title {
-        font-size: 1.5rem;
-      }
-    }
-
-    .logout {
-      background-color: #FF4C4C;
-    }
-
-    .logout:hover {
-      background-color: #e63b3b;
-    }
-
-
-    .contenido {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .encabezado-agregar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      background-color: white;
-      padding: 1rem 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .encabezado-agregar span {
-      font-size: 1.3rem;
-      color: #3a8dff;
-    }
-
-    .agregar-btn {
-      background-color: #3A8DFF;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      padding: 0.6rem 1.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .agregar-btn:hover {
-      background-color: #2f6fd9;
-    }
-
-    .card {
-      display: flex;
-      background-color: white;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 250px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      flex: 1;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-content h2 {
-      color: #3a8dff;
-      margin: 0 0 0.5rem;
-    }
-
-    .card-content p {
-      margin: 0.3rem 0;
-    }
-
-    .etiquetas span {
-      display: inline-block;
-      background-color: #e0ecff;
-      color: #3a8dff;
-      padding: 0.3rem 0.8rem;
-      margin: 0.2rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-    }
-
-    .cantidad-control {
-      display: flex;
-      align-items: center;
-      margin-top: 1rem;
-      gap: 1rem;
-    }
-
-    .cantidad-control button {
-      padding: 0.5rem 1rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 50%;
-      background-color: #3a8dff;
-      color: white;
-      cursor: pointer;
-    }
-
-    .cantidad {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .eliminar-btn {
-      margin-top: 1rem;
-      align-self: flex-start;
-      background-color: #FF4C4C;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    .eliminar-btn:hover {
-      background-color: #e63b3b;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: transparent;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-      .card {
-        flex-direction: column;
-      }
-      .card img {
-        width: 100%;
-        height: 200px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-
-  <!-- NAVBAR -->
+{% block navbar_admin %}
   <nav>
     <div class="nav-left">
-      <a href="#" class="nav-link">
+      <a href="{% url "pagina_principal" %}" class="nav-link">
         <i class="fas fa-arrow-left"></i> Volver
       </a>
     </div>
     <div>
-      <button class="nav-btn">
-        <i class="fas fa-box"></i> Productos +
-      </button>
+      <a href="{% url "product_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-box"></i> Productos +
+        </button>
+      </a>
     </div>
     <div class="nav-center">
       <h1 class="nav-title">Tienda Comida</h1>
@@ -270,13 +30,19 @@
       </button>
     </div>
     <div class="nav-right">
-      <button class="nav-btn logout">
-        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-      </button>
-      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+      <a href="{% url "logout" %}">
+        <button class="nav-btn logout">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+      </a>
+      <a href="{% url "pagina_principal" %}">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+      </a>
     </div>
   </nav>
+{% endblock navbar_admin %}
 
+{% block content %}
   <div class="contenido">
     <div class="encabezado-agregar">
       <span>¿Desea agregar un nuevo producto?</span>
@@ -285,24 +51,35 @@
 
     {% for producto in productos %}
       <div class="card">
-        <img src="{{ producto.imagen_url }}" alt="{{ producto.nombre }}">
+        <img src="{{ producto.image_url }}" alt="{{ producto.nombre }}">
         <div class="card-content">
-          <h2>{{ producto.nombre }}</h2>
+          <h2>{{ producto.name }}</h2>
           <div class="etiquetas">
-            <span>{{ producto.tipo }}</span>
-            <span>{{ producto.categoria }}</span>
-            <span>{{ producto.dietas }}</span>
-            <span>{{ producto.preferencia_sabor }}</span>
+            <span>{{ producto.type }}</span>
+            <span>{{ producto.category.name }}</span>
+            {% for dieta in producto.diets %}
+              <span>{{ dieta }}</span>
+            {% endfor %}
+            {% for flavor in producto.flavors %}
+              <span>{{ flavor }}</span>
+            {% endfor %}
           </div>
-          <p>{{ producto.descripcion }}</p>
-          <p><strong>Precio:</strong> ${{ producto.precio }} MXN</p>
-          <p><strong>Stock:</strong> {{ producto.stock }}</p>
+          <p>{{ producto.description }}</p>
+          <p><strong>Precio:</strong> ${{ producto.price }} MXN</p>
+          {% if producto.type != 'comida preparada' %}
+            {% for inventario in inventarios %}
+              {% if inventario.product.id == producto.id %}
+                <p><strong>Stock:</strong> {{ inventario.quantity }}</p>
+                <div class="cantidad-control">
+                  <button>-</button>
+                  <span class="cantidad">{{ inventario.quantity }}</span>
+                  <button>+</button>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          
           <!-- Botones de acciones -->
-          <div class="cantidad-control">
-            <button>-</button>
-            <span class="cantidad">{{ producto.stock }}</span>
-            <button>+</button>
-          </div>
           <button class="eliminar-btn"><i class="fas fa-trash-alt"></i> Eliminar</button>
         </div>
       </div>
@@ -310,9 +87,4 @@
       <p>No hay productos registrados.</p>
     {% endfor %}
   </div>
-
-  <footer>
-    &copy; 2025 FoodieApp. Todos los derechos reservados.
-  </footer>
-</body>
-</html>
+{% endblock content %}

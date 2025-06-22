@@ -28,7 +28,7 @@ class ProductoEntity:
     image_url: str
 
 @dataclass
-class Inventario:
+class InventarioEntity:
     id: Optional[int]
     product: ProductoEntity
     quantity: int

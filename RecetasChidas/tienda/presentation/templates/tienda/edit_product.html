@@ -1,205 +1,27 @@
 {% extends "tienda/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Editar Producto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+{% block title %}
+  {% if producto %} Editar Producto {% else %} Crear Producto {% endif %}
+{% endblock title %}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #3a8dff, #6fb1fc);
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+{% block css %}
+  <link rel="stylesheet" href="{% static 'tienda/css/css_edit_product_admin.css' %}">
+{% endblock css %}
 
-    nav {
-      display: flex;
-      align-items: center;
-      background-color: white;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      flex-wrap: wrap;
-    }
-
-    nav > div {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-left {
-      justify-content: flex-start;
-    }
-
-    .nav-center {
-      justify-content: center;
-    }
-
-    .nav-right {
-      justify-content: flex-end;
-      gap: 1rem;
-    }
-
-    .nav-title {
-      font-size: 2rem;
-      color: #3a8dff;
-      font-weight: bold;
-      margin: 0;
-    }
-
-    .nav-btn {
-      background-color: #3A8DFF;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.9rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-btn:hover {
-      background-color: #2f6fd9;
-    }
-
-    .nav-icon {
-      height: 40px;
-    }
-
-    .nav-link {
-      color: #3a8dff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-link i {
-      margin-right: 6px;
-    }
-
-    .form-container {
-      background-color: white;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
-
-    .form-container h2 {
-      text-align: center;
-      color: #3A8DFF;
-      margin-bottom: 1.5rem;
-    }
-
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="number"],
-    textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.3rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .radio-group {
-      margin-top: 0.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .radio-group label {
-      font-weight: normal;
-    }
-
-    .radio-group input {
-      margin-right: 5px;
-    }
-
-    .submit-btn {
-      margin-top: 2rem;
-      background-color: #3A8DFF;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .submit-btn:hover {
-      background-color: #2f6fd9;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: transparent;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-      .nav-title {
-        font-size: 1.5rem;
-      }
-    }
-
-    .logout {
-      background-color: #e74c3c; /* rojo */
-    }
-
-    .logout:hover {
-      background-color: #c0392b;
-}
-
-  </style>
-</head>
-<body>
-
-  <!-- NAVBAR -->
+{% block navbar_admin %}
   <nav>
     <div class="nav-left">
-      <a href="#" class="nav-link">
+      <a href="{% url "product_admin" %}" class="nav-link">
         <i class="fas fa-arrow-left"></i> Volver
       </a>
     </div>
     <div>
-      <button class="nav-btn">
-        <i class="fas fa-box"></i> Productos +
-      </button>
+      <a href="{% url "product_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-box"></i> Productos +
+        </button>
+      </a>
     </div>
     <div class="nav-center">
       <h1 class="nav-title">Tienda Comida</h1>
@@ -210,68 +32,115 @@
       </button>
     </div>
     <div class="nav-right">
-      <button class="nav-btn logout">
-        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
-      </button>
-      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+      <a href="{% url "logout" %}">
+        <button class="nav-btn logout">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+      </a>
+      <a href="{% url "pagina_principal" %}">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+      </a>
     </div>
-
   </nav>
+{% endblock navbar_admin %}
 
-  <!-- FORMULARIO -->
+{% block content %}
+  <p>DEBUG {{ inventario }}</p>
   <div class="form-container">
     <h2>Editar Producto</h2>
-    <form>
+    <form method="POST">
+      {% csrf_token %}
       <label for="nombre">Nombre del Producto</label>
-      <input type="text" id="nombre" placeholder="Ej. Ensalada Vegana">
+      <input type="text" id="nombre" name="nombre" value="{% if producto %}{{ producto.name }}{% endif %}">
 
       <label for="descripcion">Descripción</label>
-      <textarea id="descripcion" rows="3" placeholder="Descripción del producto..."></textarea>
+      <textarea id="descripcion" rows="3" name="descripcion">{% if producto %}{{ producto.description }}{% endif %}</textarea>
 
       <label for="precio">Precio</label>
-      <input type="number" id="precio" placeholder="Ej. 129.00">
+      <input type="number" id="precio" step="0.01" name="precio" value="{% if producto %}{{ producto.price|stringformat:'g' }}{% endif %}">
 
       <label>Categoría</label>
       <div class="radio-group">
-        <label><input type="radio" name="categoria" value="Entrada"> Entrada</label>
-        <label><input type="radio" name="categoria" value="Plato Fuerte"> Plato Fuerte</label>
-        <label><input type="radio" name="categoria" value="Postre"> Postre</label>
+        {% for categoria in categorias %}
+          <label>
+            <input type="radio" name="categoria" value="{{ categoria.name }}" {% if producto and producto.category.name == categoria.name %}checked{% endif %}> 
+            {{ categoria.name }}
+          </label>
+        {% endfor %}
       </div>
 
       <label>Tipo</label>
       <div class="radio-group">
-        <label><input type="radio" name="tipo" value="Alimento"> Comida Preparada</label>
-        <label><input type="radio" name="tipo" value="Kit Cocina"> Kit de Cocina</label>
+        <label><input type="radio" name="tipo" value="Alimento" {% if producto and producto.type == 'comida preparada' %}checked{% endif %}> Comida Preparada</label>
+        <label><input type="radio" name="tipo" value="Kit Cocina" {% if producto and producto.type == 'kit de cocina' %}checked{% endif %}> Kit de Cocina</label>
       </div>
 
-      <label>Dietas</label>
-      <div class="radio-group">
-        <label><input type="radio" name="dieta" value="Vegana"> Vegana</label>
-        <label><input type="radio" name="dieta" value="Vegetariana"> Vegetariana</label>
-        <label><input type="radio" name="dieta" value="Chatarra"> Sin Gluten</label>
-        <label><input type="radio" name="dieta" value="Chatarra"> Sin Lactosa</label>
-        <label><input type="radio" name="dieta" value="Chatarra"> Keto</label>
-      </div>
+      {% if producto.type == 'comida preparada' %}
+        <label>Dietas</label>
+        <div class="radio-group">
+          <label>
+            <input type="checkbox" name="dieta" value="sin_gluten"
+              {% if producto and 'sin_gluten' in producto.diets %}checked{% endif %}>
+            Sin Gluten
+          </label>
+          <label>
+            <input type="checkbox" name="dieta" value="vegetariana"
+              {% if producto and 'vegetariana' in producto.diets %}checked{% endif %}>
+            Vegetariana
+          </label>
+          <label>
+            <input type="checkbox" name="dieta" value="vegana"
+              {% if producto and 'vegana' in producto.diets %}checked{% endif %}>
+            Vegana
+          </label>
+          <label>
+            <input type="checkbox" name="dieta" value="sin_lactosa"
+              {% if producto and 'sin_lactosa' in producto.diets %}checked{% endif %}>
+            Sin Lactosa
+          </label>
+          <label>
+            <input type="checkbox" name="dieta" value="keto"
+              {% if producto and 'keto' in producto.diets %}checked{% endif %}>
+            Keto
+          </label>
+        </div>
 
-      <label>Preferencias</label>
-      <div class="radio-group">
-        <label><input type="radio" name="preferencia" value="Salado"> Salado</label>
-        <label><input type="radio" name="preferencia" value="Dulce"> Dulce</label>
-        <label><input type="radio" name="preferencia" value="Picante"> Picante</label>
-        <label><input type="radio" name="preferencia" value="Agridulce"> Agridulce</label>
-      </div>
+        <label>Preferencias</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="preferencia" value="Salado"
+              {% if producto and producto.flavors and producto.flavors.0 == 'salado' %}checked{% endif %}>
+            Salado
+          </label>
+          <label>
+            <input type="radio" name="preferencia" value="Dulce"
+              {% if producto and producto.flavors and producto.flavors.0 == 'dulce' %}checked{% endif %}>
+            Dulce
+          </label>
+          <label>
+            <input type="radio" name="preferencia" value="Picante"
+              {% if producto and producto.flavors and producto.flavors.0 == 'picante' %}checked{% endif %}>
+            Picante
+          </label>
+          <label>
+            <input type="radio" name="preferencia" value="Agridulce"
+              {% if producto and producto.flavors and producto.flavors.0 == 'agridulce' %}checked{% endif %}>
+            Agridulce
+          </label>
+        </div>  
+      {% endif %}
 
+      {% if inventario %}
+        <label>Inventario</label>
+        <input type="number" id="inventario" name="inventario" value="{% if producto and inventario %}{{ inventario.quantity }}{% endif %}">
+      {% endif %}
+    
       <label for="imagen">Imagen (URL)</label>
-      <input type="text" id="imagen" placeholder="https://ejemplo.com/imagen.jpg">
+      <input type="text" id="imagen" name="imagen" placeholder="https://ejemplo.com/imagen.jpg"
+      value="{% if producto %}{{ producto.image_url }}{% endif %}">
 
       <button class="submit-btn" type="submit">Guardar Cambios</button>
     </form>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2025 FoodieApp. Todos los derechos reservados.
-  </footer>
-
-</body>
-</html>
+{% endblock content %}
