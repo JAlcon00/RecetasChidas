@@ -15,6 +15,11 @@ class CategoriaEntity:
     name: str
     description: str
 
+    @classmethod
+    def create(cls, name: str, description: str):
+        # Crea una instancia de la entidad CategoriaEntity
+        return cls(id=None, name=name, description=description)
+
 @dataclass
 class ProductoEntity:
     id: Optional[int]
