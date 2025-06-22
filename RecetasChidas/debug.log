@@ -2490,8 +2490,13 @@ INFO 2025-06-17 03:40:03,858 basehttp 53942 6187151360 "GET /admin/auth/user/add
 DEBUG 2025-06-17 03:40:04,014 utils 53942 6170324992 (0.144) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-17 03:40:03.870106' AND `django_session`.`session_key` = 'nwtpgv5v56l4cvb18901xfa7yw66fh0p') LIMIT 21; args=('2025-06-17 03:40:03.870106', 'nwtpgv5v56l4cvb18901xfa7yw66fh0p'); alias=default
 DEBUG 2025-06-17 03:40:04,162 utils 53942 6170324992 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
 INFO 2025-06-17 03:40:04,169 basehttp 53942 6170324992 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+<<<<<<< HEAD
 INFO 2025-06-20 17:46:55,374 autoreload 35628 36208 Watching for file changes with StatReloader
 DEBUG 2025-06-20 17:46:57,346 utils 35628 34028 (0.152) 
+=======
+INFO 2025-06-21 03:51:37,925 autoreload 93490 8615993088 Watching for file changes with StatReloader
+DEBUG 2025-06-21 03:51:39,610 utils 93490 6107705344 (0.149) 
+>>>>>>> 7ba32f3 (xd)
                 SELECT VERSION(),
                        @@sql_mode,
                        @@default_storage_engine,
@@ -2499,8 +2504,13 @@ DEBUG 2025-06-20 17:46:57,346 utils 35628 34028 (0.152)
                        @@lower_case_table_names,
                        CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
             ; args=None; alias=default
+<<<<<<< HEAD
 DEBUG 2025-06-20 17:46:57,500 utils 35628 34028 (0.153) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
 DEBUG 2025-06-20 17:46:57,656 utils 35628 34028 (0.155) 
+=======
+DEBUG 2025-06-21 03:51:39,756 utils 93490 6107705344 (0.145) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:51:39,903 utils 93490 6107705344 (0.147) 
+>>>>>>> 7ba32f3 (xd)
             SELECT
                 table_name,
                 table_type,
@@ -2508,12 +2518,33 @@ DEBUG 2025-06-20 17:46:57,656 utils 35628 34028 (0.155)
             FROM information_schema.tables
             WHERE table_schema = DATABASE()
             ; args=None; alias=default
+<<<<<<< HEAD
 DEBUG 2025-06-20 17:46:57,825 utils 35628 34028 (0.159) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
 INFO 2025-06-20 17:47:04,388 basehttp 35628 40532 "GET / HTTP/1.1" 200 4421
 WARNING 2025-06-20 17:47:05,005 log 35628 40532 Not Found: /favicon.ico
 WARNING 2025-06-20 17:47:05,007 basehttp 35628 40532 "GET /favicon.ico HTTP/1.1" 404 3452
 INFO 2025-06-20 17:47:38,913 basehttp 35628 40532 "GET /home HTTP/1.1" 301 0
 DEBUG 2025-06-20 17:47:40,630 utils 35628 38164 (0.152) 
+=======
+DEBUG 2025-06-21 03:51:40,053 utils 93490 6107705344 (0.145) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-21 03:51:46,121 views 93490 6124531712 🔐 Acceso a página de login
+INFO 2025-06-21 03:51:46,130 basehttp 93490 6124531712 "GET / HTTP/1.1" 200 4421
+WARNING 2025-06-21 03:51:46,646 log 93490 6175010816 Not Found: /apple-touch-icon.png
+WARNING 2025-06-21 03:51:46,647 log 93490 6141358080 Not Found: /apple-touch-icon-precomposed.png
+WARNING 2025-06-21 03:51:46,648 log 93490 6158184448 Not Found: /apple-touch-icon-precomposed.png
+WARNING 2025-06-21 03:51:46,648 log 93490 6124531712 Not Found: /favicon.ico
+WARNING 2025-06-21 03:51:46,649 log 93490 6191837184 Not Found: /favicon.ico
+WARNING 2025-06-21 03:51:46,649 basehttp 93490 6175010816 "GET /apple-touch-icon.png HTTP/1.1" 404 2994
+WARNING 2025-06-21 03:51:46,649 basehttp 93490 6141358080 "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3030
+WARNING 2025-06-21 03:51:46,649 basehttp 93490 6158184448 "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3030
+WARNING 2025-06-21 03:51:46,650 basehttp 93490 6191837184 "GET /favicon.ico HTTP/1.1" 404 2967
+WARNING 2025-06-21 03:51:46,650 basehttp 93490 6124531712 "GET /favicon.ico HTTP/1.1" 404 2967
+WARNING 2025-06-21 03:51:46,744 log 93490 6141358080 Not Found: /apple-touch-icon.png
+WARNING 2025-06-21 03:51:46,745 basehttp 93490 6141358080 "GET /apple-touch-icon.png HTTP/1.1" 404 2994
+INFO 2025-06-21 03:52:01,664 views 93490 6124531712 🔐 Acceso a página de login
+INFO 2025-06-21 03:52:01,667 basehttp 93490 6124531712 "GET / HTTP/1.1" 200 4421
+DEBUG 2025-06-21 03:52:03,245 utils 93490 6124531712 (0.145) 
+>>>>>>> 7ba32f3 (xd)
                 SELECT VERSION(),
                        @@sql_mode,
                        @@default_storage_engine,
@@ -2521,6 +2552,7 @@ DEBUG 2025-06-20 17:47:40,630 utils 35628 38164 (0.152)
                        @@lower_case_table_names,
                        CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
             ; args=None; alias=default
+<<<<<<< HEAD
 DEBUG 2025-06-20 17:47:40,783 utils 35628 38164 (0.153) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
 DEBUG 2025-06-20 17:47:40,936 utils 35628 38164 (0.152) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-20 23:47:38.936474' AND `django_session`.`session_key` = 'cowinu54bevt2382los88b0jh6nschkb') LIMIT 21; args=('2025-06-20 23:47:38.936474', 'cowinu54bevt2382los88b0jh6nschkb'); alias=default
 DEBUG 2025-06-20 17:47:41,116 utils 35628 38164 (0.156) SELECT COUNT(*) FROM tienda_categoria; args=None; alias=default
@@ -2529,6 +2561,86 @@ INFO 2025-06-20 17:47:41,285 basehttp 35628 38164 "GET /home/ HTTP/1.1" 200 6162
 INFO 2025-06-20 17:48:19,295 autoreload 35628 36208 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py changed, reloading.
 INFO 2025-06-20 17:48:21,321 autoreload 33120 34636 Watching for file changes with StatReloader
 DEBUG 2025-06-20 17:48:24,309 utils 33120 31724 (0.231) 
+=======
+DEBUG 2025-06-21 03:52:03,389 utils 93490 6124531712 (0.144) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:52:03,540 utils 93490 6124531712 (0.151) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:02.042881' AND `django_session`.`session_key` = 'nwtpgv5v56l4cvb18901xfa7yw66fh0p') LIMIT 21; args=('2025-06-21 03:52:02.042881', 'nwtpgv5v56l4cvb18901xfa7yw66fh0p'); alias=default
+DEBUG 2025-06-21 03:52:03,690 utils 93490 6124531712 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:52:03,835 utils 93490 6124531712 (0.144) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'nwtpgv5v56l4cvb18901xfa7yw66fh0p' LIMIT 21; args=('nwtpgv5v56l4cvb18901xfa7yw66fh0p',); alias=default
+DEBUG 2025-06-21 03:52:03,983 utils 93490 6124531712 (0.147) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('nwtpgv5v56l4cvb18901xfa7yw66fh0p'); args=('nwtpgv5v56l4cvb18901xfa7yw66fh0p',); alias=default
+INFO 2025-06-21 03:52:03,992 basehttp 93490 6124531712 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-06-21 03:52:04,033 basehttp 93490 6124531712 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4244
+DEBUG 2025-06-21 03:52:08,729 utils 93490 6124531712 (0.149) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'admin' LIMIT 21; args=('admin',); alias=default
+DEBUG 2025-06-21 03:52:09,411 utils 93490 6124531712 (0.147) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$600000$0dX55o94S7fnEknQfxzcPN$QoUzA/D7DFtEdr7/IlVFxMFNzgRFqqUGOhtyXma4Yic=' WHERE `auth_user`.`id` = 1; args=('pbkdf2_sha256$600000$0dX55o94S7fnEknQfxzcPN$QoUzA/D7DFtEdr7/IlVFxMFNzgRFqqUGOhtyXma4Yic=', 1); alias=default
+DEBUG 2025-06-21 03:52:09,559 utils 93490 6124531712 (0.147) SELECT 1 AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f' LIMIT 1; args=(1, 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:09,707 utils 93490 6124531712 (0.147) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:52:09,854 utils 93490 6124531712 (0.145) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f', 'e30:1uSpGz:x3-mE6OVIkWIlT8fZ8y4G1USk-VaEqHNUj7LtNZr6KE', '2025-07-05 03:52:09.560375'); args=('jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f', 'e30:1uSpGz:x3-mE6OVIkWIlT8fZ8y4G1USk-VaEqHNUj7LtNZr6KE', '2025-07-05 03:52:09.560375'); alias=default
+DEBUG 2025-06-21 03:52:10,004 utils 93490 6124531712 (0.149) COMMIT; args=None; alias=default
+DEBUG 2025-06-21 03:52:10,301 utils 93490 6124531712 (0.148) UPDATE `auth_user` SET `last_login` = '2025-06-21 03:52:10.152602' WHERE `auth_user`.`id` = 1; args=('2025-06-21 03:52:10.152602', 1); alias=default
+DEBUG 2025-06-21 03:52:10,449 utils 93490 6124531712 (0.147) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:52:10,595 utils 93490 6124531712 (0.145) UPDATE `django_session` SET `session_data` = '.eJxVjEEOgjAQRe_StWmmjNMBl-49A5m2g6CmTSisjHcXEha6_e-9_za9rMvYr1XnfkrmYpw5_W5B4lPzDtJD8r3YWPIyT8Huij1otbeS9HU93L-DUeq41eR8y8AQgVtoBkzOMdLZiSLSgEDdgB0JNarkmZE9qkQITSDwGzWfL5mhNhs:1uSpH0:n1ww6PecN5roZ3tqiIwIsJr8CAVkaUVn4dZ-mOdsIrQ', `expire_date` = '2025-07-05 03:52:10.302914' WHERE `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'; args=('.eJxVjEEOgjAQRe_StWmmjNMBl-49A5m2g6CmTSisjHcXEha6_e-9_za9rMvYr1XnfkrmYpw5_W5B4lPzDtJD8r3YWPIyT8Huij1otbeS9HU93L-DUeq41eR8y8AQgVtoBkzOMdLZiSLSgEDdgB0JNarkmZE9qkQITSDwGzWfL5mhNhs:1uSpH0:n1ww6PecN5roZ3tqiIwIsJr8CAVkaUVn4dZ-mOdsIrQ', '2025-07-05 03:52:10.302914', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:10,744 utils 93490 6124531712 (0.149) COMMIT; args=None; alias=default
+INFO 2025-06-21 03:52:10,889 basehttp 93490 6124531712 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+DEBUG 2025-06-21 03:52:11,047 utils 93490 6124531712 (0.145) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:10.901499' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:10.901499', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:11,195 utils 93490 6124531712 (0.147) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:52:11,362 utils 93490 6124531712 (0.150) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `auth_user` ON (`django_admin_log`.`user_id` = `auth_user`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1 ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,); alias=default
+INFO 2025-06-21 03:52:11,365 basehttp 93490 6124531712 "GET /admin/ HTTP/1.1" 200 8253
+DEBUG 2025-06-21 03:52:13,499 utils 93490 6124531712 (0.158) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:13.340710' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:13.340710', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:13,647 utils 93490 6124531712 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:52:13,796 utils 93490 6124531712 (0.146) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC; args=(); alias=default
+DEBUG 2025-06-21 03:52:13,943 utils 93490 6124531712 (0.146) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:52:14,095 utils 93490 6124531712 (0.151) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:52:14,249 utils 93490 6124531712 (0.150) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC; args=(); alias=default
+INFO 2025-06-21 03:52:14,284 basehttp 93490 6124531712 "GET /admin/auth/user/ HTTP/1.1" 200 12129
+DEBUG 2025-06-21 03:52:14,451 utils 93490 6124531712 (0.153) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:14.297113' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:14.297113', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:14,601 utils 93490 6124531712 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-21 03:52:14,611 basehttp 93490 6124531712 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+INFO 2025-06-21 03:52:14,656 basehttp 93490 6124531712 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+DEBUG 2025-06-21 03:52:22,966 utils 93490 6124531712 (0.154) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:22.811020' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:22.811020', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:23,114 utils 93490 6124531712 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:52:23,263 utils 93490 6124531712 (0.148) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:52:23,409 utils 93490 6124531712 (0.145) SAVEPOINT `s6124531712_x1`; args=None; alias=default
+DEBUG 2025-06-21 03:52:23,562 utils 93490 6124531712 (0.148) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'user') LIMIT 21; args=('auth', 'user'); alias=default
+DEBUG 2025-06-21 03:52:23,719 utils 93490 6124531712 (0.156) RELEASE SAVEPOINT `s6124531712_x1`; args=None; alias=default
+DEBUG 2025-06-21 03:52:23,865 utils 93490 6124531712 (0.146) COMMIT; args=None; alias=default
+INFO 2025-06-21 03:52:24,035 basehttp 93490 6124531712 "GET /admin/auth/user/add/ HTTP/1.1" 200 11703
+DEBUG 2025-06-21 03:52:24,192 utils 93490 6124531712 (0.145) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:24.046289' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:24.046289', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:24,340 utils 93490 6124531712 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-21 03:52:24,343 basehttp 93490 6124531712 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+DEBUG 2025-06-21 03:52:48,834 utils 93490 6124531712 (0.152) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:48.680596' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:48.680596', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:48,983 utils 93490 6124531712 (0.147) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:52:49,143 utils 93490 6124531712 (0.159) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:52:49,297 utils 93490 6124531712 (0.154) SAVEPOINT `s6124531712_x2`; args=None; alias=default
+DEBUG 2025-06-21 03:52:49,447 utils 93490 6124531712 (0.146) SELECT 1 AS `a` FROM `auth_user` WHERE `auth_user`.`username` LIKE 'Jalcon00' LIMIT 1; args=(1, 'Jalcon00'); alias=default
+DEBUG 2025-06-21 03:52:49,596 utils 93490 6124531712 (0.147) SELECT 1 AS `a` FROM `auth_user` WHERE `auth_user`.`username` = 'Jalcon00' LIMIT 1; args=(1, 'Jalcon00'); alias=default
+DEBUG 2025-06-21 03:52:49,997 utils 93490 6124531712 (0.153) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$600000$uxQlFmFQEAph8qmsAyAdej$DzyXAdoYCXgB7OeSMGlkvGmiaed1O2fPcVR4WD9RpsE=', NULL, 0, 'Jalcon00', '', '', '', 0, 1, '2025-06-21 03:52:49.299978'); args=['pbkdf2_sha256$600000$uxQlFmFQEAph8qmsAyAdej$DzyXAdoYCXgB7OeSMGlkvGmiaed1O2fPcVR4WD9RpsE=', None, False, 'Jalcon00', '', '', '', False, True, '2025-06-21 03:52:49.299978']; alias=default
+DEBUG 2025-06-21 03:52:50,143 utils 93490 6124531712 (0.145) INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2025-06-21 03:52:49.998113', 1, 4, '2', 'Jalcon00', 1, '[{\"added\": {}}]'); args=['2025-06-21 03:52:49.998113', 1, 4, '2', 'Jalcon00', 1, '[{"added": {}}]']; alias=default
+DEBUG 2025-06-21 03:52:50,299 utils 93490 6124531712 (0.145) RELEASE SAVEPOINT `s6124531712_x2`; args=None; alias=default
+DEBUG 2025-06-21 03:52:50,446 utils 93490 6124531712 (0.146) COMMIT; args=None; alias=default
+INFO 2025-06-21 03:52:50,592 basehttp 93490 6124531712 "POST /admin/auth/user/add/ HTTP/1.1" 302 0
+DEBUG 2025-06-21 03:52:50,744 utils 93490 6124531712 (0.145) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:50.598481' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:50.598481', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:50,894 utils 93490 6124531712 (0.148) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:52:51,039 utils 93490 6124531712 (0.145) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:52:51,187 utils 93490 6124531712 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 03:52:51,337 utils 93490 6124531712 (0.147) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 2; args=(2,); alias=default
+DEBUG 2025-06-21 03:52:51,492 utils 93490 6124531712 (0.153) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 2 ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2,); alias=default
+DEBUG 2025-06-21 03:52:51,640 utils 93490 6124531712 (0.145) COMMIT; args=None; alias=default
+DEBUG 2025-06-21 03:52:51,960 utils 93490 6124531712 (0.152) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC; args=(); alias=default
+DEBUG 2025-06-21 03:52:52,114 utils 93490 6124531712 (0.147) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(); alias=default
+INFO 2025-06-21 03:52:52,131 basehttp 93490 6124531712 "GET /admin/auth/user/2/change/ HTTP/1.1" 200 22974
+INFO 2025-06-21 03:52:52,149 basehttp 93490 6191837184 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+INFO 2025-06-21 03:52:52,165 basehttp 93490 6175010816 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-06-21 03:52:52,165 basehttp 93490 6141358080 "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO 2025-06-21 03:52:52,168 basehttp 93490 6158184448 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+DEBUG 2025-06-21 03:52:52,291 utils 93490 6124531712 (0.145) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:52:52.145537' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:52:52.145537', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:52:52,438 utils 93490 6124531712 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-21 03:52:52,440 basehttp 93490 6124531712 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+INFO 2025-06-21 03:52:52,476 basehttp 93490 6191837184 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-06-21 03:52:52,476 basehttp 93490 6141358080 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+INFO 2025-06-21 03:52:52,476 basehttp 93490 6175010816 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+INFO 2025-06-21 03:52:52,477 basehttp 93490 6124531712 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+INFO 2025-06-21 03:52:52,477 basehttp 93490 6158184448 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+DEBUG 2025-06-21 03:53:14,194 utils 93490 6175010816 (0.148) 
+>>>>>>> 7ba32f3 (xd)
                 SELECT VERSION(),
                        @@sql_mode,
                        @@default_storage_engine,
@@ -2536,6 +2648,7 @@ DEBUG 2025-06-20 17:48:24,309 utils 33120 31724 (0.231)
                        @@lower_case_table_names,
                        CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
             ; args=None; alias=default
+<<<<<<< HEAD
 DEBUG 2025-06-20 17:48:25,017 utils 33120 31724 (0.708) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
 DEBUG 2025-06-20 17:48:25,170 utils 33120 31724 (0.152) 
             SELECT
@@ -2557,6 +2670,23 @@ INFO 2025-06-20 18:21:24,797 autoreload 24960 27520 Watching for file changes wi
 INFO 2025-06-20 18:21:31,593 autoreload 24960 27520 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\urls.py changed, reloading.
 INFO 2025-06-20 18:21:32,710 autoreload 40552 5852 Watching for file changes with StatReloader
 DEBUG 2025-06-20 18:21:34,795 utils 40552 38608 (0.156) 
+=======
+DEBUG 2025-06-21 03:53:14,339 utils 93490 6175010816 (0.145) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:53:14,496 utils 93490 6175010816 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:12.857324' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:53:12.857324', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:53:14,646 utils 93490 6175010816 (0.148) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:53:14,794 utils 93490 6175010816 (0.148) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:53:14,941 utils 93490 6175010816 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:15,092 utils 93490 6175010816 (0.146) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 2; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:15,240 utils 93490 6175010816 (0.145) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 2 ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:15,392 utils 93490 6175010816 (0.145) SELECT 1 AS `a` FROM `auth_user` WHERE (`auth_user`.`username` = 'Jalcon00' AND NOT (`auth_user`.`id` = 2)) LIMIT 1; args=(1, 'Jalcon00', 2); alias=default
+DEBUG 2025-06-21 03:53:15,541 utils 93490 6175010816 (0.148) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$600000$uxQlFmFQEAph8qmsAyAdej$DzyXAdoYCXgB7OeSMGlkvGmiaed1O2fPcVR4WD9RpsE=', `last_login` = NULL, `is_superuser` = 0, `username` = 'Jalcon00', `first_name` = 'Jesús', `last_name` = 'Almanza', `email` = 'contact.jesusalmanza@gmail.com', `is_staff` = 0, `is_active` = 1, `date_joined` = '2025-06-21 03:52:49' WHERE `auth_user`.`id` = 2; args=('pbkdf2_sha256$600000$uxQlFmFQEAph8qmsAyAdej$DzyXAdoYCXgB7OeSMGlkvGmiaed1O2fPcVR4WD9RpsE=', False, 'Jalcon00', 'Jesús', 'Almanza', 'contact.jesusalmanza@gmail.com', False, True, '2025-06-21 03:52:49', 2); alias=default
+DEBUG 2025-06-21 03:53:15,688 utils 93490 6175010816 (0.144) SELECT `auth_group`.`id` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 2; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:15,834 utils 93490 6175010816 (0.145) SELECT `auth_permission`.`id` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 2 ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:15,980 utils 93490 6175010816 (0.144) INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2025-06-21 03:53:15.835923', 1, 4, '2', 'Jalcon00', 2, '[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\"]}}]'); args=['2025-06-21 03:53:15.835923', 1, 4, '2', 'Jalcon00', 2, '[{"changed": {"fields": ["First name", "Last name", "Email address"]}}]']; alias=default
+DEBUG 2025-06-21 03:53:16,128 utils 93490 6175010816 (0.146) COMMIT; args=None; alias=default
+INFO 2025-06-21 03:53:16,275 basehttp 93490 6175010816 "POST /admin/auth/user/2/change/ HTTP/1.1" 302 0
+DEBUG 2025-06-21 03:53:17,461 utils 93490 6158184448 (0.146) 
+>>>>>>> 7ba32f3 (xd)
                 SELECT VERSION(),
                        @@sql_mode,
                        @@default_storage_engine,
@@ -2564,6 +2694,7 @@ DEBUG 2025-06-20 18:21:34,795 utils 40552 38608 (0.156)
                        @@lower_case_table_names,
                        CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
             ; args=None; alias=default
+<<<<<<< HEAD
 DEBUG 2025-06-20 18:21:34,949 utils 40552 38608 (0.153) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
 DEBUG 2025-06-20 18:21:35,108 utils 40552 38608 (0.159) 
             SELECT
@@ -3229,10 +3360,27 @@ Traceback (most recent call last):
   File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\loader.py", line 19, in get_template
     raise TemplateDoesNotExist(template_name, chain=chain)
 django.template.exceptions.TemplateDoesNotExist: tienda/pagina_principal.html
+=======
+DEBUG 2025-06-21 03:53:17,606 utils 93490 6158184448 (0.145) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:53:17,758 utils 93490 6158184448 (0.149) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:16.285909' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:53:16.285909', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:53:17,923 utils 93490 6158184448 (0.165) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:53:18,075 utils 93490 6158184448 (0.150) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC; args=(); alias=default
+DEBUG 2025-06-21 03:53:18,224 utils 93490 6158184448 (0.146) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:53:18,375 utils 93490 6158184448 (0.149) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:53:18,528 utils 93490 6158184448 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC; args=(); alias=default
+INFO 2025-06-21 03:53:18,540 basehttp 93490 6158184448 "GET /admin/auth/user/ HTTP/1.1" 200 12757
+INFO 2025-06-21 03:53:18,556 basehttp 93490 6141358080 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+ERROR 2025-06-21 03:53:22,635 log 93490 6191837184 Internal Server Error: /admin/jsi18n/
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+>>>>>>> 7ba32f3 (xd)
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< HEAD
   File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 510, in parse
     compile_func = self.tags[command]
                    ~~~~~~~~~^^^^^^^^^
@@ -6736,10 +6884,305 @@ Traceback (most recent call last):
   File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\template\base.py", line 586, in unclosed_block_tag
     raise self.error(token, msg)
 django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 34: 'if'. Looking for one of: elif, else, endif.
+=======
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 261, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 266, in inner
+    self._setup()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 633, in get
+    num = len(clone)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+ERROR 2025-06-21 03:53:22,649 basehttp 93490 6191837184 "GET /admin/jsi18n/ HTTP/1.1" 500 298593
+DEBUG 2025-06-21 03:53:27,332 utils 93490 6158184448 (0.155) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:27.176002' AND `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f') LIMIT 21; args=('2025-06-21 03:53:27.176002', 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); alias=default
+DEBUG 2025-06-21 03:53:27,485 utils 93490 6158184448 (0.151) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:53:27,635 utils 93490 6158184448 (0.149) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f' LIMIT 21; args=('jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f',); alias=default
+DEBUG 2025-06-21 03:53:27,784 utils 93490 6158184448 (0.148) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f'); args=('jcxxmxy5qsebauqqaqjc1ncvqb4v1g5f',); alias=default
+INFO 2025-06-21 03:53:27,786 basehttp 93490 6158184448 "GET /admin/auth/user/2/change/ HTTP/1.1" 302 0
+INFO 2025-06-21 03:53:27,814 basehttp 93490 6141358080 "GET /admin/login/?next=/admin/auth/user/2/change/ HTTP/1.1" 200 4282
+DEBUG 2025-06-21 03:53:33,368 utils 93490 6191837184 (0.149) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-21 03:53:33,513 utils 93490 6191837184 (0.144) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:53:33,659 utils 93490 6191837184 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'admin' LIMIT 21; args=('admin',); alias=default
+DEBUG 2025-06-21 03:53:34,300 utils 93490 6191837184 (0.155) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$600000$JaTJHXMwzWQINymyvQrkKm$IJn1OWgLtnwt5P6DGLZJxcqvLW4WrNXCG6e/NXx5B18=' WHERE `auth_user`.`id` = 1; args=('pbkdf2_sha256$600000$JaTJHXMwzWQINymyvQrkKm$IJn1OWgLtnwt5P6DGLZJxcqvLW4WrNXCG6e/NXx5B18=', 1); alias=default
+DEBUG 2025-06-21 03:53:34,448 utils 93490 6191837184 (0.147) SELECT 1 AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0' LIMIT 1; args=(1, '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:34,594 utils 93490 6191837184 (0.145) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:53:34,740 utils 93490 6191837184 (0.145) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('457d8xhhpjbtkanqjrd8cqzh9onjg7h0', 'e30:1uSpIM:uk6_FeBjxdMDXG2Kit4biP0TZ81BnrYK3JTvPxEO3fU', '2025-07-05 03:53:34.448920'); args=('457d8xhhpjbtkanqjrd8cqzh9onjg7h0', 'e30:1uSpIM:uk6_FeBjxdMDXG2Kit4biP0TZ81BnrYK3JTvPxEO3fU', '2025-07-05 03:53:34.448920'); alias=default
+DEBUG 2025-06-21 03:53:34,888 utils 93490 6191837184 (0.147) COMMIT; args=None; alias=default
+DEBUG 2025-06-21 03:53:35,184 utils 93490 6191837184 (0.149) UPDATE `auth_user` SET `last_login` = '2025-06-21 03:53:35.034163' WHERE `auth_user`.`id` = 1; args=('2025-06-21 03:53:35.034163', 1); alias=default
+DEBUG 2025-06-21 03:53:35,331 utils 93490 6191837184 (0.145) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:53:35,476 utils 93490 6191837184 (0.145) UPDATE `django_session` SET `session_data` = '.eJxVjEEOwiAQRe_C2pCBMhRcuvcMZBhAqoYmpV0Z765NutDtf-_9lwi0rTVsPS9hSuIslDj9bpH4kdsO0p3abZY8t3WZotwVedAur3PKz8vh_h1U6vVbA0Gx4AyjHRQqAi4j68I0WnRIWaviYzY6gh8IFKWCxkWFGA24BF68P9d_N4Y:1uSpIN:XS-Sg3UF8T69U3yjNIfts-2Nq8Flv9hiIvZyVnhupB8', `expire_date` = '2025-07-05 03:53:35.186111' WHERE `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'; args=('.eJxVjEEOwiAQRe_C2pCBMhRcuvcMZBhAqoYmpV0Z765NutDtf-_9lwi0rTVsPS9hSuIslDj9bpH4kdsO0p3abZY8t3WZotwVedAur3PKz8vh_h1U6vVbA0Gx4AyjHRQqAi4j68I0WnRIWaviYzY6gh8IFKWCxkWFGA24BF68P9d_N4Y:1uSpIN:XS-Sg3UF8T69U3yjNIfts-2Nq8Flv9hiIvZyVnhupB8', '2025-07-05 03:53:35.186111', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:35,625 utils 93490 6191837184 (0.148) COMMIT; args=None; alias=default
+INFO 2025-06-21 03:53:35,770 basehttp 93490 6191837184 "POST /admin/login/?next=/admin/auth/user/2/change/ HTTP/1.1" 302 0
+DEBUG 2025-06-21 03:53:35,922 utils 93490 6175010816 (0.146) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:35.775905' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:53:35.775905', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:36,075 utils 93490 6175010816 (0.152) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:53:36,235 utils 93490 6175010816 (0.159) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:53:36,382 utils 93490 6175010816 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:36,534 utils 93490 6175010816 (0.147) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 2; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:36,684 utils 93490 6175010816 (0.147) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 2 ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:36,832 utils 93490 6175010816 (0.145) COMMIT; args=None; alias=default
+DEBUG 2025-06-21 03:53:37,138 utils 93490 6175010816 (0.145) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC; args=(); alias=default
+DEBUG 2025-06-21 03:53:37,289 utils 93490 6175010816 (0.147) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(); alias=default
+INFO 2025-06-21 03:53:37,300 basehttp 93490 6175010816 "GET /admin/auth/user/2/change/ HTTP/1.1" 200 22794
+DEBUG 2025-06-21 03:53:37,461 utils 93490 6158184448 (0.147) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:37.313520' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:53:37.313520', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:37,609 utils 93490 6158184448 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-21 03:53:37,613 basehttp 93490 6158184448 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+DEBUG 2025-06-21 03:53:40,656 utils 93490 6191837184 (0.159) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:40.496434' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:53:40.496434', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:40,805 utils 93490 6191837184 (0.148) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:53:40,954 utils 93490 6191837184 (0.147) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC; args=(); alias=default
+DEBUG 2025-06-21 03:53:41,101 utils 93490 6191837184 (0.146) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:53:41,247 utils 93490 6191837184 (0.145) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:53:41,399 utils 93490 6191837184 (0.147) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC; args=(); alias=default
+INFO 2025-06-21 03:53:41,416 basehttp 93490 6191837184 "GET /admin/auth/user/ HTTP/1.1" 200 12559
+DEBUG 2025-06-21 03:53:41,578 utils 93490 6175010816 (0.148) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:41.428846' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:53:41.428846', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:41,726 utils 93490 6175010816 (0.147) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-21 03:53:41,729 basehttp 93490 6175010816 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+ERROR 2025-06-21 03:53:47,854 log 93490 6141358080 Internal Server Error: /admin/auth/user/2/change/
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 266, in inner
+    self._setup()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 633, in get
+    num = len(clone)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+ERROR 2025-06-21 03:53:47,858 basehttp 93490 6141358080 "GET /admin/auth/user/2/change/ HTTP/1.1" 500 302838
+DEBUG 2025-06-21 03:53:54,437 utils 93490 6175010816 (0.146) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:54.290621' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:53:54.290621', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:54,587 utils 93490 6175010816 (0.147) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:53:54,733 utils 93490 6175010816 (0.145) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:53:54,883 utils 93490 6175010816 (0.147) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:55,033 utils 93490 6175010816 (0.145) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 2; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:55,180 utils 93490 6175010816 (0.145) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 2 ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2,); alias=default
+DEBUG 2025-06-21 03:53:55,328 utils 93490 6175010816 (0.145) COMMIT; args=None; alias=default
+DEBUG 2025-06-21 03:53:55,633 utils 93490 6175010816 (0.152) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC; args=(); alias=default
+DEBUG 2025-06-21 03:53:55,786 utils 93490 6175010816 (0.148) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(); alias=default
+INFO 2025-06-21 03:53:55,797 basehttp 93490 6175010816 "GET /admin/auth/user/2/change/ HTTP/1.1" 200 22794
+DEBUG 2025-06-21 03:53:55,955 utils 93490 6158184448 (0.146) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:53:55.809387' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:53:55.809387', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:53:56,107 utils 93490 6158184448 (0.150) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-21 03:53:56,112 basehttp 93490 6158184448 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+ERROR 2025-06-21 03:54:12,396 log 93490 6141358080 Internal Server Error: /admin/auth/user/2/change/
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+>>>>>>> 7ba32f3 (xd)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+<<<<<<< HEAD
   File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
   File "C:\Users\pablo\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
@@ -9261,10 +9704,152 @@ Traceback (most recent call last):
     op = OPERATORS[token]
          ~~~~~~~~~^^^^^^^
 KeyError: 'filtro==categoria.name'
+=======
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 266, in inner
+    self._setup()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 633, in get
+    num = len(clone)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+ERROR 2025-06-21 03:54:12,398 basehttp 93490 6141358080 "POST /admin/auth/user/2/change/ HTTP/1.1" 500 305208
+DEBUG 2025-06-21 03:54:16,907 utils 93490 6191837184 (0.169) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:54:16.737418' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:54:16.737418', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:54:17,054 utils 93490 6191837184 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:54:17,200 utils 93490 6191837184 (0.144) BEGIN; args=None; alias=default
+DEBUG 2025-06-21 03:54:17,349 utils 93490 6191837184 (0.148) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 2 LIMIT 21; args=(2,); alias=default
+DEBUG 2025-06-21 03:54:17,504 utils 93490 6191837184 (0.148) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 2; args=(2,); alias=default
+DEBUG 2025-06-21 03:54:17,652 utils 93490 6191837184 (0.146) SELECT `auth_permission`.`id`, `auth_permission`.`name`, `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 2 ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2,); alias=default
+DEBUG 2025-06-21 03:54:17,804 utils 93490 6191837184 (0.146) SELECT 1 AS `a` FROM `auth_user` WHERE (`auth_user`.`username` = 'Jalcon00' AND NOT (`auth_user`.`id` = 2)) LIMIT 1; args=(1, 'Jalcon00', 2); alias=default
+DEBUG 2025-06-21 03:54:17,953 utils 93490 6191837184 (0.147) UPDATE `auth_user` SET `password` = 'pbkdf2_sha256$600000$uxQlFmFQEAph8qmsAyAdej$DzyXAdoYCXgB7OeSMGlkvGmiaed1O2fPcVR4WD9RpsE=', `last_login` = '2025-06-21 03:54:00', `is_superuser` = 0, `username` = 'Jalcon00', `first_name` = 'Jesús', `last_name` = 'Almanza', `email` = 'contact.jesusalmanza@gmail.com', `is_staff` = 1, `is_active` = 1, `date_joined` = '2025-06-21 03:52:49' WHERE `auth_user`.`id` = 2; args=('pbkdf2_sha256$600000$uxQlFmFQEAph8qmsAyAdej$DzyXAdoYCXgB7OeSMGlkvGmiaed1O2fPcVR4WD9RpsE=', '2025-06-21 03:54:00', False, 'Jalcon00', 'Jesús', 'Almanza', 'contact.jesusalmanza@gmail.com', True, True, '2025-06-21 03:52:49', 2); alias=default
+DEBUG 2025-06-21 03:54:18,106 utils 93490 6191837184 (0.150) SELECT `auth_group`.`id` FROM `auth_group` INNER JOIN `auth_user_groups` ON (`auth_group`.`id` = `auth_user_groups`.`group_id`) WHERE `auth_user_groups`.`user_id` = 2; args=(2,); alias=default
+DEBUG 2025-06-21 03:54:18,256 utils 93490 6191837184 (0.146) SELECT `auth_permission`.`id` FROM `auth_permission` INNER JOIN `auth_user_user_permissions` ON (`auth_permission`.`id` = `auth_user_user_permissions`.`permission_id`) INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_user_user_permissions`.`user_id` = 2 ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2,); alias=default
+DEBUG 2025-06-21 03:54:18,406 utils 93490 6191837184 (0.145) INSERT INTO `django_admin_log` (`action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`) VALUES ('2025-06-21 03:54:18.259989', 1, 4, '2', 'Jalcon00', 2, '[{\"changed\": {\"fields\": [\"Staff status\", \"Last login\"]}}]'); args=['2025-06-21 03:54:18.259989', 1, 4, '2', 'Jalcon00', 2, '[{"changed": {"fields": ["Staff status", "Last login"]}}]']; alias=default
+DEBUG 2025-06-21 03:54:18,553 utils 93490 6191837184 (0.146) COMMIT; args=None; alias=default
+INFO 2025-06-21 03:54:18,700 basehttp 93490 6191837184 "POST /admin/auth/user/2/change/ HTTP/1.1" 302 0
+DEBUG 2025-06-21 03:54:21,691 utils 93490 6175010816 (0.156) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:54:21,843 utils 93490 6175010816 (0.151) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:54:20.510615' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:54:20.510615', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:54:21,990 utils 93490 6175010816 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:54:22,138 utils 93490 6175010816 (0.146) SELECT `auth_group`.`id`, `auth_group`.`name` FROM `auth_group` ORDER BY `auth_group`.`name` ASC; args=(); alias=default
+DEBUG 2025-06-21 03:54:22,288 utils 93490 6175010816 (0.146) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:54:22,437 utils 93490 6175010816 (0.148) SELECT COUNT(*) AS `__count` FROM `auth_user`; args=(); alias=default
+DEBUG 2025-06-21 03:54:22,586 utils 93490 6175010816 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` ORDER BY `auth_user`.`username` ASC; args=(); alias=default
+INFO 2025-06-21 03:54:22,600 basehttp 93490 6175010816 "GET /admin/auth/user/ HTTP/1.1" 200 12757
+DEBUG 2025-06-21 03:54:23,812 utils 93490 6158184448 (0.147) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:54:23,964 utils 93490 6158184448 (0.151) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:54:22.613974' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:54:22.613974', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:54:24,111 utils 93490 6158184448 (0.145) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+INFO 2025-06-21 03:54:24,115 basehttp 93490 6158184448 "GET /admin/jsi18n/ HTTP/1.1" 200 8006
+ERROR 2025-06-21 03:54:32,097 log 93490 6141358080 Internal Server Error: /admin/logout/
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+>>>>>>> 7ba32f3 (xd)
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
+<<<<<<< HEAD
   File "C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py", line 86, in pagina_principal
     return render(request, 'tienda/pagina_principal.html', {
         'categorias': categorias,
@@ -9462,6 +10047,129 @@ ERROR 2025-06-21 13:27:37,892 basehttp 24252 43876 "GET /home/ HTTP/1.1" 500 519
 INFO 2025-06-21 13:28:11,713 autoreload 24252 47544 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py changed, reloading.
 INFO 2025-06-21 13:28:13,696 autoreload 41124 48000 Watching for file changes with StatReloader
 DEBUG 2025-06-21 13:28:15,720 utils 41124 42936 (0.281) 
+=======
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 261, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 230, in inner
+    if not self.has_permission(request):
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/admin/sites.py", line 203, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 266, in inner
+    self._setup()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/functional.py", line 419, in _setup
+    self._wrapped = self._setupfunc()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 25, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/middleware.py", line 11, in get_user
+    request._cached_user = auth.get_user(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 191, in get_user
+    user_id = _get_user_session_key(request)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/auth/__init__.py", line 60, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 53, in __getitem__
+    return self._session[key]
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/contrib/sessions/backends/db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 633, in get
+    num = len(clone)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor = self.connection.cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 330, in cursor
+    return self._cursor()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 306, in _cursor
+    self.ensure_connection()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 289, in ensure_connection
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/base/base.py", line 270, in connect
+    self.connection = self.get_new_connection(conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/utils/asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/django/db/backends/mysql/base.py", line 247, in get_new_connection
+    connection = Database.connect(**conn_params)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 957, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/jesusalmanza/Library/Python/3.9/lib/python/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.OperationalError: (1226, "User 'ugainnbokjrunp1k' has exceeded the 'max_user_connections' resource (current value: 5)")
+ERROR 2025-06-21 03:54:32,099 basehttp 93490 6141358080 "POST /admin/logout/ HTTP/1.1" 500 303151
+DEBUG 2025-06-21 03:54:37,853 utils 93490 6191837184 (0.159) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 03:54:38,010 utils 93490 6191837184 (0.156) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2025-06-21 03:54:36.644755' AND `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0') LIMIT 21; args=('2025-06-21 03:54:36.644755', '457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); alias=default
+DEBUG 2025-06-21 03:54:38,159 utils 93490 6191837184 (0.146) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+DEBUG 2025-06-21 03:54:38,386 utils 93490 6191837184 (0.223) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '457d8xhhpjbtkanqjrd8cqzh9onjg7h0' LIMIT 21; args=('457d8xhhpjbtkanqjrd8cqzh9onjg7h0',); alias=default
+DEBUG 2025-06-21 03:54:38,534 utils 93490 6191837184 (0.147) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('457d8xhhpjbtkanqjrd8cqzh9onjg7h0'); args=('457d8xhhpjbtkanqjrd8cqzh9onjg7h0',); alias=default
+INFO 2025-06-21 03:54:38,536 basehttp 93490 6191837184 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-06-21 03:54:40,002 views 93490 6175010816 🔐 Acceso a página de login
+INFO 2025-06-21 03:54:40,002 basehttp 93490 6175010816 "GET / HTTP/1.1" 200 4421
+INFO 2025-06-21 03:54:54,292 views 93490 6141358080 🔐 Acceso a página de login
+INFO 2025-06-21 03:54:54,294 basehttp 93490 6141358080 "GET /? HTTP/1.1" 200 4421
+INFO 2025-06-21 04:01:57,935 autoreload 95538 8615993088 Watching for file changes with StatReloader
+DEBUG 2025-06-21 04:01:59,338 utils 95538 6118240256 (0.146) 
+>>>>>>> 7ba32f3 (xd)
                 SELECT VERSION(),
                        @@sql_mode,
                        @@default_storage_engine,
@@ -9469,8 +10177,13 @@ DEBUG 2025-06-21 13:28:15,720 utils 41124 42936 (0.281)
                        @@lower_case_table_names,
                        CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
             ; args=None; alias=default
+<<<<<<< HEAD
 DEBUG 2025-06-21 13:28:16,000 utils 41124 42936 (0.279) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
 DEBUG 2025-06-21 13:28:16,312 utils 41124 42936 (0.310) 
+=======
+DEBUG 2025-06-21 04:01:59,484 utils 95538 6118240256 (0.145) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-21 04:01:59,632 utils 95538 6118240256 (0.148) 
+>>>>>>> 7ba32f3 (xd)
             SELECT
                 table_name,
                 table_type,
@@ -9478,6 +10191,7 @@ DEBUG 2025-06-21 13:28:16,312 utils 41124 42936 (0.310)
             FROM information_schema.tables
             WHERE table_schema = DATABASE()
             ; args=None; alias=default
+<<<<<<< HEAD
 DEBUG 2025-06-21 13:28:16,583 utils 41124 42936 (0.264) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
 INFO 2025-06-21 13:28:27,768 autoreload 41124 48000 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\presentation\views.py changed, reloading.
 INFO 2025-06-21 13:28:29,652 autoreload 33908 40268 Watching for file changes with StatReloader
@@ -11542,3 +12256,10 @@ DEBUG 2025-06-21 18:03:51,070 utils 34696 32336 (0.157)
             WHERE table_schema = DATABASE()
             ; args=None; alias=default
 DEBUG 2025-06-21 18:03:51,233 utils 34696 32336 (0.159) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+=======
+DEBUG 2025-06-21 04:01:59,789 utils 95538 6118240256 (0.151) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-21 04:02:02,435 views 95538 6135066624 🔐 Acceso a página de login
+INFO 2025-06-21 04:02:02,438 basehttp 95538 6135066624 "GET /? HTTP/1.1" 200 4421
+INFO 2025-06-21 04:02:17,983 views 95538 6135066624 🔐 Acceso a página de login
+INFO 2025-06-21 04:02:17,985 basehttp 95538 6135066624 "GET /? HTTP/1.1" 200 4421
+>>>>>>> 7ba32f3 (xd)
