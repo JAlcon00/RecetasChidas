@@ -26982,3 +26982,171 @@ DEBUG 2025-06-22 03:45:01,343 utils 36416 45460 (0.154)
             WHERE table_schema = DATABASE()
             ; args=None; alias=default
 DEBUG 2025-06-22 03:45:01,500 utils 36416 45460 (0.152) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:45:58,072 autoreload 36416 24288 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:45:58,951 autoreload 46784 33616 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:46:00,417 utils 46784 25488 (0.148) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:46:00,565 utils 46784 25488 (0.147) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:46:00,715 utils 46784 25488 (0.149) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:46:00,867 utils 46784 25488 (0.147) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:46:05,872 autoreload 46784 33616 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:46:06,750 autoreload 32236 19244 Watching for file changes with StatReloader
+INFO 2025-06-22 03:46:14,248 autoreload 32236 19244 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:46:15,071 autoreload 29652 42336 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:46:16,418 utils 29652 6160 (0.150) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:46:16,568 utils 29652 6160 (0.150) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:46:16,720 utils 29652 6160 (0.151) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:46:16,874 utils 29652 6160 (0.150) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:46:37,368 autoreload 29652 42336 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:46:38,122 autoreload 26808 29208 Watching for file changes with StatReloader
+INFO 2025-06-22 03:46:41,597 autoreload 26808 29208 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:46:42,389 autoreload 36844 35696 Watching for file changes with StatReloader
+INFO 2025-06-22 03:46:45,904 autoreload 36844 35696 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:46:46,769 autoreload 37500 27992 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:46:48,582 utils 37500 20160 (0.157) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:46:48,753 utils 37500 20160 (0.171) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:46:48,943 utils 37500 20160 (0.189) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:46:49,114 utils 37500 20160 (0.167) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:47:05,009 autoreload 37500 27992 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:47:05,916 autoreload 41864 8388 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:47:07,528 utils 41864 26668 (0.153) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:47:07,687 utils 41864 26668 (0.158) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:47:07,858 utils 41864 26668 (0.171) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:47:08,031 utils 41864 26668 (0.169) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:47:18,903 autoreload 41864 8388 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:47:19,805 autoreload 33616 46784 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:47:24,733 utils 33616 19820 (0.165) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:47:24,898 utils 33616 19820 (0.164) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:47:25,072 utils 33616 19820 (0.174) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:47:25,241 utils 33616 19820 (0.164) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:47:26,766 autoreload 33616 46784 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:47:27,684 autoreload 19364 17660 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:47:29,179 utils 19364 43576 (0.163) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:47:29,344 utils 19364 43576 (0.164) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:47:29,513 utils 19364 43576 (0.168) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:47:29,684 utils 19364 43576 (0.167) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:48:13,872 autoreload 19364 17660 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:48:14,773 autoreload 47360 3572 Watching for file changes with StatReloader
+INFO 2025-06-22 03:48:37,746 autoreload 47360 3572 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:48:38,611 autoreload 16840 4052 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:48:40,476 utils 16840 41500 (0.153) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:48:40,628 utils 16840 41500 (0.151) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:48:40,782 utils 16840 41500 (0.154) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:48:40,938 utils 16840 41500 (0.152) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
+INFO 2025-06-22 03:49:42,519 autoreload 16840 4052 C:\Users\pablo\Documents\Modelos abstractos para el desarrollo de software Django\RecetasChidas\RecetasChidas\tienda\persistence\repositories.py changed, reloading.
+INFO 2025-06-22 03:49:43,443 autoreload 42360 12276 Watching for file changes with StatReloader
+DEBUG 2025-06-22 03:49:48,092 utils 42360 36336 (0.152) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:49:48,246 utils 42360 36336 (0.153) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+DEBUG 2025-06-22 03:49:48,399 utils 42360 36336 (0.153) 
+            SELECT
+                table_name,
+                table_type,
+                table_comment
+            FROM information_schema.tables
+            WHERE table_schema = DATABASE()
+            ; args=None; alias=default
+DEBUG 2025-06-22 03:49:48,554 utils 42360 36336 (0.151) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default
