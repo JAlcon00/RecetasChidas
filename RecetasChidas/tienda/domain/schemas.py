@@ -32,6 +32,13 @@ class ProductoEntity:
     flavors: List[str]  # Ejemplo: ['picante', 'dulce']
     image_url: str
 
+    @classmethod
+    def create(cls, name:str, description:str, price:float, category:CategoriaEntity, type:str, diets:List[str],
+    flavors:List[str], image_url:str):
+        # Crea una instancia de la entidad ProductoEntity
+        return cls(id=None, name=name, description=description, price=price, category=category, type=type,
+                   diets=diets, flavors=flavors, image_url=image_url)
+
 @dataclass
 class InventarioEntity:
     id: Optional[int]
