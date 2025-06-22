@@ -1,0 +1,63 @@
+{% extends "tienda/base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if categoria %}Editar Categoria {% else %} Crear Categoria {% endif %}
+{% endblock title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'tienda/css/css_edit_product_admin.css' %}">
+{% endblock css %}
+
+{% block navbar_admin %}
+  <nav>
+    <div class="nav-left">
+      <a href="{% url "category_admin" %}" class="nav-link">
+        <i class="fas fa-arrow-left"></i> Volver
+      </a>
+    </div>
+    <div>
+      <a href="{% url "product_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-box"></i> Productos +
+        </button>
+      </a>
+    </div>
+    <div class="nav-center">
+      <h1 class="nav-title">Tienda Comida</h1>
+    </div>
+    <div>
+      <a href="{% url "category_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-tags"></i> Categorías +
+        </button>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="{% url "logout" %}">
+        <button class="nav-btn logout">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+      </a>
+      <a href="{% url "pagina_principal" %}">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+      </a>
+    </div>
+  </nav>
+{% endblock navbar_admin %}
+
+{% block content %}
+  <div class="form-container">
+    <h2>Editar Categoria</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="nombre">Nombre de la Categoria</label>
+      <input type="text" id="nombre" name="nombre" value="{% if categoria %}{{ categoria.name }}{% endif %}">
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" rows="5" name="descripcion">{% if categoria %}{{ categoria.description }}{% endif %}</textarea>
+
+      <button class="submit-btn" type="submit">Guardar Cambios</button>
+    </form>
+  </div>
+{% endblock content %}

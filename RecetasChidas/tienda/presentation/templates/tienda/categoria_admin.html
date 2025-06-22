@@ -1,0 +1,73 @@
+{% extends "tienda/base.html" %}
+{% load static %}
+
+{% block title %}
+  Categorias
+{% endblock title %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static "tienda/css/css_categoria_admin.css" %}">
+{% endblock css %}
+
+{% block navbar_admin %}
+  <nav>
+    <div class="nav-left">
+      <a href="{% url "pagina_principal" %}" class="nav-link">
+        <i class="fas fa-arrow-left"></i> Volver
+      </a>
+    </div>
+    <div>
+      <a href="{% url "product_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-box"></i> Productos +
+        </button>
+      </a>
+    </div>
+    <div class="nav-center">
+      <h1 class="nav-title">Tienda Comida</h1>
+    </div>
+    <div>
+      <a href="{% url "category_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-tags"></i> Categorías +
+        </button>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="{% url "logout" %}">
+        <button class="nav-btn logout">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+      </a>
+      <a href="{% url "pagina_principal" %}">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Logo" class="nav-icon" />
+      </a>
+    </div>
+  </nav>
+{% endblock navbar_admin %}
+
+{% block content %}
+  <!-- CONTENIDO -->
+  <div class="contenido">
+    <div class="categorias-container">
+      <!-- CATEGORÍA -->
+      <div class="categoria-box">
+        <h2>Categoría <a href="{% url 'crear_categoria' %}"><button class="add-btn">+</button></a></h2>
+        {% for categoria in categorias %}
+          <div class="atributo">
+            <span>{{ categoria.name }}</span>
+            <div class="acciones">
+              <a href="{% url 'edit_category' categoria.id %}">
+                <button class="edit-btn"><i class="fas fa-pen"></i></button>
+              </a>
+              <a href="{% url 'delete_category' categoria.id %}" onclick="return confirm('¿Estás seguro de eliminar la categoria?')">
+                <button><i class="fas fa-trash-alt"></i></button>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+

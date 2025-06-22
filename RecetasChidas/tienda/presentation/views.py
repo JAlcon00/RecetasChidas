@@ -135,6 +135,110 @@ def product_admin_view(request):
 
 @usuario_requerido
 @administrador_requerido
+def category_view(request):
+    categorias = categoria_service.obtener_categorias()
+    usuario = {
+        'id': request.session.get('usuario_id'),
+        'nombre': request.session.get('usuario_nombre'),
+        'tipo': request.session.get('usuario_tipo')
+    }
+    return render(request, 'tienda/categoria_admin.html', {'categorias': categorias, 'usuario': usuario})
+
+@usuario_requerido
+@administrador_requerido
+def edit_category_view(request, id):
+    categoria = categoria_service.obtener_categoria_por_id(id)
+    usuario = {
+        'id': request.session.get('usuario_id'),
+        'nombre': request.session.get('usuario_nombre'),
+        'tipo': request.session.get('usuario_tipo')
+    }
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        descripcion = request.POST.get('descripcion')
+
+        categoria_service.actualizar_categoria(
+            categoria_id=categoria.id,
+            nombre=nombre,
+            descripcion=descripcion
+        )
+        return redirect('category_admin')
+    return render(request, 'tienda/edit_category.html', {'categoria': categoria, 'usuario': usuario})
+
+@usuario_requerido
+@administrador_requerido
+def crear_categoria_view(request):
+    usuario = {
+        'id': request.session.get('usuario_id'),
+        'nombre': request.session.get('usuario_nombre'),
+        'tipo': request.session.get('usuario_tipo')
+    }
+    
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        descripcion = request.POST.get('descripcion')
+
+        categoria_service.crear_categoria(
+            nombre=nombre,
+            descripcion=descripcion
+        )
+        return redirect('category_admin')
+
+    return render(request, 'tienda/edit_category.html', {'usuario': usuario})
+
+@usuario_requerido
+@administrador_requerido
+def crear_producto_view(request):
+    categorias = categoria_service.obtener_categorias()
+    usuario = {
+        'id': request.session.get('usuario_id'),
+        'nombre': request.session.get('usuario_nombre'),
+        'tipo': request.session.get('usuario_tipo')
+    }
+
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        descripcion = request.POST.get('descripcion')
+        precio = request.POST.get('precio')
+        categoria_nombre = request.POST.get('categoria')
+        tipo = request.POST.get('tipo')
+        dietas = request.POST.getlist('dieta')
+        preferencia = request.POST.get('preferencia')
+        imagen_url = request.POST.get('imagen')
+
+        categoria = next((c for c in categorias if c.name == categoria_nombre), None)
+
+        logger.info(f"POST DATA: {dict(request.POST)}")
+
+        producto_service.crear_producto(
+            nombre=nombre,
+            descripcion=descripcion,
+            precio=precio,
+            categoria=categoria,
+            tipo=tipo,
+            dietas=','.join(dietas),
+            preferencia_sabor=preferencia,
+            imagen_url=imagen_url
+        )
+
+        return redirect('product_admin')
+
+    return render(request, 'tienda/edit_product.html', {'usuario': usuario, 'categorias': categorias})
+
+@usuario_requerido
+@administrador_requerido
+def delete_category_view(request, id):
+    categoria_service.eliminar_categoria_por_id(id)
+    return redirect('category_admin')
+
+@usuario_requerido
+@administrador_requerido
+def delete_product_view(request, id):
+    producto_service.eliminar_producto(id)
+    return redirect('product_admin')
+
+@usuario_requerido
+@administrador_requerido
 def edit_product_view(request, id):
     producto = producto_service.obtener_producto_por_id(id)
     usuario = {
@@ -178,6 +282,9 @@ def edit_product_view(request, id):
 
     return render(request, 'tienda/edit_product.html', {'producto': producto, 'usuario': usuario, 'categorias': categorias, 'inventario': inventario})
 
+
+
+#---------------------
 # Vistas de Categoría
 @login_required
 def lista_categorias(request):
@@ -403,8 +510,5 @@ def product_detail_admin_view(request, id):
     producto = get_object_or_404(Producto, id=id)
     return render(request, 'tienda/product_detail_admin.html', {'producto': producto})
 
-@login_required
-def category_view(request):
-    categorias = CategoriaService.obtener_categorias()
-    return render(request, 'tienda/category.html', {'categorias': categorias})
+
 

@@ -1,5 +1,7 @@
-from tienda.persistence.repositories import ProductoRepositorio
-from tienda.domain.schemas import ProductoEntity
+from tienda.persistence.repositories import ProductoRepositorio, CategoriaRepositorio
+from tienda.domain.schemas import ProductoEntity, CategoriaEntity
+
+categoriaRepositorio = CategoriaRepositorio()
 
 class ProductoService:
     def __init__(self, repository=None):
@@ -13,13 +15,12 @@ class ProductoService:
     def obtener_producto_por_id(self, producto_id):
         return self.repository.obtener_producto_por_id(producto_id)
     
-    def crear_producto(self, nombre:str, descripcion:str, precio:float, categoria:str, tipo:str, dietas, preferencia_sabor, imagen_url):
-        categoriaEntity = self.repository.obtener_categoria_por_nombre(categoria)
+    def crear_producto(self, nombre:str, descripcion:str, precio:float, categoria:CategoriaEntity, tipo:str, dietas, preferencia_sabor, imagen_url):
         productoEntity = ProductoEntity.create(
             name=nombre,
             description=descripcion,
             price=precio,
-            category=categoriaEntity,
+            category=categoria,
             type=tipo,
             diets=dietas.split(',') if dietas else [],
             flavors=preferencia_sabor.split(',') if preferencia_sabor else [],

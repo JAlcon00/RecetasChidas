@@ -212,8 +212,29 @@ nav > div {
   cursor: pointer;
 }
 
+.editarbtn {
+  margin-top: 1rem;
+  align-self: flex-start;
+  background-color: #ffc107; /* Amarillo */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .eliminar-btn:hover {
   background-color: #e63b3b;
+}
+
+.acciones {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.editarbtn:hover {
+  background-color: #e6a800;
 }
 
 footer {
@@ -223,6 +244,7 @@ footer {
   font-size: 0.9rem;
   margin-top: auto;
 }
+
 
 @media screen and (max-width: 768px) {
   nav {
@@ -236,3 +258,4 @@ footer {
     height: 200px;
   }
 }
+

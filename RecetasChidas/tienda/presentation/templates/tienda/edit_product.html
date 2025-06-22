@@ -45,9 +45,12 @@
 {% endblock navbar_admin %}
 
 {% block content %}
-  <p>DEBUG {{ inventario }}</p>
   <div class="form-container">
-    <h2>Editar Producto</h2>
+    {% if producto %}
+      <h2>Editar Producto: {{ producto.name }}</h2>
+    {% else %}
+      <h2>Crear Nuevo Producto</h2>
+    {% endif %}
     <form method="POST">
       {% csrf_token %}
       <label for="nombre">Nombre del Producto</label>
@@ -75,65 +78,67 @@
         <label><input type="radio" name="tipo" value="Kit Cocina" {% if producto and producto.type == 'kit de cocina' %}checked{% endif %}> Kit de Cocina</label>
       </div>
 
-      {% if producto.type == 'comida preparada' %}
-        <label>Dietas</label>
-        <div class="radio-group">
-          <label>
-            <input type="checkbox" name="dieta" value="sin_gluten"
-              {% if producto and 'sin_gluten' in producto.diets %}checked{% endif %}>
-            Sin Gluten
-          </label>
-          <label>
-            <input type="checkbox" name="dieta" value="vegetariana"
-              {% if producto and 'vegetariana' in producto.diets %}checked{% endif %}>
-            Vegetariana
-          </label>
-          <label>
-            <input type="checkbox" name="dieta" value="vegana"
-              {% if producto and 'vegana' in producto.diets %}checked{% endif %}>
-            Vegana
-          </label>
-          <label>
-            <input type="checkbox" name="dieta" value="sin_lactosa"
-              {% if producto and 'sin_lactosa' in producto.diets %}checked{% endif %}>
-            Sin Lactosa
-          </label>
-          <label>
-            <input type="checkbox" name="dieta" value="keto"
-              {% if producto and 'keto' in producto.diets %}checked{% endif %}>
-            Keto
-          </label>
-        </div>
+      {% if producto and producto.type == 'comida preparada' or not producto %}
+        <div id="opciones-alimento">
+          <label>Dietas</label>
+          <div class="radio-group">
+            <label>
+              <input type="checkbox" name="dieta" value="sin_gluten"
+                {% if producto and 'sin_gluten' in producto.diets %}checked{% endif %}>
+              Sin Gluten
+            </label>
+            <label>
+              <input type="checkbox" name="dieta" value="vegetariana"
+                {% if producto and 'vegetariana' in producto.diets %}checked{% endif %}>
+              Vegetariana
+            </label>
+            <label>
+              <input type="checkbox" name="dieta" value="vegana"
+                {% if producto and 'vegana' in producto.diets %}checked{% endif %}>
+              Vegana
+            </label>
+            <label>
+              <input type="checkbox" name="dieta" value="sin_lactosa"
+                {% if producto and 'sin_lactosa' in producto.diets %}checked{% endif %}>
+              Sin Lactosa
+            </label>
+            <label>
+              <input type="checkbox" name="dieta" value="keto"
+                {% if producto and 'keto' in producto.diets %}checked{% endif %}>
+              Keto
+            </label>
+          </div>
 
-        <label>Preferencias</label>
-        <div class="radio-group">
-          <label>
-            <input type="radio" name="preferencia" value="Salado"
-              {% if producto and producto.flavors and producto.flavors.0 == 'salado' %}checked{% endif %}>
-            Salado
-          </label>
-          <label>
-            <input type="radio" name="preferencia" value="Dulce"
-              {% if producto and producto.flavors and producto.flavors.0 == 'dulce' %}checked{% endif %}>
-            Dulce
-          </label>
-          <label>
-            <input type="radio" name="preferencia" value="Picante"
-              {% if producto and producto.flavors and producto.flavors.0 == 'picante' %}checked{% endif %}>
-            Picante
-          </label>
-          <label>
-            <input type="radio" name="preferencia" value="Agridulce"
-              {% if producto and producto.flavors and producto.flavors.0 == 'agridulce' %}checked{% endif %}>
-            Agridulce
-          </label>
-        </div>  
+          <label>Preferencias</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="preferencia" value="Salado"
+                {% if producto and producto.flavors and producto.flavors.0 == 'salado' %}checked{% endif %}>
+              Salado
+            </label>
+            <label>
+              <input type="radio" name="preferencia" value="Dulce"
+                {% if producto and producto.flavors and producto.flavors.0 == 'dulce' %}checked{% endif %}>
+              Dulce
+            </label>
+            <label>
+              <input type="radio" name="preferencia" value="Picante"
+                {% if producto and producto.flavors and producto.flavors.0 == 'picante' %}checked{% endif %}>
+              Picante
+            </label>
+            <label>
+              <input type="radio" name="preferencia" value="Agridulce"
+                {% if producto and producto.flavors and producto.flavors.0 == 'agridulce' %}checked{% endif %}>
+              Agridulce
+            </label>
+          </div> 
+        </div> 
       {% endif %}
 
-      {% if inventario %}
+      <div id="opciones-inventario">
         <label>Inventario</label>
         <input type="number" id="inventario" name="inventario" value="{% if producto and inventario %}{{ inventario.quantity }}{% endif %}">
-      {% endif %}
+      </div>
     
       <label for="imagen">Imagen (URL)</label>
       <input type="text" id="imagen" name="imagen" placeholder="https://ejemplo.com/imagen.jpg"
@@ -142,5 +147,38 @@
       <button class="submit-btn" type="submit">Guardar Cambios</button>
     </form>
   </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  function toggleOpcionesAlimento() {
+    const tipo = document.querySelector('input[name="tipo"]:checked');
+    const opciones = document.getElementById('opciones-alimento');
+    if (tipo && tipo.value === 'Alimento') {
+      opciones.style.display = '';
+    } else {
+      opciones.style.display = 'none';
+    }
+  }
+  function toggleOpcionesInventario() {
+    const tipo = document.querySelector('input[name="tipo"]:checked');
+    const inventario = document.getElementById('opciones-inventario');
+    if (tipo && tipo.value === 'Kit Cocina') {
+      inventario.style.display = '';
+    } else {
+      inventario.style.display = 'none';
+    }
+  }
+  // Inicializa al cargar
+  toggleOpcionesAlimento();
+  toggleOpcionesInventario();
+  // Escucha cambios en los radios
+  document.querySelectorAll('input[name="tipo"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      toggleOpcionesAlimento();
+      toggleOpcionesInventario();
+      });
+    });
+  });
+  </script>
 
 {% endblock content %}

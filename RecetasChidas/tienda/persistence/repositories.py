@@ -29,11 +29,23 @@ class CategoriaRepositorio:
             return None
         
     @staticmethod
+    def obtener_por_nombre(nombre: str) -> Optional[CategoriaEntity]:
+        try:
+            categoria = Categoria.objects.get(nombre=nombre)
+            return CategoriaEntity(
+                id=categoria.id,
+                name=categoria.nombre,
+                description=categoria.descripcion
+            )
+        except Categoria.DoesNotExist:
+            return None
+        
+    @staticmethod
     def crear_categoria(categoriaEntity: CategoriaEntity) -> CategoriaEntity:
         # Crear una nueva categoria
         categoria = Categoria.objects.create(
             nombre=categoriaEntity.name,
-            description=categoriaEntity.description
+            descripcion=categoriaEntity.description
         )
         return CategoriaEntity(
             id=categoria.id,

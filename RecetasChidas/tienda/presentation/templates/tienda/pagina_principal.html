@@ -44,9 +44,11 @@
                 <h1>Tienda Comida</h1>
             </div>
             <div>
-                <button class="nav-btn">
-                    <i class="fas fa-tags"></i> Categorías +
-                </button>
+                <a href="{% url "category_admin" %}">
+                    <button class="nav-btn">
+                        <i class="fas fa-tags"></i> Categorías +
+                    </button>
+                </a>
             </div>
             <div>
                 <a href="{% url "logout" %}">Cerrar Sesión</a>

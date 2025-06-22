@@ -25,9 +25,11 @@
       <h1 class="nav-title">Tienda Comida</h1>
     </div>
     <div>
-      <button class="nav-btn">
-        <i class="fas fa-tags"></i> Categorías +
-      </button>
+      <a href="{% url "category_admin" %}">
+        <button class="nav-btn">
+          <i class="fas fa-tags"></i> Categorías +
+        </button>
+      </a>
     </div>
     <div class="nav-right">
       <a href="{% url "logout" %}">
@@ -46,7 +48,9 @@
   <div class="contenido">
     <div class="encabezado-agregar">
       <span>¿Desea agregar un nuevo producto?</span>
-      <button class="agregar-btn"><i class="fas fa-plus"></i> Agregar</button>
+      <a href="{% url 'crear_producto' %}">
+        <button class="agregar-btn"><i class="fas fa-plus"></i> Agregar</button>
+      </a>
     </div>
 
     {% for producto in productos %}
@@ -70,17 +74,21 @@
             {% for inventario in inventarios %}
               {% if inventario.product.id == producto.id %}
                 <p><strong>Stock:</strong> {{ inventario.quantity }}</p>
-                <div class="cantidad-control">
-                  <button>-</button>
-                  <span class="cantidad">{{ inventario.quantity }}</span>
-                  <button>+</button>
-                </div>
               {% endif %}
             {% endfor %}
           {% endif %}
           
           <!-- Botones de acciones -->
-          <button class="eliminar-btn"><i class="fas fa-trash-alt"></i> Eliminar</button>
+          <div class="acciones">
+            <a href="{% url 'edit_product' producto.id %}">
+              <button class="editarbtn">
+                <i class="fas fa-pen"></i> Editar
+              </button>
+            </a>
+            <a href="{% url 'delete_product' producto.id%}" onclick="return confirm('¿Estás seguro de eliminar el producto?')">
+              <button class="eliminar-btn"><i class="fas fa-trash-alt"></i> Eliminar</button>
+            </a>
+          </div>
         </div>
       </div>
     {% empty %}

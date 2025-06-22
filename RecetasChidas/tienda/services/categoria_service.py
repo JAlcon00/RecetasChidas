@@ -14,10 +14,14 @@ class CategoriaService:
         # Obtener una categoria por su id
         categoria = self.repository.obtener_por_id(categoria_id)
         return categoria
+    
+    def obtener_categoria_por_nombre(self, nombre:str):
+        categoria = self.repository.obtener_por_nombre(nombre)
+        return categoria
 
     def crear_categoria(self, nombre:str, descripcion:str):
         # Crear una categoria nueva
-        categoriaEntity = CategoriaEntity.create(nombre=nombre, description=descripcion)
+        categoriaEntity = CategoriaEntity.create(name=nombre, description=descripcion)
         return self.repository.crear_categoria(categoriaEntity)
 
     def actualizar_categoria(self, categoria_id:int, nombre:str, descripcion:str):
