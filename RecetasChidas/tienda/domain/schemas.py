@@ -38,3 +38,8 @@ class InventarioEntity:
     product: ProductoEntity
     quantity: int
 
+    @classmethod
+    def create(cls, product: ProductoEntity, quantity: int):
+        # Crea una instancia de la entidad InventarioEntity
+        return cls(id=None, product=product, quantity=quantity)
+
