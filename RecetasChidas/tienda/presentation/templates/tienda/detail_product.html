@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'tienda/css/css_detail_product.css' %}">
     <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
   {% endif %}
+<<<<<<< HEAD
   {% if usuario and usuario.tipo == 'administrador' %}
     <link rel="stylesheet" href="{% static 'tienda/css/css_detail_product_admin.css' %}">
     <link rel="stylesheet" href="{% static 'tienda/css/css_pagina_principal.css' %}">
@@ -26,10 +27,39 @@
           src="{{ producto.image_url }}"
           alt="Producto"
         />
+=======
+{% endblock css %}
+
+{% block content %}
+  <!-- Título debajo del navbar -->
+  <div class="titulo-detalle">Detalles del producto</div>
+
+  <!-- Contenido principal del producto -->
+  <div class="container">
+    <div class="imagen-producto">
+      <img
+        src="{{ producto.image_url }}"
+        alt="Producto"
+      />
+    </div>
+    <div class="info-producto">
+      <h2>{{ producto.name }}</h2>
+
+      <!-- Etiquetas -->
+      <div class="etiquetas">
+        <span class="etiqueta">{{ producto.category.name }}</span>
+        {% for dieta in producto.diets %}
+            <span class="etiqueta">{{ dieta }}</span>
+        {% endfor %}
+        {% for sabor in producto.flavors %}
+            <span class="etiqueta">{{ sabor }}</span>
+        {% endfor %}
+>>>>>>> 6ec95c5 (Resolver conflictos y finalizar merge)
       </div>
       <div class="info-producto">
         <h2>{{ producto.name }}</h2>
 
+<<<<<<< HEAD
         <!-- Etiquetas -->
         <div class="etiquetas">
           <span class="etiqueta">{{ producto.category.name }}</span>
@@ -45,6 +75,14 @@
           {{ producto.description }}
         </p>
 
+=======
+      <p>
+        {{ producto.description }}
+      </p>
+
+
+      <p class="precio">${{ producto.price }} MXN</p>
+>>>>>>> 6ec95c5 (Resolver conflictos y finalizar merge)
 
         <p class="precio">${{ producto.price }} MXN</p>
 
@@ -53,6 +91,7 @@
         </button>
       </div>
     </div>
+<<<<<<< HEAD
   {% endif %}
 
   {% if usuario.tipo == 'administrador' %}
@@ -93,5 +132,8 @@
       <button>Eliminar</button>
     </div>
   {% endif %}
+=======
+  </div>
+>>>>>>> 6ec95c5 (Resolver conflictos y finalizar merge)
 {% endblock content %}
 
