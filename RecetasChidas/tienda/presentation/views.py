@@ -1,13 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.db import connection
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseForbidden
 import logging
-
-from tienda.persistence.models import Categoria, Producto, Inventario, Usuario
-from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioForm
 
 from tienda.services.usuario_service import UsuarioService
 from tienda.services.categoria_service import CategoriaService
@@ -23,20 +18,30 @@ inventario_service = InventarioService()
 
 logger = logging.getLogger('tienda')
 
-def usuario_requerido(view_func):
-    @wraps(view_func)
-    def _wrapped_view(request, *args, **kwargs):
+# Decorador para requerir que el usuario esté autenticado
+def usuario_requerido(view_func):  # view_func es la función de vista original que se va a decorar
+    @wraps(view_func)  # @wraps preserva el nombre y docstring de la función original decorada
+    def _wrapped_view(request, *args, **kwargs):  # Esta función reemplazará a la vista original
+        # Verifica si existe 'usuario_id' en la sesión (usuario autenticado)
         if not request.session.get('usuario_id'):
+            # Si no está autenticado, redirige al login
             return redirect('login_view')
+        # Si está autenticado, ejecuta la vista original con los mismos argumentos
         return view_func(request, *args, **kwargs)
+    # Devuelve la función decorada
     return _wrapped_view
 
-def administrador_requerido(view_func):
-    @wraps(view_func)
-    def _wrapped_view(request, *args,**kwargs):
+# Decorador para requerir que el usuario sea administrador
+def administrador_requerido(view_func):  # view_func es la función de vista original que se va a decorar
+    @wraps(view_func)  # @wraps preserva el nombre y docstring de la función original decorada
+    def _wrapped_view(request, *args, **kwargs):  # Esta función reemplazará a la vista original
+        # Verifica si el tipo de usuario en sesión es 'administrador'
         if request.session.get('usuario_tipo') != 'administrador':
+            # Si no es administrador, redirige a la página principal
             return redirect('pagina_principal')
+        # Si es administrador, ejecuta la vista original con los mismos argumentos
         return view_func(request, *args, **kwargs)
+    # Devuelve la función decorada
     return _wrapped_view
 
 def login_view(request):
@@ -157,11 +162,14 @@ def edit_category_view(request, id):
         nombre = request.POST.get('nombre')
         descripcion = request.POST.get('descripcion')
 
-        categoria_service.actualizar_categoria(
-            categoria_id=categoria.id,
-            nombre=nombre,
-            descripcion=descripcion
-        )
+        try :
+            categoria_service.actualizar_categoria(
+                categoria_id=categoria.id,
+                nombre=nombre,
+                descripcion=descripcion
+            )
+        except ValueError as e:
+            return HttpResponseForbidden(e)
         return redirect('category_admin')
     return render(request, 'tienda/edit_category.html', {'categoria': categoria, 'usuario': usuario})
 
@@ -178,11 +186,14 @@ def crear_categoria_view(request):
         nombre = request.POST.get('nombre')
         descripcion = request.POST.get('descripcion')
 
-        categoria_service.crear_categoria(
-            nombre=nombre,
-            descripcion=descripcion
-        )
-        return redirect('category_admin')
+        try:
+            categoria_service.crear_categoria(
+                nombre=nombre,
+                descripcion=descripcion
+            )
+            return redirect('category_admin')
+        except ValueError as e:
+            return HttpResponseForbidden(e)
 
     return render(request, 'tienda/edit_category.html', {'usuario': usuario})
 
@@ -199,7 +210,7 @@ def crear_producto_view(request):
     if request.method == 'POST':
         nombre = request.POST.get('nombre')
         descripcion = request.POST.get('descripcion')
-        precio = request.POST.get('precio')
+        precio_str = request.POST.get('precio','')
         categoria_nombre = request.POST.get('categoria')
         tipo = request.POST.get('tipo')
         dietas = request.POST.getlist('dieta')
@@ -210,26 +221,38 @@ def crear_producto_view(request):
         categoria = next((c for c in categorias if c.name == categoria_nombre), None)
 
         logger.info(f"POST DATA CREAR PRODUCTO: {dict(request.POST)}")
+        try :
+            if not precio_str:
+                raise ValueError("El precio no puede estar vacío")
+            else :
+                precio = float(precio_str)
 
-        producto_creado = producto_service.crear_producto(
-            nombre=nombre,
-            descripcion=descripcion,
-            precio=precio,
-            categoria=categoria,
-            tipo=tipo,
-            dietas=','.join(dietas),
-            preferencia_sabor=preferencia,
-            imagen_url=imagen_url
-        )
+            if not inventario:
+                if not dietas:
+                    raise ValueError("Debe seleccionar al menos una dieta")
+                if not categoria:
+                    raise ValueError("Debe seleccionar una categoría")
+                
+            producto_creado = producto_service.crear_producto(
+                nombre=nombre,
+                descripcion=descripcion,
+                precio=precio,
+                categoria=categoria,
+                tipo=tipo,
+                dietas=','.join(dietas),
+                preferencia_sabor=preferencia,
+                imagen_url=imagen_url
+            )
+
+            if inventario:
+                inventario_service.registrar_inventario(
+                    productoId=producto_creado.id,
+                    cantidad=inventario
+                )
+        except ValueError as e:
+            return HttpResponseForbidden(e)
 
         logger.info(f"PRODUCTO CREADO: {(producto_creado)}")
-
-        # Crear inventario si se proporciona cantidad
-        if inventario:
-            inventario_service.registrar_inventario(
-                productoId=producto_creado.id,
-                cantidad=inventario
-            )
 
         return redirect('product_admin')
 
@@ -250,7 +273,7 @@ def edit_product_view(request, id):
     if request.method == 'POST':
         nombre = request.POST.get('nombre')
         descripcion = request.POST.get('descripcion')
-        precio = request.POST.get('precio')
+        precio_str = request.POST.get('precio','')
         categoria_nombre = request.POST.get('categoria')
         tipo = request.POST.get('tipo')
         dietas = request.POST.getlist('dieta')
@@ -260,21 +283,36 @@ def edit_product_view(request, id):
 
         categoria = next((c for c in categorias if c.name == categoria_nombre), None)
 
-        producto_service.actualizar_producto(
-            producto_id=producto.id,
-            nombre=nombre,
-            descripcion=descripcion,
-            precio=precio,
-            categoria=categoria,
-            tipo=tipo,
-            dietas=','.join(dietas),
-            preferencia_sabor=preferencia,
-            imagen_url=imagen_url
-        )
+        try:
+            if not precio_str:
+                raise ValueError("El precio no puede estar vacío")
+            else :
+                precio = float(precio_str)
 
-        # Actualizar inventario si aplica
-        if inventario and cantidad is not None:
-            inventario_service.actualizar_inventario(producto_id=producto.id, cantidad=cantidad)
+            producto_service.actualizar_producto(
+                producto_id=producto.id,
+                nombre=nombre,
+                descripcion=descripcion,
+                precio=precio,
+                categoria=categoria,
+                tipo=tipo,
+                dietas=','.join(dietas),
+                preferencia_sabor=preferencia,
+                imagen_url=imagen_url
+            )
+
+            if not inventario:
+                if not dietas:
+                    raise ValueError("Debe seleccionar al menos una dieta")
+                if not categoria:
+                    raise ValueError("Debe seleccionar una categoría")
+
+            if inventario and cantidad is not None:
+                inventario_service.actualizar_inventario(producto_id=producto.id, cantidad=cantidad)
+        except ValueError as e:
+            return HttpResponseForbidden(e)
+
+        
 
         return redirect('product_admin')
 
@@ -291,164 +329,6 @@ def delete_category_view(request, id):
 def delete_product_view(request, id):
     producto_service.eliminar_producto(id)
     return redirect('product_admin')
-
-
-#---------------------
-# Vistas de Categoría
-@login_required
-def lista_categorias(request):
-    categorias = CategoriaService.obtener_categorias()
-    return render(request, 'tienda/lista_categorias.html', {'categorias': categorias})
-
-@login_required
-def crear_categoria(request):
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST)
-        if form.is_valid():
-            CategoriaService.registrar_categoria(
-                nombre=form.cleaned_data['nombre'],
-                descripcion=form.cleaned_data['descripcion']
-            )
-            return redirect('lista_categorias')
-    else:
-        form = CategoriaForm()
-    return render(request, 'tienda/crear_categoria.html', {'form': form})
-
-@login_required
-def editar_categoria(request, categoria_id):
-    categoria = get_object_or_404(Categoria, id=categoria_id)
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST, instance=categoria)
-        if form.is_valid():
-            CategoriaService.actualizar_categoria(
-                categoria,
-                nombre=form.cleaned_data['nombre'],
-                descripcion=form.cleaned_data['descripcion']
-            )
-            return redirect('lista_categorias')
-    else:
-        form = CategoriaForm(instance=categoria)
-    return render(request, 'tienda/editar_categoria.html', {'form': form, 'categoria': categoria})
-
-@login_required
-def eliminar_categoria(request, categoria_id):
-    categoria = get_object_or_404(Categoria, id=categoria_id)
-    if request.method == 'POST':
-        CategoriaService.eliminar_categoria(categoria)
-        return redirect('lista_categorias')
-    return render(request, 'tienda/eliminar_categoria.html', {'categoria': categoria})
-
-# Vistas de Producto
-@login_required
-def lista_productos(request):
-    productos = ProductoService.obtener_productos()
-    return render(request, 'tienda/lista_productos.html', {'productos': productos})
-
-@login_required
-def crear_producto(request):
-    if request.method == 'POST':
-        form = ProductoForm(request.POST)
-        if form.is_valid():
-            ProductoService.registrar_producto(
-                nombre=form.cleaned_data['nombre'],
-                descripcion=form.cleaned_data['descripcion'],
-                precio=form.cleaned_data['precio'],
-                categoria=form.cleaned_data['categoria'],
-                tipo=form.cleaned_data['tipo'],
-                dietas=form.cleaned_data.get('dietas', ''),
-                preferencia_sabor=form.cleaned_data.get('preferencia_sabor', ''),
-                imagen_url=form.cleaned_data.get('imagen_url', 'https://example.com/default.jpg')
-            )
-            return redirect('lista_productos')
-    else:
-        form = ProductoForm()
-    return render(request, 'tienda/crear_producto.html', {'form': form})
-
-@login_required
-def editar_producto(request, producto_id):
-    producto = get_object_or_404(Producto, id=producto_id)
-    if request.method == 'POST':
-        form = ProductoForm(request.POST, instance=producto)
-        if form.is_valid():
-            ProductoService.actualizar_producto(
-                producto,
-                nombre=form.cleaned_data['nombre'],
-                descripcion=form.cleaned_data['descripcion'],
-                precio=form.cleaned_data['precio'],
-                categoria=form.cleaned_data['categoria'],
-                tipo=form.cleaned_data['tipo'],
-                dietas=form.cleaned_data.get('dietas', ''),
-                preferencia_sabor=form.cleaned_data.get('preferencia_sabor', ''),
-                imagen_url=form.cleaned_data.get('imagen_url', 'https://example.com/default.jpg')
-            )
-            return redirect('lista_productos')
-    else:
-        form = ProductoForm(instance=producto)
-    return render(request, 'tienda/editar_producto.html', {'form': form, 'producto': producto})
-
-@login_required
-def eliminar_producto(request, producto_id):
-    producto = get_object_or_404(Producto, id=producto_id)
-    if request.method == 'POST':
-        ProductoService.eliminar_producto(producto)
-        return redirect('lista_productos')
-    return render(request, 'tienda/eliminar_producto.html', {'producto': producto})
-
-# Vistas de Inventario
-@login_required
-def lista_inventario(request):
-    inventarios = InventarioService.obtener_inventarios()
-    return render(request, 'tienda/lista_inventario.html', {'inventarios': inventarios})
-
-@login_required
-def crear_inventario(request):
-    if request.method == 'POST':
-        form = InventarioForm(request.POST)
-        if form.is_valid():
-            InventarioService.registrar_inventario(
-                producto=form.cleaned_data['producto'],
-                cantidad=form.cleaned_data['cantidad']
-            )
-            return redirect('lista_inventario')
-    else:
-        form = InventarioForm()
-    return render(request, 'tienda/crear_inventario.html', {'form': form})
-
-@login_required
-def editar_inventario(request, inventario_id):
-    inventario = get_object_or_404(Inventario, id=inventario_id)
-    if request.method == 'POST':
-        form = InventarioForm(request.POST, instance=inventario)
-        if form.is_valid():
-            InventarioService.actualizar_inventario(
-                inventario,
-                producto=form.cleaned_data['producto'],
-                cantidad=form.cleaned_data['cantidad']
-            )
-            return redirect('lista_inventario')
-    else:
-        form = InventarioForm(instance=inventario)
-    return render(request, 'tienda/editar_inventario.html', {'form': form, 'inventario': inventario})
-
-@login_required
-def eliminar_inventario(request, inventario_id):
-    inventario = get_object_or_404(Inventario, id=inventario_id)
-    if request.method == 'POST':
-        InventarioService.eliminar_inventario(inventario)
-        return redirect('lista_inventario')
-    return render(request, 'tienda/eliminar_inventario.html', {'inventario': inventario})
-
-# Vistas de Usuario (ejemplo básico)
-@login_required
-def lista_usuarios(request):
-    usuarios = UsuarioService.obtener_usuarios()
-    return render(request, 'tienda/lista_usuarios.html', {'usuarios': usuarios})
-
-# Detalle de producto
-
-def detalle_producto(request, producto_id):
-    producto = get_object_or_404(Producto, id=producto_id)
-    return render(request, 'tienda/detail_product.html', {'producto': producto})
 
 # Vista de diagnóstico de base de datos
 def db_diagnostics(request):
@@ -509,15 +389,3 @@ def db_diagnostics(request):
             'status': 'error',
             'error': error_msg
         })
-
-@login_required
-def principal_admin_view(request):
-    return render(request, 'tienda/principal_admin.html')
-
-@login_required
-def product_detail_admin_view(request, id):
-    producto = get_object_or_404(Producto, id=id)
-    return render(request, 'tienda/product_detail_admin.html', {'producto': producto})
-
-
-

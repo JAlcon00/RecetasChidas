@@ -1,9 +1,17 @@
-from tienda.persistence.repositories import InventarioRepositorio, ProductoRepositorio
+from tienda.persistence.repositories.inventario_repositorie import InventarioRepositorio
+from tienda.persistence.repositories.producto_repositorie import ProductoRepositorio
 from tienda.domain.schemas import InventarioEntity
 
 class InventarioService:
     def __init__(self, repository=None):
         self.repository = repository or InventarioRepositorio()
+
+    def validar_inventario(self, productoId, cantidad):
+        if not productoId:
+            raise ValueError("El ID del producto no puede estar vacio")
+        cantidad = int(cantidad)
+        if cantidad < 0:
+            raise ValueError("La cantidad debe ser mayor a cero")
 
     def obtener_inventarios(self):
         return self.repository.obtener_todos()
@@ -12,6 +20,7 @@ class InventarioService:
         return self.repository.obtener_por_producto(producto_id)
         
     def registrar_inventario(self, productoId, cantidad):
+        self.validar_inventario(productoId, cantidad)
         productoEntity = ProductoRepositorio.obtener_producto_por_id(productoId)
         inventarioEntity = InventarioEntity.create(product=productoEntity, quantity=cantidad)
         return self.repository.crearInventario(inventarioEntity)

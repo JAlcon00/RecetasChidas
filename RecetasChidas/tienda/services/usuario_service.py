@@ -1,4 +1,4 @@
-from tienda.persistence.repositories import UsuarioRepositorio
+from tienda.persistence.repositories.usuario_repositorie import UsuarioRepositorio
 
 class UsuarioService:
     def __init__(self, repository=None):

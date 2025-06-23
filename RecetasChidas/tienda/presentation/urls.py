@@ -1,6 +1,4 @@
 from django.urls import path
-from tienda.presentation.views import pagina_principal, login_view, db_diagnostics
-from django.contrib.auth.views import LogoutView
 from tienda.presentation import views
 
 urlpatterns = [
@@ -17,6 +15,4 @@ urlpatterns = [
     path('panel/delete/producto/<int:id>/', views.delete_product_view, name='delete_product'),
     path('panel/delete/categoria/<int:id>/', views.delete_category_view, name='delete_category'),
     path('db-diagnostics/', views.db_diagnostics, name='db_diagnostics'),
-    
-    # ...otras rutas...
 ]

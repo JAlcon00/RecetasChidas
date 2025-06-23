@@ -48,7 +48,11 @@
 
 {% block content %}
   <div class="form-container">
-    <h2>Editar Categoria</h2>
+    {% if categoria %}
+      <h2>Editar Categoria: {{ categoria.name }}</h2>
+    {% else %}
+      <h2>Crear Nueva Categoria</h2>
+    {% endif %}
     <form method="POST">
       {% csrf_token %}
       <label for="nombre">Nombre de la Categoria</label>

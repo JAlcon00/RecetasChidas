@@ -1,5 +1,6 @@
-from tienda.persistence.repositories import ProductoRepositorio, CategoriaRepositorio
 from tienda.domain.schemas import ProductoEntity, CategoriaEntity
+from tienda.persistence.repositories.producto_repositorie import ProductoRepositorio
+from tienda.persistence.repositories.categoria_repositorie import CategoriaRepositorio
 
 categoriaRepositorio = CategoriaRepositorio()
 
@@ -8,6 +9,20 @@ class ProductoService:
         self.repository = repository or ProductoRepositorio
         pass
 
+    def validar_producto(self, nombre:str, descripcion:str, precio:float, categoria:CategoriaEntity, tipo:str,imagen_url:str):
+        if not nombre:
+            raise ValueError("El nombre del producto no puede estar vacio")
+        if not descripcion:
+            raise ValueError("La descripcion del producto no puede estar vacia")
+        if precio <= 0:
+            raise ValueError("El precio del producto debe ser mayor a cero")
+        if not categoria:
+            raise ValueError("La categoria del producto no puede estar vacia")
+        if not tipo:
+            raise ValueError("El tipo del producto no puede estar vacio")
+        if not imagen_url:
+            raise ValueError("La URL de la imagen del producto no puede estar vacia")
+
     def obtener_productos(self):
         productos = self.repository.obtener_todos()
         return productos
@@ -15,7 +30,8 @@ class ProductoService:
     def obtener_producto_por_id(self, producto_id):
         return self.repository.obtener_producto_por_id(producto_id)
     
-    def crear_producto(self, nombre:str, descripcion:str, precio:float, categoria:CategoriaEntity, tipo:str, dietas, preferencia_sabor, imagen_url):
+    def crear_producto(self, nombre:str, descripcion:str, precio:float, categoria:CategoriaEntity, tipo:str, dietas:str, preferencia_sabor:str, imagen_url):
+        self.validar_producto(nombre, descripcion, precio, categoria, tipo, imagen_url)
         productoEntity = ProductoEntity.create(
             name=nombre,
             description=descripcion,
@@ -29,6 +45,7 @@ class ProductoService:
         return self.repository.crearProducto(productoEntity)
     
     def actualizar_producto(self, producto_id, nombre, descripcion, precio, categoria, tipo, dietas, preferencia_sabor, imagen_url):
+        self.validar_producto(nombre, descripcion, precio, categoria, tipo, imagen_url)
         productoEntity = self.repository.obtener_producto_por_id(producto_id)
         if not productoEntity:
             return None

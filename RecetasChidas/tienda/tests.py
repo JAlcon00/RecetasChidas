@@ -2,12 +2,7 @@
 Archivo para pruebas unitarias del proyecto RecetasChidas
 Cubre todos los componentes: modelos, servicios, repositorios, formularios y vistas
 """
-
-import time
 from django.test import TestCase, Client
-from django.urls import reverse
-from django.contrib.auth import get_user_model
-from django.core.exceptions import ValidationError
 from django.db import IntegrityError, transaction
 from decimal import Decimal
 from unittest.mock import Mock, patch
@@ -17,15 +12,17 @@ from tienda.services.categoria_service import CategoriaService
 from tienda.services.producto_service import ProductoService
 from tienda.services.usuario_service import UsuarioService
 from tienda.services.inventario_sevice import InventarioService
-from tienda.persistence.repositories import (
-    CategoriaRepositorio, ProductoRepositorio, 
-    UsuarioRepositorio, InventarioRepositorio
-)
+from tienda.persistence.repositories.categoria_repositorie import CategoriaRepositorio
+from tienda.persistence.repositories.producto_repositorie import ProductoRepositorio
+from tienda.persistence.repositories.usuario_repositorie import UsuarioRepositorio
+from tienda.persistence.repositories.inventario_repositorie import InventarioRepositorio
 from tienda.domain.schemas import (
-    CategoriaEntity, ProductoEntity, UsuarioEntity, Inventario as InventarioEntity
+    CategoriaEntity, ProductoEntity, UsuarioEntity, InventarioEntity
 )
 from tienda.forms import CategoriaForm, ProductoForm, InventarioForm, UsuarioForm
 
+categoria_service = CategoriaService()
+producto_service = ProductoService()
 
 class ModeloTestCase(TestCase):
     """Tests para los modelos de la aplicación"""
@@ -43,7 +40,6 @@ class ModeloTestCase(TestCase):
             nombre="Postres",
             descripcion="Deliciosos postres caseros"
         )
-        
         self.assertEqual(categoria.nombre, "Postres")
         self.assertEqual(categoria.descripcion, "Deliciosos postres caseros")
         self.assertEqual(str(categoria), "Postres")
@@ -166,14 +162,13 @@ class ServicioTestCase(TestCase):
     
     def test_categoria_service_obtener_categorias(self):
         """Test para obtener todas las categorías"""
-        categorias = CategoriaService.obtener_categorias()
-        
+        categorias = categoria_service.obtener_categorias()
         self.assertGreater(len(categorias), 0)
         self.assertIsInstance(categorias[0], type(categorias[0]))
         
     def test_categoria_service_obtener_por_id(self):
         """Test para obtener categoría por ID"""
-        categoria = CategoriaService.obtener_categoria_por_id(self.categoria.id)
+        categoria = categoria_service.obtener_categoria_por_id(self.categoria.id)
         
         self.assertIsNotNone(categoria)
         
@@ -197,17 +192,19 @@ class ServicioTestCase(TestCase):
             nombre="Nueva Categoria",
             descripcion="Test"
         )
-        
         # Necesitamos mockear el repositorio porque registrar_producto es estático
-        with patch('tienda.services.producto_service.ProductoRepositorio.crear') as mock_crear:
+        with patch('tienda.services.producto_service.ProductoRepositorio.crearProducto') as mock_crear:
             mock_crear.return_value = Mock()
-            
-            ProductoService.registrar_producto(
+
+            producto_service.crear_producto(
                 nombre="Nuevo Producto",
                 descripcion="Descripción test",
                 precio=Decimal("30.00"),
                 categoria=nueva_categoria,
-                tipo="comida preparada"
+                tipo="comida preparada",
+                dietas="vegana",
+                preferencia_sabor="salado",
+                imagen_url="https://example.com/image.jpg"
             )
             
             mock_crear.assert_called_once()
