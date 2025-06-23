@@ -27,9 +27,11 @@
       <h1 class="nav-title">Tienda Comida</h1>
     </div>
     <div>
-      <button class="nav-btn">
-        <i class="fas fa-tags"></i> Categorías +
-      </button>
+      <a href="{% url 'category_admin' %}">
+        <button class="nav-btn">
+          <i class="fas fa-tags"></i> Categorías +
+        </button>
+      </a>
     </div>
     <div class="nav-right">
       <a href="{% url "logout" %}">
@@ -74,8 +76,8 @@
 
       <label>Tipo</label>
       <div class="radio-group">
-        <label><input type="radio" name="tipo" value="Alimento" {% if producto and producto.type == 'comida preparada' %}checked{% endif %}> Comida Preparada</label>
-        <label><input type="radio" name="tipo" value="Kit Cocina" {% if producto and producto.type == 'kit de cocina' %}checked{% endif %}> Kit de Cocina</label>
+        <label><input type="radio" name="tipo" value="comida preparada" {% if producto and producto.type == 'comida preparada' %}checked{% endif %}> Comida Preparada</label>
+        <label><input type="radio" name="tipo" value="kit de cocina" {% if producto and producto.type == 'kit de cocina' %}checked{% endif %}> Kit de Cocina</label>
       </div>
 
       {% if producto and producto.type == 'comida preparada' or not producto %}
@@ -112,22 +114,22 @@
           <label>Preferencias</label>
           <div class="radio-group">
             <label>
-              <input type="radio" name="preferencia" value="Salado"
+              <input type="radio" name="preferencia" value="salado"
                 {% if producto and producto.flavors and producto.flavors.0 == 'salado' %}checked{% endif %}>
               Salado
             </label>
             <label>
-              <input type="radio" name="preferencia" value="Dulce"
+              <input type="radio" name="preferencia" value="dulce"
                 {% if producto and producto.flavors and producto.flavors.0 == 'dulce' %}checked{% endif %}>
               Dulce
             </label>
             <label>
-              <input type="radio" name="preferencia" value="Picante"
+              <input type="radio" name="preferencia" value="picante"
                 {% if producto and producto.flavors and producto.flavors.0 == 'picante' %}checked{% endif %}>
               Picante
             </label>
             <label>
-              <input type="radio" name="preferencia" value="Agridulce"
+              <input type="radio" name="preferencia" value="agridulce"
                 {% if producto and producto.flavors and producto.flavors.0 == 'agridulce' %}checked{% endif %}>
               Agridulce
             </label>
@@ -153,7 +155,7 @@
   function toggleOpcionesAlimento() {
     const tipo = document.querySelector('input[name="tipo"]:checked');
     const opciones = document.getElementById('opciones-alimento');
-    if (tipo && tipo.value === 'Alimento') {
+    if (tipo && tipo.value === 'comida preparada') {
       opciones.style.display = '';
     } else {
       opciones.style.display = 'none';
@@ -162,7 +164,7 @@
   function toggleOpcionesInventario() {
     const tipo = document.querySelector('input[name="tipo"]:checked');
     const inventario = document.getElementById('opciones-inventario');
-    if (tipo && tipo.value === 'Kit Cocina') {
+    if (tipo && tipo.value === 'kit de cocina') {
       inventario.style.display = '';
     } else {
       inventario.style.display = 'none';

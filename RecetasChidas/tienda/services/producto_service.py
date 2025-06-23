@@ -32,11 +32,10 @@ class ProductoService:
         productoEntity = self.repository.obtener_producto_por_id(producto_id)
         if not productoEntity:
             return None
-        categoriaEntity = self.repository.obtener_categoria_por_nombre(categoria)
         productoEntity.name = nombre
         productoEntity.description = descripcion
         productoEntity.price = precio
-        productoEntity.category = categoriaEntity
+        productoEntity.category = categoria
         productoEntity.type = tipo
         productoEntity.diets = dietas.split(',') if dietas else []
         productoEntity.flavors = preferencia_sabor.split(',') if preferencia_sabor else []
@@ -45,24 +44,3 @@ class ProductoService:
     
     def eliminar_producto(self, producto_id):
         return self.repository.eliminar(producto_id)
-
-    @staticmethod
-    def registrar_producto(nombre, descripcion, precio, categoria, tipo, dietas='', preferencia_sabor='', imagen_url='https://example.com/default.jpg'):
-        return ProductoRepositorio.crear(
-            nombre=nombre,
-            descripcion=descripcion,
-            precio=precio,
-            categoria=categoria,
-            tipo=tipo,
-            dietas=dietas,
-            preferencia_sabor=preferencia_sabor,
-            imagen_url=imagen_url
-        )
-
-    @staticmethod
-    def actualizar_producto(producto, **kwargs):
-        return ProductoRepositorio.actualizar(producto, **kwargs)
-
-    @staticmethod
-    def eliminar_producto(producto):
-        ProductoRepositorio.eliminar(producto)

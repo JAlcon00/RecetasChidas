@@ -205,12 +205,13 @@ def crear_producto_view(request):
         dietas = request.POST.getlist('dieta')
         preferencia = request.POST.get('preferencia')
         imagen_url = request.POST.get('imagen')
+        inventario = request.POST.get('inventario')
 
         categoria = next((c for c in categorias if c.name == categoria_nombre), None)
 
-        logger.info(f"POST DATA: {dict(request.POST)}")
+        logger.info(f"POST DATA CREAR PRODUCTO: {dict(request.POST)}")
 
-        producto_service.crear_producto(
+        producto_creado = producto_service.crear_producto(
             nombre=nombre,
             descripcion=descripcion,
             precio=precio,
@@ -221,21 +222,18 @@ def crear_producto_view(request):
             imagen_url=imagen_url
         )
 
+        logger.info(f"PRODUCTO CREADO: {(producto_creado)}")
+
+        # Crear inventario si se proporciona cantidad
+        if inventario:
+            inventario_service.registrar_inventario(
+                productoId=producto_creado.id,
+                cantidad=inventario
+            )
+
         return redirect('product_admin')
 
     return render(request, 'tienda/edit_product.html', {'usuario': usuario, 'categorias': categorias})
-
-@usuario_requerido
-@administrador_requerido
-def delete_category_view(request, id):
-    categoria_service.eliminar_categoria_por_id(id)
-    return redirect('category_admin')
-
-@usuario_requerido
-@administrador_requerido
-def delete_product_view(request, id):
-    producto_service.eliminar_producto(id)
-    return redirect('product_admin')
 
 @usuario_requerido
 @administrador_requerido
@@ -263,7 +261,7 @@ def edit_product_view(request, id):
         categoria = next((c for c in categorias if c.name == categoria_nombre), None)
 
         producto_service.actualizar_producto(
-            id=producto.id,
+            producto_id=producto.id,
             nombre=nombre,
             descripcion=descripcion,
             precio=precio,
@@ -276,12 +274,23 @@ def edit_product_view(request, id):
 
         # Actualizar inventario si aplica
         if inventario and cantidad is not None:
-            inventario_service.actualizar_inventario(inventario, cantidad=cantidad)
+            inventario_service.actualizar_inventario(producto_id=producto.id, cantidad=cantidad)
 
         return redirect('product_admin')
 
     return render(request, 'tienda/edit_product.html', {'producto': producto, 'usuario': usuario, 'categorias': categorias, 'inventario': inventario})
 
+@usuario_requerido
+@administrador_requerido
+def delete_category_view(request, id):
+    categoria_service.eliminar_categoria_por_id(id)
+    return redirect('category_admin')
+
+@usuario_requerido
+@administrador_requerido
+def delete_product_view(request, id):
+    producto_service.eliminar_producto(id)
+    return redirect('product_admin')
 
 
 #---------------------

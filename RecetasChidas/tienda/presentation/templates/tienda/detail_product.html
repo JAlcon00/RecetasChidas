@@ -31,9 +31,11 @@
       <h1 class="nav-title">Tienda Comida</h1>
     </div>
     <div>
-      <button class="nav-btn">
-        <i class="fas fa-tags"></i> Categorías +
-      </button>
+      <a href="{% url 'category_admin' %}">
+        <button class="nav-btn">
+          <i class="fas fa-tags"></i> Categorías +
+        </button>
+      </a>
     </div>
     <div class="nav-right">
       <a href="{% url "pagina_principal" %}">
@@ -133,7 +135,9 @@
       <a href="{% url "edit_product" producto.id %}">
         <button>Editar</button>
       </a>
-      <button>Eliminar</button>
+      <a href="{% url "delete_product" producto.id %}" onclick="return confirm('¿Estás seguro de eliminar el producto?')">
+        <button>Eliminar</button>
+      </a>
     </div>
   {% endif %}
 {% endblock content %}

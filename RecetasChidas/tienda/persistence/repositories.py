@@ -124,17 +124,17 @@ class ProductoRepositorio:
             return None
     
     @staticmethod
-    def actualizar(producto:ProductoEntity) -> ProductoEntity:
+    def actualizar(productoEntity:ProductoEntity) -> ProductoEntity:
         """Método para actualizar un producto"""
-        producto = Producto.objects.get(id=producto.id)
-        producto.nombre = producto.name
-        producto.descripcion = producto.description
-        producto.precio = producto.price
-        producto.categoria = Categoria.objects.get(id=producto.category.id)
-        producto.tipo = producto.type
-        producto.dietas = ','.join(producto.diets) if producto.diets else ''
-        producto.preferencia_sabor = ','.join(producto.flavors) if producto.flavors else ''
-        producto.image_url = producto.image_url
+        producto = Producto.objects.get(id=productoEntity.id)
+        producto.nombre = productoEntity.name
+        producto.descripcion = productoEntity.description
+        producto.precio = productoEntity.price
+        producto.categoria = Categoria.objects.get(id=productoEntity.category.id)
+        producto.tipo = productoEntity.type
+        producto.dietas = ','.join(productoEntity.diets) if productoEntity.diets else ''
+        producto.preferencia_sabor = ','.join(productoEntity.flavors) if productoEntity.flavors else ''
+        producto.image_url = productoEntity.image_url
         producto.save()
         return ProductoEntity(
             id=producto.id,

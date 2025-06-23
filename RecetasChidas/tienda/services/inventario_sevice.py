@@ -21,7 +21,7 @@ class InventarioService:
         if not inventarioEntity:
             return None
         inventarioEntity.quantity = cantidad
-        return self.repository.actualizar(inventarioEntity)
+        return self.repository.actualizarInventario(inventarioEntity)
     
     def eliminar_inventario(self, inventario_id):
         return self.repository.eliminarInventario(inventario_id)
@@ -29,10 +29,6 @@ class InventarioService:
     @staticmethod
     def obtener_inventario_por_id(inventario_id):
         return InventarioRepositorio.obtener_por_id(inventario_id)
-
-    @staticmethod
-    def actualizar_inventario(inventario, **kwargs):
-        return InventarioRepositorio.actualizar(inventario, **kwargs)
 
     @staticmethod
     def eliminar_inventario(inventario):
