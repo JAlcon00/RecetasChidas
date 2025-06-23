@@ -15,6 +15,7 @@
 - [🔧 Configuración](#-configuración)
 - [📊 Modelos de Datos](#-modelos-de-datos)
 - [🎯 Uso](#-uso)
+- [🛠️ Comandos](#️-comandos)
 - [🧪 Testing](#-testing)
 - [📚 API Reference](#-api-reference)
 - [🤝 Contribuir](#-contribuir)
@@ -220,6 +221,264 @@ def vista_protegida(request):
 @administrador_requerido  
 def panel_admin(request):
     # Solo administradores
+```
+
+## 🛠️ **Comandos**
+
+### 📦 **Comandos de Django Básicos**
+
+```bash
+# Crear proyecto Django
+django-admin startproject RecetasChidas
+
+# Crear aplicación
+python manage.py startapp tienda
+
+# Ejecutar servidor de desarrollo
+python manage.py runserver
+python manage.py runserver 0.0.0.0:8000  # Acceso desde cualquier IP
+
+# Ejecutar en puerto específico
+python manage.py runserver 8080
+```
+
+### 🗄️ **Comandos de Base de Datos**
+
+```bash
+# Crear migraciones
+python manage.py makemigrations
+python manage.py makemigrations tienda
+
+# Aplicar migraciones
+python manage.py migrate
+python manage.py migrate tienda
+
+# Ver estado de migraciones
+python manage.py showmigrations
+
+# Revertir migración específica
+python manage.py migrate tienda 0001
+
+# Migración fake (marcar como aplicada sin ejecutar)
+python manage.py migrate --fake
+
+# Crear migración vacía para cambios manuales
+python manage.py makemigrations --empty tienda
+```
+
+### 👥 **Comandos de Usuarios**
+
+```bash
+# Crear superusuario
+python manage.py createsuperuser
+
+# Cambiar password de usuario
+python manage.py changepassword admin
+
+# Crear usuario desde shell
+python manage.py shell
+>>> from django.contrib.auth.models import User
+>>> User.objects.create_superuser('admin', 'admin@test.com', 'password')
+```
+
+### 🎯 **Comandos Personalizados del Proyecto**
+
+```bash
+# Poblar base de datos con datos de ejemplo
+python manage.py poblar_bd
+# ✅ Crea categorías: Comida Preparada, Kit de Cocina, Bebidas, Postres
+# ✅ Crea productos con imágenes de Unsplash
+# ✅ Maneja duplicados automáticamente
+
+# Diagnóstico completo de base de datos
+python manage.py db_diagnostics
+# ✅ Verifica conexión a MySQL
+# ✅ Lista todas las tablas
+# ✅ Cuenta registros por tabla
+# ✅ Muestra estado de migraciones
+```
+
+### 🔍 **Comandos de Desarrollo y Debug**
+
+```bash
+# Shell interactivo de Django
+python manage.py shell
+
+# Shell con imports automáticos
+python manage.py shell_plus  # (requiere django-extensions)
+
+# Mostrar configuración actual
+python manage.py diffsettings
+
+# Verificar deployment
+python manage.py check
+
+# Verificar deployment para producción
+python manage.py check --deploy
+
+# Recopilar archivos estáticos
+python manage.py collectstatic
+
+# Limpiar archivos estáticos
+python manage.py collectstatic --clear
+```
+
+### 🧪 **Comandos de Testing**
+
+```bash
+# Ejecutar todos los tests
+python manage.py test
+
+# Ejecutar tests específicos
+python manage.py test tienda
+python manage.py test tienda.tests.ModeloTestCase
+python manage.py test tienda.tests.ModeloTestCase.test_crear_categoria
+
+# Tests con verbosidad
+python manage.py test --verbosity=2
+
+# Tests manteniendo base de datos
+python manage.py test --keepdb
+
+# Tests en paralelo
+python manage.py test --parallel
+
+# Coverage de tests
+coverage run --source='.' manage.py test
+coverage report
+coverage html  # Genera reporte HTML
+```
+
+### 📊 **Comandos de Base de Datos Avanzados**
+
+```bash
+# Exportar datos en fixtures
+python manage.py dumpdata > db_backup.json
+python manage.py dumpdata tienda > tienda_backup.json
+python manage.py dumpdata tienda.Categoria > categorias.json
+
+# Importar datos desde fixtures
+python manage.py loaddata db_backup.json
+python manage.py loaddata categorias.json
+
+# SQL de migración específica
+python manage.py sqlmigrate tienda 0001
+
+# Flush database (borrar todos los datos)
+python manage.py flush
+
+# Inspeccionar base de datos existente
+python manage.py inspectdb > models.py
+```
+
+### 🐛 **Comandos de Debugging**
+
+```bash
+# Verificar problemas en modelos
+python manage.py check
+
+# Ver SQL queries de una migración
+python manage.py sqlmigrate tienda 0001
+
+# Debug de templates
+python manage.py shell
+>>> from django.template.loader import get_template
+>>> template = get_template('tienda/base.html')
+
+# Limpiar cache de Django
+python manage.py clear_cache  # (requiere configuración de cache)
+```
+
+### 🌐 **Comandos de Producción**
+
+```bash
+# Verificar configuración para producción
+python manage.py check --deploy
+
+# Compilar mensajes de internacionalización
+python manage.py compilemessages
+
+# Crear mensajes de internacionalización
+python manage.py makemessages -l es
+
+# Comprimir archivos estáticos
+python manage.py compress  # (requiere django-compressor)
+```
+
+### 🔧 **Comandos de Desarrollo Específicos**
+
+```bash
+# Mostrar URLs del proyecto
+python manage.py show_urls  # (requiere django-extensions)
+
+# Graficar modelos
+python manage.py graph_models -a -o models.png  # (requiere django-extensions)
+
+# Reset de app específica
+python manage.py reset_db --router=default --close-sessions
+
+# Backup automático antes de migraciones
+python manage.py migrate --backup
+```
+
+### 📱 **Comandos con Docker (si aplica)**
+
+```bash
+# Construir imagen
+docker build -t recetas-chidas .
+
+# Ejecutar contenedor
+docker run -p 8000:8000 recetas-chidas
+
+# Docker Compose
+docker-compose up
+docker-compose up -d  # En background
+docker-compose down   # Detener servicios
+
+# Ejecutar comandos en contenedor
+docker-compose exec web python manage.py migrate
+docker-compose exec web python manage.py poblar_bd
+```
+
+### 🚀 **Scripts de Automatización**
+
+```bash
+# Script de setup completo (crear como setup.sh)
+#!/bin/bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py poblar_bd
+python manage.py runserver
+
+# Script de reset de desarrollo
+#!/bin/bash
+python manage.py flush --noinput
+python manage.py migrate
+python manage.py poblar_bd
+echo "🎉 Base de datos reiniciada!"
+```
+
+### 📋 **Comandos de Verificación del Sistema**
+
+```bash
+# Verificar dependencias
+pip check
+
+# Listar paquetes instalados
+pip list
+pip list --outdated
+
+# Verificar requirements
+pip-audit  # (requiere pip-audit)
+
+# Información del sistema
+python manage.py shell -c "
+import sys, django
+print(f'Python: {sys.version}')
+print(f'Django: {django.VERSION}')
+"
 ```
 
 ## 🧪 Testing
