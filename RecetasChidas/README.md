@@ -629,7 +629,6 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 👥 **Autores**
 
-Este proyecto fue desarrollado por un equipo de estudiantes apasionados por la tecnología y la gastronomía:
 
 | Autor | Rol | Contribución Principal |
 |-------|-----|----------------------|
